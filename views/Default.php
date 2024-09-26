@@ -1,1 +1,1 @@
-// redirection de page de mon Main
+// redirection de page de mon Main et header, de la nav bar et du footer
