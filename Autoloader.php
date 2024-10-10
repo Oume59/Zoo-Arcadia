@@ -16,7 +16,7 @@ class Autoloader
     //Méthode qui SI elle trouve une classe, elle la charge. SINON, elle affiche un message d'erreur.
     static function Autoload($class)
     {
-        $class = str_replace(__NAMESPACE__ . '\\', '', $class); // Const NAMESPACE renvoie le namespace courant dans lequel le code est éxecuté.
+        $class = str_replace(__NAMESPACE__ . '\\', '', $class); // Const spéciale qui renvoie le nom complet de la classe actuelle y compris le namespace.
         $class = str_replace('\\', '/', $class); //str_replace : fonction qui va remplacer toutes les occurences d'une chaîne par 1 autre dans 1 chaîne de données.
         $file = __DIR__ . '/' . $class . '.php'; //Peux importe où le script est exécuté, la const DIR me donne le chemin vers le dossier du fichier où DIR est utilisé.
         if (file_exists($file)) {
