@@ -4,28 +4,26 @@ namespace App\Models;
 
 class UserModel extends Model
 {
+    // Protection des data de la classe grace a l'utilisation des propriétés privées
     private $id_users;
     private $username;
     private $password;
     private $email;
     private $id_role;
 
+    // Methode connexion utilisateurs + insertion des infos utilisateur dans la BDD
     public function login()
     {
         return $this->req("INSERT INTO Utilisateurs (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)");
     }
 
-    /**
-     * Get the value of id_users
-     */
+    // Methode de récup de la valeur id_users
     public function getIdUsers()
     {
         return $this->id_users;
     }
 
-    /**
-     * Set the value of id_users
-     */
+    // Methode qui définie de la valeur id_users
     public function setIdUsers($id_users): self
     {
         $this->id_users = $id_users;
@@ -33,17 +31,13 @@ class UserModel extends Model
         return $this;
     }
 
-    /**
-     * Get the value of username
-     */
+    // Methode qui récup la valeur de username
     public function getUsername()
     {
         return $this->username;
     }
 
-    /**
-     * Set the value of username
-     */
+    // Methode qui définie la valeur de username
     public function setUsername($username): self
     {
         $this->username = $username;
@@ -51,17 +45,13 @@ class UserModel extends Model
         return $this;
     }
 
-    /**
-     * Get the value of password
-     */
+    // Methode de récup de la valeur du MDP
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * Set the value of password
-     */
+    // Methode qui définie la valeur du MDP
     public function setPassword($password): self
     {
         $this->password = $password;
@@ -69,17 +59,13 @@ class UserModel extends Model
         return $this;
     }
 
-    /**
-     * Get the value of email
-     */
+    // Methode de récup de la valeur email
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     */
+    // Methode qui définie la valeur email
     public function setEmail($email): self
     {
         $this->email = $email;
@@ -87,17 +73,13 @@ class UserModel extends Model
         return $this;
     }
 
-    /**
-     * Get the value of id_role
-     */
+    // Methode de récup de la valeur id_role
     public function getIdRole()
     {
         return $this->id_role;
     }
 
-    /**
-     * Set the value of id_role
-     */
+    // Methode qui définie la valeur id_role
     public function setIdRole($id_role): self
     {
         $this->id_role = $id_role;
