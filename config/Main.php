@@ -38,7 +38,6 @@ class Main
                 echo "la page recherchée n'existe pas";
                 exit();
             }
-
             //Récup de la méthode ou index par defaut + vérification de son existence
             $action = (isset($params[0])) ? array_shift($params) : 'index';
 

@@ -1,4 +1,4 @@
-//INDEX PRINCIPAL (point d'entrée de l'App) > charge les classes nécessaires et instancie le routeur principal et démarre le traitement des requêtes
+<!-- INDEX PRINCIPAL (point d'entrée de l'App) > charge les classes nécessaires et instancie le routeur principal et démarre le traitement des requêtes -->
 
 <?php
 //Importation des classes nécessaires

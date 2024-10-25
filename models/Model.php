@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Config\ConnexionDb;
 
-class Model
+class Model // Model principal comportant le CRUD (create read update delete)
 {
     //Table de la base de données liée au model
     protected $table;

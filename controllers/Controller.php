@@ -13,7 +13,7 @@ abstract class Controller
         extract($donnees);
         ob_start(); //START la mise en tampon de sortie
         require_once ROOT . "/Views/" . $file . ".php"; //Inclut le fichier de la vue
-        $contenu = ob_get_clean(); //récupération du contenu mis en tampon (prend la donee et la garde en mémoire)
+        $contenu = ob_get_clean(); //récupération du contenu mis en tampon (prend la donnee (hmtl généré par la vue) et la garde en mémoire)
         require_once ROOT . "/Views/Default.php"; //Inclut le fichier par defaut qui peut contenir le layout general de l'APP
     }
 }
