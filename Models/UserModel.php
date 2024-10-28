@@ -11,10 +11,26 @@ class UserModel extends Model
     private $email;
     private $id_role;
 
+    public function __construct()
+    {
+        $this->table = 'Utilisateurs';
+    }
+
     // Methode connexion utilisateurs + insertion des infos utilisateur dans la BDD
     public function login()
     {
         return $this->req("INSERT INTO Utilisateurs (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)");
+    }
+
+    public function recherche($email)
+    {
+        return $this->req(
+            "SELECT u.id_users, u.username, u.email, u.password, r.label
+    FROM Utilisateurs u
+    JOIN Roles r ON u.id_role = r.id
+    WHERE u.email = :email",
+            ["email" => $email]
+        )->fetch();
     }
 
     // Methode de récup de la valeur id_users
