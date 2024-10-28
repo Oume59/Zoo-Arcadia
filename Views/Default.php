@@ -22,7 +22,7 @@
         <section header-container>
             <!--START LOGO ET NAV BARRE-->
             <nav class="navbar navbar-expand-lg bg-transparent">
-                <img class="logo" src="/Public/assets/img/logozoo.png" alt="">
+                <img class="logo" src="/Public/assets/img/logozoo1.jpg" />
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -56,6 +56,7 @@
 
     <footer>
         <!-- PIED DE PAGE -->
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
