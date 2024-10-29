@@ -22,7 +22,7 @@
         <section header-container>
             <!--START LOGO ET NAV BARRE-->
             <nav class="navbar navbar-expand-lg bg-transparent">
-                <img class="logo" src="/Public/assets/img/logozoo1.jpg" />
+                <img src="/assets/img/logozoo1.jpg" alt="Logo du zoo">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
