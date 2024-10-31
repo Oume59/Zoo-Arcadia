@@ -84,4 +84,5 @@ h3 {
 
 body {
   font-family: var(--font-family-sans-serif);
+  background-color: var(--earth-beige);
 }
