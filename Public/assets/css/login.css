@@ -1,4 +1,5 @@
 * {
+  /* RESET */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,17 +12,17 @@
 }
 
 :root {
-  --olive-green: #78905f; /* main elements */
+  --olive-green: #78905f; /* élements principaux */
 
-  --black: #000000; /* some paragraph */
+  --black: #000000; /*  paragraphes */
 
   --forest-green: #2e7d32; /* hover */
 
-  --earth-beige: #f5f5dc; /* background or neutral sections */
+  --earth-beige: #f5f5dc; /* fonds et sections neutres */
 
-  --earth-brown: #795548; /* buttons */
+  --earth-brown: #795548; /* bouttons */
 
-  --light-gray: #e0e0e0; /* footer and light borders */
+  --light-gray: #e0e0e0; /* footer et bordures */
 
   --breakpoint-xs: 0;
 
@@ -36,7 +37,7 @@
   --font-family-sans-serif: "roboto", sans-serif;
 }
 
-/* Styles for Desktop (par défaut > graphic charter) */
+/* Styles Desktop */
 p {
   font-size: 18px;
 }
@@ -50,7 +51,7 @@ h3 {
   font-size: 36px;
 }
 
-/* Styles for Mobile (max-width: 768px) */
+/* Styles Mobile */
 @media (max-width: 768px) {
   p {
     font-size: 14px;
@@ -66,7 +67,7 @@ h3 {
   }
 }
 
-/* Styles for Tablet (768px à 1024px) */
+/* Styles Tablette */
 @media (min-width: 768px) and (max-width: 1024px) {
   p {
     font-size: 15px;
@@ -86,8 +87,9 @@ body {
   font-family: var(--font-family-sans-serif);
 }
 
-.vide {
-  margin-top: 30vh;
+/* Formulaire de la connexion Utilisateurs */
+.formus {
+  margin-top: 50vh;
 }
 #background {
   display: flex;
