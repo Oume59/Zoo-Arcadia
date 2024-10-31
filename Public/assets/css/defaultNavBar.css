@@ -1,0 +1,60 @@
+/* Styles généraux */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*padding: 20px 0; */
+}
+
+header .navbar {
+  width: 100%;
+}
+
+/* Centrage du logo nav */
+header img {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px;
+  height: auto;
+}
+
+/* Styles pour textes nav bar */
+.navbar {
+  width: 100%;
+  background-color: rgba(120, 144, 95, 0.7);
+  padding: 0;
+  margin-top: 0;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Ajoute une transition douce pour le changement de couleur */
+}
+
+.nav-link:hover {
+  color: var(--forest-green);
+}
+
+.user-login {
+  color: var(--earth-brown);
+  font-size: 1.2em;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.user-login:hover {
+  color: var(--forest-green);
+}
