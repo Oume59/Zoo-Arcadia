@@ -1,4 +1,4 @@
-// Formulaire add utilisateurs (employé/vétérinaire)
+<!-- Formulaire créa nouveau utilisateur rôle (employé/vétérinaire) -->
 
 <form action="index.php?controller=user&action=addUser" method="POST">
     <label for="email">Email :</label>

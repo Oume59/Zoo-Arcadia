@@ -1,5 +1,7 @@
-# Activation réécriture de l'URL
+#Activation de la réécriture d'URL
+
 RewriteEngine On
 
-# Réécrit les URL pour passer les parametres à index.php (* qui sert )
+#La réecriture de l'URL redirige ces parties vers index.php avec le paramètre 'p'
+
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1

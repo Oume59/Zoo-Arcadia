@@ -11,35 +11,48 @@ class UserModel extends Model
     private $email;
     private $id_role;
 
-    public function __construct()
+    public function __construct() // Définition de la table des utilisateurs
     {
         $this->table = 'Utilisateurs';
     }
 
-    // Methode connexion utilisateurs + insertion des infos utilisateur dans la BDD
-    public function login()
+    // Recherche un role précis en fonction du nom du role fourni
+    public function selectionRole($role)
     {
-        return $this->req("INSERT INTO Utilisateurs (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)");
+        return $this->req("SELECT id_roles FROM Roles WHERE role = :role", ['role' => $role])->fetch();
     }
 
-    public function recherche($email)
+    // Récupère tous les roles dispo dans la table 'Roles'
+    public function getRoles()
     {
-        return $this->req(
-            "SELECT u.id_users, u.username, u.email, u.password, r.label
-    FROM Utilisateurs u
-    JOIN Roles r ON u.id_role = r.id
-    WHERE u.email = :email",
-            ["email" => $email]
-        )->fetch();
+        return $this->req('SELECT * FROM Roles')->fetchAll();
     }
 
-    // Methode de récup de la valeur id_users
+    // Sélectionne toutes les infos des utilisateurs avec leurs roles respectifs
+    public function selectAllRole()
+    {
+        $sql = "
+        SELECT
+        u.id_users,
+        u.username,
+        u.email,
+        u.password,
+        r.role AS role
+        FROM
+        {$this->table} u
+        JOIN
+        Roles r ON u.id_role = r.id_roles";
+        return $this->req($sql)->fetchAll();
+    }
+
+
+    // Obtient la valeur de l'identifiant de l'utilisateur
     public function getIdUsers()
     {
         return $this->id_users;
     }
 
-    // Methode qui définie de la valeur id_users
+    // Définit la valeur de l'identifiant de l'utilisateur
     public function setIdUsers($id_users): self
     {
         $this->id_users = $id_users;
@@ -47,13 +60,13 @@ class UserModel extends Model
         return $this;
     }
 
-    // Methode qui récup la valeur de username
+    // Obtient la valeur du nom d'utilisateur
     public function getUsername()
     {
         return $this->username;
     }
 
-    // Methode qui définie la valeur de username
+    // Définit la valeur du nom d'utilisateur
     public function setUsername($username): self
     {
         $this->username = $username;
@@ -61,13 +74,13 @@ class UserModel extends Model
         return $this;
     }
 
-    // Methode de récup de la valeur du MDP
+    // Obtient la valeur du mot de passe
     public function getPassword()
     {
         return $this->password;
     }
 
-    // Methode qui définie la valeur du MDP
+    // Définit la valeur du mot de passe
     public function setPassword($password): self
     {
         $this->password = $password;
@@ -75,13 +88,13 @@ class UserModel extends Model
         return $this;
     }
 
-    // Methode de récup de la valeur email
+    // Obtient la valeur de email
     public function getEmail()
     {
         return $this->email;
     }
 
-    // Methode qui définie la valeur email
+    // Définit la valeur de email
     public function setEmail($email): self
     {
         $this->email = $email;
@@ -89,13 +102,13 @@ class UserModel extends Model
         return $this;
     }
 
-    // Methode de récup de la valeur id_role
+    // Obtient la valeur de l'identifiant du role
     public function getIdRole()
     {
         return $this->id_role;
     }
 
-    // Methode qui définie la valeur id_role
+    // Définit la valeur de l'identifiant du role
     public function setIdRole($id_role): self
     {
         $this->id_role = $id_role;
