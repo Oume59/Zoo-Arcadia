@@ -18,26 +18,41 @@
 
 <body>
     <header>
-        <section class="header-container">
-            <!--START LOGO ET NAV BAR-->
-            <nav class="navbar navbar-expand-lg"> <!--Étend la nav bar-->
-                <a href="/">
-                    <img src="/assets/img/logozoo1.jpg" alt="Logo du zoo">
-                </a>
-                <div class="container">
+        <section class="container-fluid">
+            <!-- START LOGO ET NAV BAR -->
+            <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img src="/assets/img/logozoo1.jpg" alt="Logo du zoo" class="logo-img">
+                    </a>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <!-- LiENS NAV BAR ET CONNEXION UTILISATEURS -->
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ms-auto">
-                            <a class="nav-link" href="/accueil">Accueil & Services</a>
-                            <a class="nav-link" href="/habitats">Habitats</a>
-                            <a class="nav-link" href="/animaux">Animaux</a>
-                            <a class="nav-link" href="/contact">Contact</a>
-                            <a class="nav-link" href="/deconnexion">Déconnexion</a>
-                            <a href="/LoginUsers" class="user-login"><i class="fa-solid fa-user"></i></a>
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/accueil">Accueil & Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/habitats">Habitats</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/animaux">Animaux</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/deconnexion">Déconnexion</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex align-items-center ms-auto">
+                            <a href="/LoginUsers" class="user-login me-3"><i class="fa-solid fa-user"></i></a>
                             <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['administrateur', 'veterinaire', 'employe'])): ?>
                                 <a href="/Dashboard" class="admin-link">Dashboard</a>
                             <?php endif; ?>
@@ -45,7 +60,7 @@
                     </div>
                 </div>
             </nav>
-            <!--END LOGO ET NAV BAR-->
+            <!-- END LOGO ET NAV BAR -->
         </section>
     </header>
 
