@@ -5,56 +5,85 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /*padding: 20px 0; */
+  
 }
 
-header .navbar {
+.container-fluid {
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-/* Centrage du logo nav */
-header img {
-  display: block;
-  margin: 0 auto;
-  max-width: 150px;
-  height: auto;
-}
-
-/* Styles pour textes nav bar */
+/* Styles pour la navbar */
 .navbar {
   width: 100%;
   background-color: rgba(120, 144, 95, 0.7);
-  padding: 0;
-  margin-top: 0;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .navbar-collapse {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .navbar-nav {
   display: flex;
-  gap: 20px;
+  gap: 50px;
+  align-items: center;
 }
 
+/* Centrage du logo dans la navbar */
+.navbar img {
+  max-width: 190px;
+  width: auto;
+  margin-right: auto;
+}
+
+/* Styles pour les liens de la navbar */
 .nav-link {
   color: black;
   font-weight: bold;
-  transition: color 0.3s ease; /* Ajoute une transition douce pour le changement de couleur */
+  transition: color 0.3s ease;
+  font-size: 1.1em;
+  line-height: 1;
+  display: flex; 
+  align-items: center;
+  text-align: center; 
 }
 
 .nav-link:hover {
   color: var(--forest-green);
 }
 
+/* Style pour l'icône de connexion */
 .user-login {
   color: var(--earth-brown);
-  font-size: 1.2em;
-  margin-left: 15px;
+  font-size: 1.5em;
+  margin-left: 20px;
+  margin-right: 20px; /* Espace pour éviter que l'icône soit collée au bord */
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .user-login:hover {
+  color: var(--forest-green);
+}
+
+/* Style pour le Dashboard */
+.admin-link {
+  color: black;
+  font-weight: bold;
+}
+
+.admin-link:hover {
   color: var(--forest-green);
 }
