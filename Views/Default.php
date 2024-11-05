@@ -19,7 +19,7 @@
 <body>
     <header>
         <section class="container-fluid">
-            <!-- START LOGO ET NAV BAR -->
+            <!-- START LOGO & NAV BAR -->
             <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/">
@@ -32,7 +32,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!-- LiENS NAV BAR ET CONNEXION UTILISATEURS -->
+                    <!-- LINKS NAV BAR & CONNEXION USERS -->
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
@@ -60,17 +60,94 @@
                     </div>
                 </div>
             </nav>
-            <!-- END LOGO ET NAV BAR -->
+            <!-- END LOGO & NAV BAR -->
         </section>
     </header>
 
-    <!-- Main contenu -->
+    <!--START MAIN CONTENT -->
     <main><?= $contenu ?></main>
+    <!--END MAIN CONTENT -->
 
-    <!-- Footer -->
+    <!-- FOOTER -->
+    <div class="footer-container">
+        <div class="row">
+            <div class="col-md-4">
+                <p class="footer-text"><strong>Adresse :</strong><br>
+                    Zoo Arcadia<br><br>
+                    Rte de Brocéliande<br>
+                    56430 Tréhorenteuc,<br>
+                    Bretagne.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p class="footer-text"><strong>Horaires :</strong><br>
+                    Le zoo est ouvert tous les jours :<br>
+                    de 9h00 à 19h00.<br>
+                    Fermeture : <br>
+                    le 01 mai.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p class="footer-text">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#mentionsLegalesModal"><strong>Mentions légales.</strong></a><br>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#confidentialiteModal"><strong>Politique de confidentialité.</strong></a><br>
+                    <strong><i class="fa-regular fa-copyright"></i> 2025 Copyright : Tous droits réservés Mélissa Ould Youcef</strong>
+                </p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com" class="twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
+    <!-- END FOOTER -->
 
-    <!-- Scripts -->
+    <!-- MODALS -->
+    <div class="modal fade" id="mentionsLegalesModal" tabindex="-1" aria-labelledby="mentionsLegalesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="mentionsLegalesModalLabel"><strong>Mentions légales</strong></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ce site est édité par : <strong>Mélissa Ould Youcef</strong></p>
+                    <p>Siège social : Rte de Brocéliande, 56430 Tréhorenteuc, Bretagne</p>
+                    <p>Email : joseoumearcadia@gmail.com</p>
+                    <p>SIRET : 123 000 000 00000</p>
+                    <p>Forme juridique : Société à responsabilité limitée (SARL)</p>
+                    <p>Hébergeur : OVH, 2 Rue Kellermann, 59100 Roubaix, France</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confidentialiteModal" tabindex="-1" aria-labelledby="confidentialiteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="confidentialiteModalLabel"><strong>Politique de confidentialité</strong></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Données collectées : Le zoo Arcadia collecte des données personnelles telles que le nom et l’adresse e-mail via le formulaire de contact et les avis laissés sur le site.</p>
+                    <p>Cookies utilisés : Nous utilisons des cookies analytiques, de session et fonctionnels pour améliorer l'expérience utilisateur et le suivi statistique.</p>
+                    <p>Finalité : Les données sont utilisées uniquement pour la gestion des avis, des services demandés, et les statistiques de consultation des animaux.</p>
+                    <p>Droits : Conformément au RGPD, vous avez le droit d'accéder, de modifier ou de supprimer vos données personnelles à tout moment.</p>
+                    <p>Contact RGPD : Pour toute question liée à vos données personnelles, veuillez nous contacter via le formulaire de contact.</p>
+                    <p>Hébergeur : OVH, 2 Rue Kellermann, 59100 Roubaix, France.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/assets/js/modals.js"></script> <!-- Assurez-vous que le chemin est correct -->
+
 </body>
 
 </html>
