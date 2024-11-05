@@ -5,7 +5,6 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .container-fluid {
@@ -17,7 +16,7 @@ header {
 /* Styles pour la navbar */
 .navbar {
   width: 100%;
-  background-color: rgba(120, 144, 95, 0.7);
+  background-color: rgba(120, 144, 95, 0.5);
   padding: 0px 20px;
   display: flex;
   justify-content: space-between;
@@ -54,9 +53,9 @@ header {
   transition: color 0.3s ease;
   font-size: 1.1em;
   line-height: 1;
-  display: flex; 
+  display: flex;
   align-items: center;
-  text-align: center; 
+  text-align: center;
 }
 
 .nav-link:hover {
@@ -86,4 +85,8 @@ header {
 
 .admin-link:hover {
   color: var(--forest-green);
+}
+
+.navbar-toggler-icon {
+  background-color: var(--earth-brown);
 }
