@@ -4,12 +4,12 @@ namespace App\Models;
 
 class UserModel extends Model
 {
-    // Protection des data de la classe grace a l'utilisation des propriétés privées
-    private $id_users;
-    private $username;
-    private $password;
-    private $email;
-    private $id_role;
+    // Protection des data de la classe grace a l'utilisation des propriétés protected
+    protected $id;
+    protected $username;
+    protected $password;
+    protected $email;
+    protected $id_role;
 
     public function __construct() // Définition de la table des utilisateurs
     {
@@ -19,7 +19,7 @@ class UserModel extends Model
     // Recherche un role précis en fonction du nom du role fourni
     public function selectionRole($role)
     {
-        return $this->req("SELECT id_roles FROM Roles WHERE role = :role", ['role' => $role])->fetch();
+        return $this->req("SELECT id FROM Roles WHERE role = :role", ['role' => $role])->fetch();
     }
 
     // Récupère tous les roles dispo dans la table 'Roles'
@@ -33,29 +33,35 @@ class UserModel extends Model
     {
         $sql = "
         SELECT
-        u.id_users,
+        u.id,
         u.username,
         u.email,
         u.password,
-        r.role AS role
+        r.role AS id
         FROM
         {$this->table} u
         JOIN
-        Roles r ON u.id_role = r.id_roles";
+        Roles r ON u.id_role = r.id";
         return $this->req($sql)->fetchAll();
+    }
+
+    // Ajouter un nouvel utilisateur dans la BDD
+    public function addUsers($username, $email, $password, $id_role)
+    {
+        return $this->req("INSERT INTO " . $this->table . " (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)", ["username" => $username, "email" => $email, "password" => $password, "id_role" => $id_role]);
     }
 
 
     // Obtient la valeur de l'identifiant de l'utilisateur
     public function getIdUsers()
     {
-        return $this->id_users;
+        return $this->id;
     }
 
     // Définit la valeur de l'identifiant de l'utilisateur
     public function setIdUsers($id_users): self
     {
-        $this->id_users = $id_users;
+        $this->id = $id_users;
 
         return $this;
     }
