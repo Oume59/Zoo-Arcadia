@@ -46,10 +46,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/deconnexion">Déconnexion</a>
-                            </li>
+                            </li> <!-- CONDITION POUR QUE LA DECONNEXION SOIT VISIBLE SEULEMENT POUR LES UTILISATEURS -->
+                            <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['administrateur', 'veterinaire', 'employe'])): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/deconnexion">Déconnexion</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                         <div class="d-flex align-items-center ms-auto">
                             <a href="/LoginUsers" class="user-login me-3"><i class="fa-solid fa-user"></i></a>
@@ -58,6 +60,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
+
                 </div>
             </nav>
             <!-- END LOGO & NAV BAR -->
@@ -91,7 +94,7 @@
                 <p class="footer-text">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#mentionsLegalesModal"><strong>Mentions légales.</strong></a><br>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#confidentialiteModal"><strong>Politique de confidentialité.</strong></a><br>
-                    <strong><i class="fa-regular fa-copyright"></i> 2025 Copyright : Tous droits réservés Mélissa Ould Youcef</strong>
+                    <strong><i class="fa-regular fa-copyright"></i> 2025 Copyright : Tous droits réservés<br> Mélissa Ould Youcef</strong>
                 </p>
             </div>
         </div>
