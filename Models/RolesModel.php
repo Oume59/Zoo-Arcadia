@@ -4,7 +4,7 @@ namespace App\Models;
 
 class RolesModel extends Model
 {
-    protected $id_roles; // Identifiant du rôle
+    protected $id; // Identifiant du rôle
     protected $role; // Description du role (administrateur, veterinaire ou employe)
 
     public function __construct() // Définition de la table dans la BDD
@@ -12,28 +12,27 @@ class RolesModel extends Model
         $this->table = "Roles";
     }
 
-
-    // Récupère la valeur de id_roles
-    public function getIdRoles()
+    // Getter pour l'ID
+    public function getId()
     {
-        return $this->id_roles;
+        return $this->id;
     }
 
-    // Définit la valeur de id_roles
-    public function setIdRoles($id_roles): self
+    // Setter pour l'ID
+    public function setId($id)
     {
-        $this->id_roles = $id_roles;
+        $this->id = $id;
         return $this;
     }
 
-    // Récupère la valeur de role
+    // Getter pour le rôle
     public function getRole()
     {
         return $this->role;
     }
 
-    // Définit la valeur de role
-    public function setRole($role): self
+    // Setter pour le rôle
+    public function setRole($role)
     {
         $this->role = $role;
         return $this;
