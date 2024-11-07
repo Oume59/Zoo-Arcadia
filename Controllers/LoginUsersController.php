@@ -9,11 +9,11 @@ class LoginUsersController extends Controller
     // Methode pour afficher le formulaire de connexion
     public function index()
     {
-        // Affiche la vue User/login (formulaire de connexion)
+        // $this render = fonction de mon controlleur principal / Affiche la vue User/login (formulaire de connexion)
         $this->render('Connexion/index');
     }
 
-    // Ajouter un nouvel utilisateur
+    // Connexion utilisateur
 
     public function connexion()
     {
@@ -41,7 +41,7 @@ class LoginUsersController extends Controller
 
 
             // Stockage des infos  dans la session
-            $_SESSION['id_users'] = $user->id_users;
+            $_SESSION['id'] = $user->id;
             $_SESSION['username'] = htmlspecialchars($user->username, ENT_QUOTES, 'UTF-8');
             $_SESSION['email'] = htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8');
             $_SESSION['role'] = htmlspecialchars($user->role, ENT_QUOTES, 'UTF-8');
