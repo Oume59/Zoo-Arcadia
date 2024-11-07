@@ -5,7 +5,7 @@ namespace App\Models;
 // Les propriétés protégées (protected) signifient que ces variables sont accessibles seulement dans cette classe et ses sous-classes
 class LoginUsersModel extends Model
 {
-    protected $id_users;
+    protected $id;
     protected $username;
     protected $password;
     protected $email;
@@ -19,26 +19,26 @@ class LoginUsersModel extends Model
 
     public function recherche($email) // Rechercher un utilisateur par email
     {
-        return $this->req(
-            "SELECT u.id_users, u.username, u.email, u.password, r.role
+        return $this->req( //MODIF de u.id_users en u.id et r.id_roles en id seul
+            "SELECT u.id, u.username, u.email, u.password, r.role 
 FROM Utilisateurs u
-JOIN Roles r ON u.id_role = r.id_roles
+JOIN Roles r ON u.id_role = r.id
 WHERE u.email = :email",
             ["email" => $email]
         )->fetch();
     }
 
 
-    // Obtenir la valeur de id_users
-    public function getIdUsers()
+    // Obtenir la valeur de id
+    public function getId()
     {
-        return $this->id_users;
+        return $this->id;
     }
 
-    // Modifier la valeur de id_users
-    public function setIdUsers($id_users): self
+    // Modifier la valeur de id
+    public function setId($id): self
     {
-        $this->id_users = $id_users;
+        $this->id = $id;
         return $this;
     }
 
