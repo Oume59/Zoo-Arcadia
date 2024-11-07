@@ -1,28 +1,91 @@
-<!-- Section Ajout Utilisateur VOIR SI BESOIN CSRF TOKEN-->
-<section class="section-container">
-    <h2>Ajouter un Utilisateur</h2>
-    <form action="/Dashboard" method="post">
-        <input type="hidden" name="add_user">
-        <label>Nom d'utilisateur</label>
-        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-        <label>Email</label>
-        <input type="email" name="email" placeholder="Email" required>
-        <button type="submit">Ajouter</button>
-    </form>
-</section>
+<?php
+echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
+?>
+
+<div class="stylee"></div>
+<!-- les href sont les controllers concérnés -->
+<div class="container-fluid admin-container">
+    <div class="admin-dash">
+        <div class="row">
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Animaux" class="admin-link">Ajout d'animaux</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Animaux/liste" class="admin-link">Liste des animaux</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Species" class="admin-link">Ajout Espèce</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Species/liste" class="admin-link">Liste Espèces</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/AddUsers" class="admin-link">Ajout d'Utilisateur</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/AddUsers/liste" class="admin-link">Liste des Utilisateurs</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Habitats" class="admin-link">Ajout Habitat</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Habitats/liste" class="admin-link">Liste des Habitats</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Services" class="admin-link">Services</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Services/liste" class="admin-link">Liste des Services</a> <!--DASH ADMIN OK-->
+            </div>
 
 
-<!-- Section: Ajout Animal VOIR SI BESOIN CSRF TOKEN-->
-<section class="section-container">
-    <h2>Ajouter un Animal</h2>
-    <form action="/Dashboard" method="post">
-        <input type="hidden" name="add_animal">
-        <label>Nom de l'animal</label>
-        <input type="text" name="name" placeholder="Nom de l'animal" required>
-        <label>Espèce</label>
-        <input type="text" name="species" placeholder="Espèce" required> <!-- A FAIRE : MA RELATION ENTRE LA TABLE SPECIES ET ANIMALS -->
-        <label>Âge</label>
-        <input type="number" name="health_state" placeholder="État de santé" required>
-        <button type="submit">Ajouter</button>
-    </form>
-</section>
+            <!--DASH VETO 
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Reports" class="admin-link">Ajout Rapport Animal</a>
+            </div> -->
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Reports/liste" class="admin-link">Liste rapports des Animaux</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Consultation/liste" class="admin-link">Nombre de consultation par animal</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <!--DASH EMPLOYE
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Reviews" class="admin-link">Avis à valider</a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Reviews/liste" class="admin-link">Liste des avis</a>
+            </div> -->
+
+
+            <!--DASH EMPLOYE
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Contact" class="admin-link">Contact</a>
+            </div> -->
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Horaires" class="admin-link">Horaires</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/Horaires/liste" class="admin-link">Liste des Horaires</a> <!--DASH ADMIN OK-->
+            </div>
+
+        </div>
+    </div>
+
+</div>
