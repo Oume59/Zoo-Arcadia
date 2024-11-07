@@ -59,9 +59,9 @@ class UserModel extends Model
     }
 
     // Définit la valeur de l'identifiant de l'utilisateur
-    public function setIdUsers($id_users): self
+    public function setIdUsers($id): self
     {
-        $this->id = $id_users;
+        $this->id = $id;
 
         return $this;
     }
