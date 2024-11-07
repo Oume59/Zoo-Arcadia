@@ -8,7 +8,7 @@ class DashboardController extends Controller
     public function index()
     {
 
-        if (isset($_SESSION['id_users'])) { // Vérifie si l'utilisateur est connecté en vérif la variable id_users (si oui, on renvoi la vue avec $this->render)
+        if (isset($_SESSION['id'])) { // Vérifie si l'utilisateur est connecté en vérif la variable id (si oui, on renvoi la vue avec $this->render)
             $this->render('Dashboard/index');
         }
     }
