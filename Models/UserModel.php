@@ -37,7 +37,7 @@ class UserModel extends Model
         u.username,
         u.email,
         u.password,
-        r.role AS id
+        r.role AS role
         FROM
         {$this->table} u
         JOIN
@@ -51,6 +51,14 @@ class UserModel extends Model
         return $this->req("INSERT INTO " . $this->table . " (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)", ["username" => $username, "email" => $email, "password" => $password, "id_role" => $id_role]);
     }
 
+    // Récup toute la liste des utilisateurs depuis la BDD
+    public function listUsers()
+    {
+        // Requête SQL pour récupérer tous les user
+        $sql = "SELECT * FROM  {$this->table}";
+        $result = $this->req($sql)->fetchAll();
+        return $result;
+    }
 
     // Obtient la valeur de l'identifiant de l'utilisateur
     public function getIdUsers()
