@@ -2,6 +2,8 @@
 // Gestion de l'affichage du dashboard pour les utilisateurs connectés
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 
 class DashboardController extends Controller
 {
