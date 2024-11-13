@@ -117,13 +117,13 @@ class UserModel extends Model
     }
 
     // Obtient la valeur de l'identifiant du role
-    public function getIdRole()
+    public function getId_Role()
     {
         return $this->id_role;
     }
 
     // Définit la valeur de l'identifiant du role
-    public function setIdRole($id_role): self
+    public function setId_Role($id_role): self
     {
         $this->id_role = $id_role;
 
