@@ -17,8 +17,8 @@
                 <td><?php echo htmlspecialchars($user->email); ?></td>
                 <td><?php echo htmlspecialchars($user->role); ?></td>
                 <td>
-                    <a href="ListUsers/edit/<?php echo $user->id; ?>">Éditer l'utilisateur</a> |
-                    <a href="ListUsers/delete/<?php echo $user->id; ?>?csrf_token=<?php echo $_SESSION['csrf_token']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</a>
+                    <a href="/ListUsers/edit/<?php echo $user->id; ?>">Éditer l'utilisateur</a> |
+                    <a href="/ListUsers/delete/<?php echo $user->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</a>
                 </td>
 
                 </td>
