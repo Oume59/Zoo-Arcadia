@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/assets/css/editDashboard.css">
 <!-- Modifier la liste utilisateur depuis le dashboard de l'admin -->
 
 <p>Éditer l'utilisateur</p>
