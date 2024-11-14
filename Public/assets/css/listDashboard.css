@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     color: var(--noir-paragraphes);
-    background-color: var(--beige-terreux);
+    background-color: #F5F5DC;
     margin: 0 20px; 
 }
 
