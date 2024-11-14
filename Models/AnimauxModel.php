@@ -16,14 +16,14 @@ class AnimauxModel extends Model
         $this->table = "Animals";
     }
 
-    public function getAnimalsWithSpecies() // jointure table Animal et Species
+    public function getAnimalsWithSpecies() // jointure table Animal et Species (alias "animal_species)
     {
         $sql = "
             SELECT 
                 a.id, 
                 a.name, 
                 a.health_state, 
-                s.species AS species_name 
+                s.species AS animal_species
             FROM 
                 {$this->table} a
             JOIN 
@@ -67,7 +67,7 @@ class AnimauxModel extends Model
     // Méthode pour récupérer toutes les espèces dispos dans la table Species
     public function getSpecies()
     {
-        $sql = "SELECT id, species FROM Species";
+        $sql = "SELECT id, species AS animal_species FROM Species";
         return $this->req($sql)->fetchAll();
     }
 }
