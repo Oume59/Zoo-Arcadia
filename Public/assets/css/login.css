@@ -85,6 +85,7 @@ h3 {
 
 body {
   font-family: var(--font-family-sans-serif);
+  background-color: #f5f5dc;
 }
 
 /* Formulaire de la connexion Utilisateurs */
