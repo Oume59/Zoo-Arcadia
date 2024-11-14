@@ -37,7 +37,7 @@ class UserModel extends Model
         u.username,
         u.email,
         u.password,
-        r.role AS role
+        r.role AS user_role
         FROM
         {$this->table} u
         JOIN
