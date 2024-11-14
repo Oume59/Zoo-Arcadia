@@ -10,7 +10,7 @@ form {
   max-width: 500px;
   max-height: 400px;
   margin: 20px auto;
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ select {
   padding: 10px;
   border: 1px solid #78905f;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #ffffff;
   color: #000000;
   box-sizing: border-box;
@@ -46,7 +46,7 @@ button[type="submit"] {
   padding: 12px;
   background-color: #795548;
   color: black;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
