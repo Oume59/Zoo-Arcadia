@@ -17,9 +17,11 @@
     <select id="role" name="id_role" required>
         <option value="">Sélectionnez un rôle</option>
         <?php foreach ($roles as $role): ?>
-            <option value="<?php echo $role->id; ?>" <?php echo ($role->id == $user->id_role) ? 'selected' : ''; ?>>
-                <?php echo htmlspecialchars($role->role); ?>
-            </option>
+            <?php if ($role->id != 1): ?> <!-- Exclut l'administrateur de la liste comme demandé dans le sujet à la demande de José-->
+                <option value="<?php echo $role->id; ?>" <?php echo ($role->id == $user->id_role) ? 'selected' : ''; ?>>
+                    <?php echo htmlspecialchars($role->role); ?>
+                </option>
+            <?php endif; ?>
         <?php endforeach; ?>
     </select>
     <br>
