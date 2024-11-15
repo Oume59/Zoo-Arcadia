@@ -4,7 +4,7 @@ echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
 ?>
 
 
-<form action="/Animaux/addAnimal" method="POST">
+<form action="/Animaux/addAnimal" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <div>
@@ -35,6 +35,21 @@ echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
             <option value="12">Hippopotame commun</option>
             <option value="13">Python réticulé</option>
         </select>
+    </div>
+
+    <div>
+        <label for="habitat">Habitat :</label>
+        <select id="habitat" name="habitat_id" required>
+            <option value="">Sélectionnez un habitat</option>
+            <option value="1">Savane</option>
+            <option value="2">Jungle</option>
+            <option value="3">Marais</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="image">Image Animal :</label>
+        <input type="file" id="image" name="image" required>
     </div>
 
     <button type="submit">Ajouter l'animal</button>
