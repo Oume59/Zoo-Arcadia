@@ -9,65 +9,115 @@ class AnimauxModel extends Model
     protected $name;
     protected $health_state;
     protected $species_id;
+    protected $habitat_id;
+    protected $img;
 
-    // Initialise le nom de la table
-    public function __construct()
+    public function __construct() // Initialise le nom de la table
     {
         $this->table = "Animals";
     }
 
-    public function getAnimalsWithSpecies() // jointure table Animal et Species (alias "animal_species)
+    public function getAnimalsWithSpeciesAndHabitat() // jointure table Animal et Species (alias "animal_species)
     {
         $sql = "
             SELECT 
                 a.id, 
                 a.name, 
-                a.health_state, 
-                s.species AS animal_species
+                a.health_state,
+                a.img,
+                s.species AS animal_species,
+                h.name AS habitat
             FROM 
                 {$this->table} a
             JOIN 
                 Species s ON a.species_id = s.id
+            JOIN 
+                Habitats h ON a.habitat_id = h.id
         ";
         return $this->req($sql)->fetchAll();
     }
 
-    // Méthode pour définir l'espèce de l'animal
-    public function setSpecies_Id($species_id)
+    // Setters pour definir
+    public function setId($id)
     {
-        $this->species_id = $species_id;
+        $this->id = $id;
         return $this;
     }
 
-    // Méthode pour définir le nom de l'animal
+
     public function setName($name)
     {
         $this->name = $name;
         return $this;
     }
 
-    // Méthode pour définir l'état de santé de l'animal
+
     public function setHealth_State($health_state)
     {
         $this->health_state = $health_state;
         return $this;
     }
 
-    // Méthode pour ajouter un nouvel animal dans la BDD
-    public function addAnimal()
+    public function setSpecies_Id($species_id)
     {
-        $sql = "INSERT INTO {$this->table} (name, health_state, species_id) VALUES (:name, :health_state, :species_id)";
-        return $this->req($sql, [
-            'name' => $this->name,
-            'health_state' => $this->health_state,
-            'species_id' => $this->species_id
-        ]);
+        $this->species_id = $species_id;
+        return $this;
     }
 
-    // Méthode pour récupérer toutes les espèces dispos dans la table Species
+    public function setHabitat_Id($habitat_id)
+    {
+        $this->habitat_id = $habitat_id;
+        return $this;
+    }
+
+    public function setImg($img)
+    {
+        $this->img = $img;
+        return $this;
+    }
+
+    // Getters pour obtenir
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getHealth_State()
+    {
+        return $this->health_state;
+    }
+
+    public function getSpecies_Id()
+    {
+        return $this->species_id;
+    }
+
+    public function getHabitat_Id()
+    {
+        return $this->habitat_id;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    // Méthode pour récupérer toutes les espèces disponibles dans la table Species
     public function getSpecies()
     {
         $sql = "SELECT id, species AS animal_species FROM Species";
+        return $this->req($sql)->fetchAll();
+    }
+
+    // Méthode pour récupérer tous les habitats disponibles dans la table Habitats
+    public function getHabitats()
+    {
+        $sql = "SELECT id, name FROM Habitats";
         return $this->req($sql)->fetchAll();
     }
 }
