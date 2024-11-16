@@ -3,22 +3,26 @@
 namespace App\Controllers;
 
 use App\Models\AnimauxModel;
+use App\Models\HabitatsModel;
+use App\Models\SpeciesModel;
 
 class AnimauxController extends Controller
 {
-    private $animauxModel;
-
-    public function __construct()
-    {
-        // Initialisation du modèle
-        $this->animauxModel = new AnimauxModel();
-    }
 
     public function index()
     {
         // Récupération de la liste des animaux avec leurs espèces et habitats
-        $animaux = $this->animauxModel->getAnimalsWithSpeciesAndHabitat();
-        $this->render('Dashboard/addAnimaux', ['animaux' => $animaux]);
+        $animauxModel = new AnimauxModel();
+        $animaux = $animauxModel->findAll();
+        $speciesModel = new SpeciesModel();
+        $species = $speciesModel->findAll();
+        $habitatsModel = new HabitatsModel();
+        $habitats = $habitatsModel->findAll();
+        $this->render('Dashboard/addAnimaux', [
+            'animaux' => $animaux,
+            'species' => $species,
+            'habitats' => $habitats
+        ]);
     }
 
     public function addAnimal()
@@ -41,28 +45,19 @@ class AnimauxController extends Controller
                 }
             }
 
-            // Récupération et hydratation des données
-            $data = [
+            // Récupération et hydratation des données (hydrate directement en passant les data en arguments)
+            $animauxModel = new AnimauxModel();
+            $animauxModel->hydrate([
                 'name' => $_POST['name'] ?? null,
                 'health_state' => $_POST['health_state'] ?? null,
                 'species_id' => $_POST['species_id'] ?? null,
                 'habitat_id' => $_POST['habitat_id'] ?? null,
                 'img' => $imgPath
-            ];
-            $this->animauxModel->hydrate($data)->create();
+            ])->create();
 
             // Redirection après succès
             header("Location: /Animaux");
             exit;
         }
-
-        // Chargement de la vue avec les espèces et habitats disponibles pour le formulaire
-        $species = $this->animauxModel->getSpecies();
-        $habitats = $this->animauxModel->getHabitats();
-        $this->render('Dashboard/addAnimaux', [
-            'species' => $species,
-            'habitats' => $habitats,
-            'error' => $error ?? null
-        ]);
     }
 }
