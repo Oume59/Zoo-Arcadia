@@ -20,30 +20,18 @@ echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
     <div>
         <label for="species">Espèce :</label>
         <select id="species" name="species_id" required>
-            <option value="">Sélectionnez une espèce</option>
-            <option value="1">Tigre du Bengale</option>
-            <option value="2">Éléphant d'Afrique</option>
-            <option value="3">Girafe du Niger</option>
-            <option value="4">Flamant rose</option>
-            <option value="5">Jaguar</option>
-            <option value="6">Gorille de l'Est</option>
-            <option value="7">Crocodile du Nil</option>
-            <option value="8">Rhinocéros blanc</option>
-            <option value="9">Tortue des marais</option>
-            <option value="10">Lion d'Afrique</option>
-            <option value="11">Hyène tachetée</option>
-            <option value="12">Hippopotame commun</option>
-            <option value="13">Python réticulé</option>
+            <?php foreach ($species as $spe) : ?>
+                <option value="<?php echo $spe->id ?>"><?php echo $spe->species ?></option>
+            <?php endforeach; ?>
         </select>
     </div>
 
     <div>
         <label for="habitat">Habitat :</label>
         <select id="habitat" name="habitat_id" required>
-            <option value="">Sélectionnez un habitat</option>
-            <option value="1">Savane</option>
-            <option value="2">Jungle</option>
-            <option value="3">Marais</option>
+            <?php foreach ($habitats as $habitat) : ?>
+                <option value="<?php echo $habitat->id ?>"><?php echo $habitat->name ?></option>
+            <?php endforeach; ?>
         </select>
     </div>
 
