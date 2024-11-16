@@ -15,7 +15,7 @@ class Model extends ConnexionDb
     // Récupère toutes les entrées de la table
     public function findAll()
     {
-        $query = $this->req("SELECT * FROM  {$this->table}");
+        $query = $this->req('SELECT * FROM ' . $this->table);
         return $query->fetchAll();
     }
 
