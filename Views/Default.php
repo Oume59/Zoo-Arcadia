@@ -42,7 +42,7 @@
                                 <a class="nav-link" href="/habitats">Habitats</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/animaux">Animaux</a>
+                                <a class="nav-link" href="/">Animaux</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
