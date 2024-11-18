@@ -16,11 +16,6 @@ class UserModel extends Model
         $this->table = 'Utilisateurs';
     }
 
-    // Recherche un role précis en fonction du nom du role fourni
-    public function selectionRole($role)
-    {
-        return $this->req("SELECT id FROM Roles WHERE role = :role", ['role' => $role])->fetch();
-    }
 
     // Récupère tous les roles dispo dans la table 'Roles'
     public function getRoles()
@@ -45,33 +40,16 @@ class UserModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
-    // Ajouter un nouvel utilisateur dans la BDD
-    public function addUsers($username, $email, $password, $id_role)
-    {
-        return $this->req("INSERT INTO " . $this->table . " (username, email, password, id_role) VALUES (:username, :email, :password, :id_role)", ["username" => $username, "email" => $email, "password" => $password, "id_role" => $id_role]);
-    }
-
-    // Récup toute la liste des utilisateurs depuis la BDD
-    public function listUsers()
-    {
-        // Requête SQL pour récupérer tous les user
-        $sql = "SELECT * FROM  {$this->table}";
-        $result = $this->req($sql)->fetchAll();
-        return $result;
-    }
-
-    // Obtient la valeur de l'identifiant de l'utilisateur
-    public function getIdUsers()
-    {
-        return $this->id;
-    }
-
-    // Définit la valeur de l'identifiant de l'utilisateur
-    public function setIdUsers($id): self
+    // Getters et Setters pour les propriétés
+    public function setId($id)
     {
         $this->id = $id;
-
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     // Obtient la valeur du nom d'utilisateur
