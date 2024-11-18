@@ -66,7 +66,7 @@ class ListUsersController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userModel = new UserModel();
-            $userModel->setIdUsers($id)
+            $userModel->setId($id)
                 ->setUsername($_POST['username'])
                 ->setEmail($_POST['email'])
                 ->setId_Role($_POST['role']);
