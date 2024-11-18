@@ -13,7 +13,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Animaux/liste" class="admin-link">Liste des animaux</a> <!--DASH ADMIN OK-->
+                <a href="/ListAnimaux/list" class="admin-link">Liste des animaux</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -21,7 +21,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Species/liste" class="admin-link">Liste Espèces</a> <!--DASH ADMIN OK-->
+                <a href="/ListSpecies/list" class="admin-link">Liste Espèces</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -37,7 +37,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Habitats/liste" class="admin-link">Liste des Habitats</a> <!--DASH ADMIN OK-->
+                <a href="/ListHabitats/list" class="admin-link">Liste des Habitats</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -45,7 +45,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Services/liste" class="admin-link">Liste des Services</a> <!--DASH ADMIN OK-->
+                <a href="/ListServices/list" class="admin-link">Liste des Services</a> <!--DASH ADMIN OK-->
             </div>
 
 
