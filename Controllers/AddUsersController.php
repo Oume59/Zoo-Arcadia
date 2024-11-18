@@ -9,48 +9,58 @@ class AddUsersController extends Controller
 {
     public function index()
     {
-        $this->render('Dashboard/addUsers');
+        // Récupération de la liste des rôles pour affichage dans le for
+        $rolesModel = new RolesModel();
+        $roles = $rolesModel->findAll();
+
+        $this->render('Dashboard/addUsers', ['roles' => $roles]);
     }
 
-    // Methode pour Ajouter un utilisateur
+
     public function addUsers()
     {
-        $UserModel = new UserModel();
-        $RolesModel = new RolesModel();
-        $Users = $UserModel->findAll();
-        $Roles = $RolesModel->findAll();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Validation des données POST
+            $username = $_POST['username'] ?? null;
+            $email = $_POST['email'] ?? null;
+            $password = $_POST['password'] ?? null;
+            $role_id = $_POST['role'] ?? null;
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['username'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $role = $_POST['role'] ?? '';
-
-            if (!empty($username) && !empty($email) && !empty($password) && !empty($role)) {
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $_SESSION['error_message'] = "Email non valide";
-                    header('Location: /Dashboard/addUsers');
-                    exit;
-                }
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-
-                $result = $UserModel->addUsers($username, $email, $hashedPassword, $role);
-
-                if ($result) {
-                    $_SESSION['success_message'] = "L'Utilisateur est ajouté avec succès";
-                    header('Location: /Dashboard');
-                    exit;
-                } else {
-                    $_SESSION['error_message'] = "Erreur lors de l'ajout de l'utilisateur";
-                    header('Location: /Dashboard/addUsers');
-                    exit;
-                }
-            } else {
-                $_SESSION['error_message'] = "Tous les champs sont requis !";
-                header('Location: /Dashboard/addUsers');
+            // Vérification des champs requis
+            if (!$username || !$email || !$password || !$role_id) {
+                $_SESSION['error_message'] = "Tous les champs sont requis.";
+                header("Location: /Dashboard/addUsers");
                 exit;
             }
+
+            // Validation de l'email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $_SESSION['error_message'] = "Email non valide.";
+                header("Location: /Dashboard/addUsers");
+                exit;
+            }
+
+            // Hashage du mot de passe
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            // Récup et hydratation des données
+            $userModel = new UserModel();
+            $userModel->hydrate([
+                'username' => $username,
+                'email' => $email,
+                'password' => $hashedPassword,
+                'id_role' => $role_id
+            ])->create();
+
+            // Message de succès et redirection
+            $_SESSION['success_message'] = "L'utilisateur a été ajouté avec succès.";
+            header("Location: /Dashboard");
+            exit;
         }
+
+        // En cas d'erreur ou de requête autre que POST
+        $_SESSION['error_message'] = "Une erreur s'est produite.";
+        header("Location: /Dashboard/addUsers");
+        exit;
     }
 }
