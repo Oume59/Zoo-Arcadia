@@ -17,6 +17,26 @@ class AnimauxModel extends Model
         $this->table = "Animals";
     }
 
+    public function getAnimalsWithSpeciesAndHabitat()
+    {
+        $sql = "
+            SELECT 
+                a.id, 
+                a.name, 
+                a.health_state, 
+                a.img, 
+                s.species AS animal_species, 
+                h.name AS habitat_name
+            FROM 
+                {$this->table} a
+            LEFT JOIN 
+                Species s ON a.species_id = s.id
+            LEFT JOIN 
+                Habitats h ON a.habitat_id = h.id
+        ";
+        return $this->req($sql)->fetchAll();
+    }
+    
     // Setters pour definir
     public function setId($id)
     {
