@@ -12,6 +12,18 @@ class SpeciesModel extends Model
         $this->table = "Species";
     }
 
+    // Récupère toutes les espèces dispo dans la table 'Species'
+    public function getSpecies()
+    {
+        return $this->req('SELECT * FROM Species')->fetchAll();
+    }
+
+    public function setSpecies($species): self
+    {
+        $this->species = $species;
+        return $this;
+    }
+
     public function getId()
     {
         return $this->id;
@@ -20,17 +32,6 @@ class SpeciesModel extends Model
     public function setId($id): self
     {
         $this->id = $id;
-        return $this;
-    }
-
-    public function getSpecies()
-    {
-        return $this->species;
-    }
-
-    public function setSpecies($species): self
-    {
-        $this->species = $species;
         return $this;
     }
 }
