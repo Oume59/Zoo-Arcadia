@@ -1,4 +1,3 @@
-<!-- Formulaire créa nouveau utilisateur rôle employé/vétérinaire -->
 <?php
 echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
 ?>
