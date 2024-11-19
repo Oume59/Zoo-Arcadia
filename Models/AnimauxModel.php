@@ -117,7 +117,8 @@ class AnimauxModel extends Model
     // Méthode pour récupérer tous les habitats disponibles dans la table Habitats
     public function getHabitats()
     {
-        $sql = "SELECT id, name FROM Habitats";
+        $sql = "SELECT id, name AS habitat_name FROM Habitats";
         return $this->req($sql)->fetchAll();
     }
+    
 }
