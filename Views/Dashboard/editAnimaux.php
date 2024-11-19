@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/assets/css/editDashboard.css">
+
 <form action="/ListAnimaux/edit/<?php echo $animaux->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
@@ -25,7 +27,7 @@
         <option value="">Sélectionnez un habitat :</option>
         <?php foreach ($habitats as $habitat): ?>
             <option value="<?php echo $habitat->id; ?>" <?php echo ($habitat->id == $animaux->habitat_id) ? 'selected' : ''; ?>>
-                <?php echo htmlspecialchars($habitat->name); ?>
+                <?php echo htmlspecialchars($habitat->habitat_name); ?>
             </option>
         <?php endforeach; ?>
     </select>
