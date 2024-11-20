@@ -89,7 +89,7 @@ class ListAnimauxController extends Controller
         exit();
     }
 
-    public function update($id) // Traiter la soumission du formulaire de la modif de la animal (MAJ)
+    public function update($id) // Traiter la soumission du formulaire de la modif de l'animal (MAJ)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $animauxModel = new AnimauxModel();
