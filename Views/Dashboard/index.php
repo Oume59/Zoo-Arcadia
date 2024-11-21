@@ -49,10 +49,10 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
 
-            <!--DASH VETO 
+            <!--DASH VETO  -->
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Reports" class="admin-link">Ajout Rapport Animal</a>
-            </div> -->
+            </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Reports/liste" class="admin-link">Liste rapports des Animaux</a> <!--DASH ADMIN OK-->
@@ -62,20 +62,20 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
                 <a href="/Consultation/liste" class="admin-link">Nombre de consultation par animal</a> <!--DASH ADMIN OK-->
             </div>
 
-            <!--DASH EMPLOYE
+            <!--DASH EMPLOYE -->
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Reviews" class="admin-link">Avis à valider</a>
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Reviews/liste" class="admin-link">Liste des avis</a>
-            </div> -->
+            </div>
 
 
-            <!--DASH EMPLOYE
+            <!--DASH EMPLOYE-->
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Contact" class="admin-link">Contact</a>
-            </div> -->
+            </div> 
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Horaires" class="admin-link">Horaires</a> <!--DASH ADMIN OK-->
@@ -83,6 +83,10 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Horaires/liste" class="admin-link">Liste des Horaires</a> <!--DASH ADMIN OK-->
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                <a href="/AddUsers" class="admin-link">Envoi des identifiants STAFF</a> <!--DASH ADMIN OK-->
             </div>
 
         </div>
