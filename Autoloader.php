@@ -10,6 +10,7 @@ class Autoloader
     //Méthode statique donc pas besoin de créer une instance de classe pour être appelée + Fonction qui va servir à autoloader les classes lors de leur instanciation. 
     public static function register()
     {
+        require_once __DIR__ . "/vendor/autoload.php";
         spl_autoload_register([__CLASS__, 'Autoload']);
     }
 
