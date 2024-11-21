@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/assets/css/dashboard.css">
+<link rel="stylesheet" href="/assets/css/editDashboard.css">
 
-<h2>Modifier le service</h2>
+<p>Modifier le service</p>
 
 <form action="/ListServices/edit/<?php echo $service->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
