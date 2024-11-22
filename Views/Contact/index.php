@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/assets/css/editDashboard.css">
 
-<h2>Contactez-nous</h2>
+<p>Contactez-nous</p>
 
 <?php if (!empty($message)): ?>
     <p style="color: <?= strpos($message, 'succès') !== false ? 'green' : 'red'; ?>;">
@@ -27,7 +27,7 @@
     </div>
 
     <div>
-        <label for="message">Message :</label>
+        <label for="message">Message, objet de votre demande :</label>
         <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
     </div>
 
