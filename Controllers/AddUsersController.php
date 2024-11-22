@@ -68,8 +68,8 @@ class AddUsersController extends Controller
                 // Envoi de l'email à l'utilisateur (sans le mot de passe)
                 $clientSubject = "Votre compte a été créé";
                 $clientMessage = "Bonjour $username,\n\n";
-                $clientMessage .= "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter avec votre email : $email.\n";
-                $clientMessage .= "Veuillez vous rapprocher de nous pour connaître votre mot de passe .";
+                $clientMessage .= "Votre compte STAFF Zoo Arcadia a été créé avec succès. Vous pouvez maintenant vous connecter avec votre email : $email.\n";
+                $clientMessage .= "Veuillez vous rapprocher de la Direction pour obtenir votre mot de passe .";
 
                 // Envoi de l'email
                 if ($this->sendEmail($email, $clientSubject, $clientMessage)) {
