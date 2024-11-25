@@ -4,6 +4,7 @@
 // Importation des classes nécessaires
 use App\Autoloader;
 use App\Config\Main;
+use Dotenv\Dotenv;
 
 // Définir une constante avec le dossier racine du projet 
 define('ROOT', dirname(__DIR__));
@@ -12,7 +13,11 @@ define('ROOT', dirname(__DIR__));
 require_once ROOT . '/Autoloader.php';
 Autoloader::register();
 
-// Instanciation du main(routeur principal)
+// Charger les variables d'environnement
+$dotenv = Dotenv::createImmutable(ROOT);
+$dotenv->load(); // Charge les variables d'environnement
+
+// Instanciation du main routeur principal
 $app = new Main();
 
 // START de l'application
