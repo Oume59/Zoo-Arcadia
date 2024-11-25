@@ -73,15 +73,15 @@ class ContactController extends Controller
                 $mail = new PHPMailer(true);
 
                 try {
-                    // Configuration SMTP
+                    // Configuration SMTP (UTILISER LES DATA DU .ENV)
                     $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Host = $_ENV['SMTP_CONTACT_HOST'];
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'bulmaemployearcadia@gmail.com';
-                    $mail->Password = 'mmyrlkqlcfohdjsi'; // À remplacer par un mot de passe d'application sécurisé
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                    $mail->Port = 465;
-                    $mail->CharSet = 'UTF-8';
+                    $mail->Username = $_ENV['SMTP_CONTACT_USER'];
+                    $mail->Password = $_ENV['SMTP_CONTACT_PASS'];
+                    $mail->SMTPSecure = $_ENV['SMTP_CONTACT_SECURE'];
+                    $mail->Port = $_ENV['SMTP_CONTACT_PORT'];
+                    $mail->CharSet = $_ENV['SMTP_CHARSET'];
 
                     // Configuration de l'expéditeur et du destinataire
                     $mail->setFrom('bulmaemployearcadia@gmail.com', 'Zoo Arcadia - Contact');
