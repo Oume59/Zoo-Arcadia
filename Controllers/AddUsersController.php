@@ -92,15 +92,15 @@ class AddUsersController extends Controller
         $mail = new PHPMailer(true);
         try {
 
-            // Configuration du serveur SMTP
+            // Configuration du serveur SMTP (UTILISER LES DATA DU .ENV)
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // Serveur SMTP de Gmail
+            $mail->Host = $_ENV['SMTP_USERS_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'joseoumearcadia@gmail.com';
-            $mail->Password = 'MRJNNELSQNEUNLXB';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port = 465; // voir lors du deploiement 587
-            $mail->CharSet = "UTF-8";
+            $mail->Username = $_ENV['SMTP_USERS_USER'];
+            $mail->Password = $_ENV['SMTP_USERS_PASS'];
+            $mail->SMTPSecure = $_ENV['SMTP_USERS_SECURE'];
+            $mail->Port = $_ENV['SMTP_USERS_PORT'];
+            $mail->CharSet = $_ENV['SMTP_CHARSET'];
 
             // Utiliser une adresse email valide
             $mail->setFrom("joseoumearcadia@gmail.com", "ZOO ARCADIA");
