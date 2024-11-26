@@ -79,13 +79,24 @@ class ListAnimauxController extends Controller
         ]);
     }
 
-    public function delete($id) // Utiliser la méthode delete pour supp un animal de la BDD
+    public function delete($id)
     {
-        $animauxModel = new AnimauxModel();
-        $animauxModel->delete($id); // héritée de Model principal
+        if ($id) {
+            $AnimauxModel = new AnimauxModel();
 
-        // Rediriger vers la liste des animaux après la suppression
-        header('Location: /ListAnimaux/list');
+            $result = $AnimauxModel->deleteById($id);
+
+            if ($result) {
+                $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
+            }
+        } else {
+            $_SESSION['error_message'] = "animal invalide.";
+        }
+
+        // Redirection vers la dashboard
+        header("Location: /Dashboard");
         exit();
     }
 
