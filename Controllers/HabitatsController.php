@@ -11,7 +11,7 @@ class HabitatsController extends Controller
         // Récupération de la liste des habitats
         $habitatsModel = new HabitatsModel();
         $habitats = $habitatsModel->findAll();
-        
+
         // Rendu de la vue avec les habitats
         $this->render('Dashboard/addHabitats', [
             'habitats' => $habitats
