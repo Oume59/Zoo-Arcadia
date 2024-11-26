@@ -121,4 +121,8 @@ class AnimauxModel extends Model
         return $this->req($sql)->fetchAll();
     }
     
+    public function deleteById($id)
+    {
+        return $this->delete($id);
+    }
 }
