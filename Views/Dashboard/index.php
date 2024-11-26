@@ -51,15 +51,15 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
 
             <!--DASH VETO  -->
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Reports" class="admin-link">Ajout Rapport Animal</a>
+                <a href="/Reports" class="admin-link">Ajout Rapport Animal</a> <!--DASH VETO OK -->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Reports/liste" class="admin-link">Liste rapports des Animaux</a> <!--DASH ADMIN OK-->
+                <a href="/Reports/list" class="admin-link">Liste rapports des Animaux</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Consultation/liste" class="admin-link">Nombre de consultation par animal</a> <!--DASH ADMIN OK-->
+                <a href="/Consultation/list" class="admin-link">Nombre de consultation par animal</a> <!--DASH ADMIN OK-->
             </div>
 
             <!--DASH EMPLOYE -->
@@ -68,7 +68,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Reviews/liste" class="admin-link">Liste des avis</a>
+                <a href="/Reviews/list" class="admin-link">Liste des avis</a>
             </div>
 
 
@@ -82,11 +82,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Horaires/liste" class="admin-link">Liste des Horaires</a> <!--DASH ADMIN OK-->
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/AddUsers" class="admin-link">Envoi des identifiants STAFF</a> <!--DASH ADMIN OK-->
+                <a href="/Horaires/list" class="admin-link">Liste des Horaires</a> <!--DASH ADMIN OK-->
             </div>
 
         </div>
