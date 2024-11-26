@@ -28,17 +28,18 @@ class ReportsController extends Controller
     public function addReport()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Récupération et validation des données du formulaire
+            // Hydrater le modèle avec les données du formulaire
             $reportsModel = new ReportsModel();
             $reportsModel->hydrate([
                 'date_report' => $_POST['date_report'] ?? null,
                 'details' => $_POST['details'] ?? null,
                 'health_state' => $_POST['health_state'] ?? null,
                 'food' => $_POST['food'] ?? null,
-                'animal_id' => $_POST['animal_id'] ?? null,
+                'animal_name' => $_POST['name'] ?? null, // Utiliser directement le nom
             ])->create();
-
-            // Redirection après l'ajout
+    
+            // Redirection après succès
+            $_SESSION['success_message'] = "Le rapport a été ajouté avec succès.";
             header("Location: /Reports");
             exit;
         }
