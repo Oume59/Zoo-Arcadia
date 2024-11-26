@@ -9,14 +9,16 @@ class ReportsModel extends Model
     protected $details;
     protected $health_state;
     protected $food;
-    protected $animal_id; // Pour faire le lien avec la table Animals
+    protected $animal_name; // Utilisation directe du nom de l'animal
 
-    public function __construct() // Initialise le nom de la table
+    public function __construct()
     {
         $this->table = "Veterinary_report";
     }
 
-    // Récupère les rapports vétos avec les informations de l'animal concerné
+    /**
+     * Récupère les rapports vétérinaires avec les informations de l'animal
+     */
     public function getReportsWithAnimals()
     {
         $sql = "
@@ -26,12 +28,12 @@ class ReportsModel extends Model
                 r.details, 
                 r.health_state, 
                 r.food, 
-                a.name AS animal_name, 
+                r.animal_name, 
                 a.health_state AS current_health_state
             FROM 
                 {$this->table} r
             LEFT JOIN 
-                Animals a ON r.animal_id = a.id
+                Animals a ON r.animal_name = a.name
         ";
         return $this->req($sql)->fetchAll();
     }
@@ -67,9 +69,9 @@ class ReportsModel extends Model
         return $this;
     }
 
-    public function setAnimalId($animal_id)
+    public function setAnimalName($animal_name)
     {
-        $this->animal_id = $animal_id;
+        $this->animal_name = $animal_name;
         return $this;
     }
 
@@ -99,8 +101,8 @@ class ReportsModel extends Model
         return $this->food;
     }
 
-    public function getAnimalId()
+    public function getAnimalName()
     {
-        return $this->animal_id;
+        return $this->animal_name;
     }
 }
