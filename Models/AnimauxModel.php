@@ -7,7 +7,6 @@ class AnimauxModel extends Model
 {
     protected $id;
     protected $name;
-    protected $health_state;
     protected $species_id;
     protected $habitat_id;
     protected $img;
@@ -23,7 +22,6 @@ class AnimauxModel extends Model
             SELECT 
                 a.id, 
                 a.name, 
-                a.health_state, 
                 a.img, 
                 s.species AS animal_species, 
                 h.name AS habitat_name
@@ -48,13 +46,6 @@ class AnimauxModel extends Model
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-
-    public function setHealth_State($health_state)
-    {
-        $this->health_state = $health_state;
         return $this;
     }
 
@@ -85,11 +76,6 @@ class AnimauxModel extends Model
     public function getName()
     {
         return $this->name;
-    }
-
-    public function getHealth_State()
-    {
-        return $this->health_state;
     }
 
     public function getSpecies_Id()
