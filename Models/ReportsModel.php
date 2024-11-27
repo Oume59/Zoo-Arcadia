@@ -4,105 +4,121 @@ namespace App\Models;
 
 class ReportsModel extends Model
 {
-    protected $id_report;
+    protected $id;
     protected $date_report;
     protected $details;
     protected $health_state;
     protected $food;
-    protected $animal_name; // Utilisation directe du nom de l'animal
+    protected $animal_id;
 
     public function __construct()
     {
         $this->table = "Veterinary_report";
     }
 
-    /**
-     * Récupère les rapports vétérinaires avec les informations de l'animal
-     */
+    // Récupère les rapports vétérinaires avec toutes les infos nécessaires
     public function getReportsWithAnimals()
     {
         $sql = "
             SELECT 
-                r.id_report, 
-                r.date_report, 
-                r.details, 
-                r.health_state, 
-                r.food, 
-                r.animal_name, 
-                a.health_state AS current_health_state
-            FROM 
-                {$this->table} r
-            LEFT JOIN 
-                Animals a ON r.animal_name = a.name
+            r.id, 
+            r.date_report, 
+            r.details, 
+            r.health_state,
+            r.food, 
+            r.animal_id, 
+            a.name,
+            a.id AS idAnimal
+        FROM 
+            {$this->table} r
+        LEFT JOIN 
+            Animals a ON r.animal_id = a.id
         ";
         return $this->req($sql)->fetchAll();
     }
 
-    // Setters
-    public function setIdReport($id_report)
-    {
-        $this->id_report = $id_report;
+    public function getId() {
+        return $this->id;
+    }
+
+
+    public function setId($id): self {
+        $this->id = $id;
         return $this;
     }
 
-    public function setDateReport($date_report)
-    {
+    /**
+     * Get the value of date_report
+     */
+    public function getDate_Report() {
+        return $this->date_report;
+    }
+
+    /**
+     * Set the value of date_report
+     */
+    public function setDate_Report($date_report): self {
         $this->date_report = $date_report;
         return $this;
     }
 
-    public function setDetails($details)
-    {
+    /**
+     * Get the value of details
+     */
+    public function getDetails() {
+        return $this->details;
+    }
+
+    /**
+     * Set the value of details
+     */
+    public function setDetails($details): self {
         $this->details = $details;
         return $this;
     }
 
-    public function setHealthState($health_state)
-    {
+    /**
+     * Get the value of health_state
+     */
+    public function getHealth_State() {
+        return $this->health_state;
+    }
+
+    /**
+     * Set the value of health_state
+     */
+    public function setHealth_State($health_state): self {
         $this->health_state = $health_state;
         return $this;
     }
 
-    public function setFood($food)
-    {
+    /**
+     * Get the value of food
+     */
+    public function getFood() {
+        return $this->food;
+    }
+
+    /**
+     * Set the value of food
+     */
+    public function setFood($food): self {
         $this->food = $food;
         return $this;
     }
 
-    public function setAnimalName($animal_name)
-    {
-        $this->animal_name = $animal_name;
+    /**
+     * Get the value of animal_id
+     */
+    public function getAnimal_Id() {
+        return $this->animal_id;
+    }
+
+    /**
+     * Set the value of animal_id
+     */
+    public function setAnimal_Id($animal_id): self {
+        $this->animal_id = $animal_id;
         return $this;
-    }
-
-    // Getters
-    public function getIdReport()
-    {
-        return $this->id_report;
-    }
-
-    public function getDateReport()
-    {
-        return $this->date_report;
-    }
-
-    public function getDetails()
-    {
-        return $this->details;
-    }
-
-    public function getHealthState()
-    {
-        return $this->health_state;
-    }
-
-    public function getFood()
-    {
-        return $this->food;
-    }
-
-    public function getAnimalName()
-    {
-        return $this->animal_name;
     }
 }
