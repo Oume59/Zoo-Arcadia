@@ -55,7 +55,6 @@ class ListAnimauxController extends Controller
             // Hydratation des DATA
             $animauxModel->hydrate([
                 'name' => $_POST['name'] ?? $animaux->name,
-                'health_state' => $_POST['health_state'] ?? $animaux->health_state,
                 'species_id' => $_POST['species_id'] ?? $animaux->species_id,
                 'habitat_id' => $_POST['habitat_id'] ?? $animaux->habitat_id,
                 'img' => $imgPath
@@ -81,23 +80,23 @@ class ListAnimauxController extends Controller
 
     public function delete($id)
     {
-        if ($id) {
-            $AnimauxModel = new AnimauxModel();
+            if ($id) {
+                $AnimauxModel = new AnimauxModel();
 
-            $result = $AnimauxModel->deleteById($id);
+                $result = $AnimauxModel->deleteById($id);
 
-            if ($result) {
-                $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
+                if ($result) {
+                    $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
+                }
             } else {
-                $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
+                $_SESSION['error_message'] = "animal invalide.";
             }
-        } else {
-            $_SESSION['error_message'] = "animal invalide.";
-        }
 
-        // Redirection vers la dashboard
-        header("Location: /Dashboard");
-        exit();
+            // Redirection vers la dashboard
+            header("Location: /Dashboard");
+            exit();
     }
 
     public function update($id) // Traiter la soumission du formulaire de la modif de l'animal (MAJ)
@@ -106,7 +105,6 @@ class ListAnimauxController extends Controller
             $animauxModel = new AnimauxModel();
             $animauxModel->setId($id)
                 ->setName($_POST['name'] ?? null)
-                ->setHealth_State($_POST['health_state'] ?? null)
                 ->setSpecies_Id($_POST['species_id'] ?? null)
                 ->setHabitat_Id($_POST['habitat_id'] ?? null)
                 ->setImg($_POST['img'] ?? null);
