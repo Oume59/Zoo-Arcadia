@@ -6,7 +6,6 @@
     <thead>
         <tr>
             <th>Nom</th>
-            <th>État de santé</th>
             <th>Espèce</th>
             <th>Habitat</th>
             <th>Photo</th>
@@ -16,7 +15,6 @@
         <?php foreach ($animaux as $animal): ?>
             <tr>
                 <td><?php echo htmlspecialchars($animal->name); ?></td>
-                <td><?php echo htmlspecialchars($animal->health_state); ?></td>
                 <td><?php echo htmlspecialchars($animal->animal_species ?? 'Non défini'); ?></td>
                 <td><?php echo htmlspecialchars($animal->habitat_name ?? 'Non défini'); ?></td>
                 <td> <?php if (!empty($animal->img)): ?>
