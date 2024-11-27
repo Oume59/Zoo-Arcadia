@@ -35,7 +35,7 @@ class ReportsController extends Controller
                 'details' => $_POST['details'] ?? null,
                 'health_state' => $_POST['health_state'] ?? null,
                 'food' => $_POST['food'] ?? null,
-                'animal_name' => $_POST['name'] ?? null, // Utiliser directement le nom
+                'animal_id' => $_POST['animal_id'] ?? null, // Utiliser directement le nom
             ])->create();
     
             // Redirection après succès
