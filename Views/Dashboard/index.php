@@ -55,7 +55,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Reports/list" class="admin-link">Liste rapports des Animaux</a> <!--DASH ADMIN OK-->
+                <a href="/ListReports/list" class="admin-link">Liste rapports des Animaux</a> <!--DASH VETO + ADMIN + EMPLOYE OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
