@@ -7,10 +7,6 @@
     <input type="text" name="name" value="<?php echo htmlspecialchars($animaux->name); ?>" required>
     <br>
 
-    <label>État de santé :</label>
-    <input type="text" name="health_state" value="<?php echo htmlspecialchars($animaux->health_state); ?>" required>
-    <br>
-
     <label>Espèce :</label>
     <select name="species_id" required>
         <option value="">Sélectionnez une espèce</option>
