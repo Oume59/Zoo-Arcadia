@@ -26,17 +26,13 @@ echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
     </div>
 
     <div>
-        <label for="animal">Animal :</label>
-        <select id="animal" name="name" required>
-            <option value=""> Sélectionner un Animal </option>
-            <?php if (!empty($animals)) : ?>
-                <?php foreach ($animals as $animal) : ?>
-                    <option value="<?= $animal->name; ?>"><?= $animal->name; ?></option>
-                <?php endforeach; ?>
-            <?php else : ?>
-                <option value="" disabled>Aucun animal disponible</option>
-            <?php endif; ?>
-        </select>
+    <label>Animal :</label>
+    <select name="animal_id" required>
+        <option value="">Sélectionner un animal</option>
+        <?php foreach ($animals as $animal): ?>
+            <option value="<?php echo $animal->id; ?>" ><?php echo $animal->name; ?></option>
+        <?php endforeach; ?>
+    </select>
     </div>
 
     <button type="submit">Ajouter le Rapport</button>
