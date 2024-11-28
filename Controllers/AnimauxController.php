@@ -60,4 +60,10 @@ class AnimauxController extends Controller
             exit;
         }
     }
+
+    private $animauxModel;
+    public function setAnimauxModel(AnimauxModel $model): void //méthode pour test unitaire (le controller utilise le mock(version similée du Model Animaux))
+{
+    $this->animauxModel = $model;
+}
 }
