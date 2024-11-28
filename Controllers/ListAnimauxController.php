@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AnimauxModel;
-use App\Models\HabitatsModel;
-use App\Models\SpeciesModel;
+
 
 class ListAnimauxController extends Controller
 {
