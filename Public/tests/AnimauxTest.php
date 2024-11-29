@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase; // classe fournie par phpUnit qui permet de lancer le test
 use App\Controllers\AnimauxController;
 use App\Models\AnimauxModel;
 
@@ -11,7 +11,7 @@ class AnimauxTest extends TestCase
     public function testAddAnimalSuccess(): void
     {
         // Mock du modèle AnimauxModel
-        $animauxModelMock = $this->createMock(AnimauxModel::class);
+        $animauxModelMock = $this->createMock(AnimauxModel::class); // utiliser Mock pour simuler et éviter d'appeler les dependances
 
         // Simule le comportement de hydrate et create
         $animauxModelMock->expects($this->once())
