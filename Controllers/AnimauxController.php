@@ -45,8 +45,8 @@ class AnimauxController extends Controller
                 }
             }
 
-            // Récupération et hydratation des données (hydrate directement en passant les data en arguments)
-            $animauxModel = new AnimauxModel();
+            // Utilisation du MOCK + Récupération et hydratation des données (hydrate directement en passant les data en arguments)
+            $animauxModel = $this->animauxModel ?? new AnimauxModel();
             $animauxModel->hydrate([
                 'name' => $_POST['name'] ?? null,
                 'health_state' => $_POST['health_state'] ?? null,
