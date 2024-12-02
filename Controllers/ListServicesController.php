@@ -109,4 +109,11 @@ class ListServicesController extends Controller
 
         $this->render('Dashboard/addServices');
     }
+
+    private $servicesModel;
+
+public function setServicesModel($model)
+{
+    $this->servicesModel = $model;
+}
 }
