@@ -111,4 +111,11 @@ class ListHabitatsController extends Controller
 
         $this->render('Dashboard/addHabitats');
     }
+
+    private $habitatsModel;
+
+public function setHabitatsModel($model)
+{
+    $this->habitatsModel = $model;
+}
 }
