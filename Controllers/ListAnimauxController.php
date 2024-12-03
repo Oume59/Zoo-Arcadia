@@ -10,7 +10,7 @@ class ListAnimauxController extends Controller
 
     public function list()
     {
-        $animauxModel = new AnimauxModel();
+        $animauxModel = $this->animauxModel ?? new AnimauxModel(); // $this->animauxModel  permet de passer un model personnalisé (mock ou autre) au lieu de toujours instantanément AnimauxModeldirectement.
         $animaux = $animauxModel->getAnimalsWithSpeciesAndHabitat();
         if (isset($_SESSION['id'])) {
             $this->render(
@@ -30,11 +30,6 @@ class ListAnimauxController extends Controller
         $animaux = $animauxModel->find($id); // Récupère un animal spécifique
         $species = $animauxModel->getSpecies(); // Récupère toutes les espèces
         $habitats = $animauxModel->getHabitats(); // Récupère tous les habitats
-        //$speciesModel = new SpeciesModel();
-        //$species = $speciesModel->findAll(); // Récupère toutes les espèces
-
-        //$habitatsModel = new HabitatsModel();
-        //$habitats = $habitatsModel->findAll(); // Récupère tous les habitats
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Traitement de l'image si une nouvelle image est uploadée
@@ -119,4 +114,11 @@ class ListAnimauxController extends Controller
             }
         }
     }
+
+    private $animauxModel;
+
+public function setAnimauxModel($model)
+{
+    $this->animauxModel = $model;
+}
 }
