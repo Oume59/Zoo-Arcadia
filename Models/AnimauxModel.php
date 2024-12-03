@@ -34,19 +34,28 @@ class AnimauxModel extends Model
         ";
         return $this->req($sql)->fetchAll();
     }
-    
-    // Setters pour definir
+
+    // Setters pour definir/modifier et Getters pour obtenir :
     public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function setName($name)
     {
         $this->name = $name;
         return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
     public function setSpecies_Id($species_id)
@@ -55,37 +64,26 @@ class AnimauxModel extends Model
         return $this;
     }
 
+    public function getSpecies_Id()
+    {
+        return $this->species_id;
+    }
+
     public function setHabitat_Id($habitat_id)
     {
         $this->habitat_id = $habitat_id;
         return $this;
     }
 
+    public function getHabitat_Id()
+    {
+        return $this->habitat_id;
+    }
+
     public function setImg($img)
     {
         $this->img = $img;
         return $this;
-    }
-
-    // Getters pour obtenir
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getSpecies_Id()
-    {
-        return $this->species_id;
-    }
-
-    public function getHabitat_Id()
-    {
-        return $this->habitat_id;
     }
 
     public function getImg()
@@ -106,7 +104,7 @@ class AnimauxModel extends Model
         $sql = "SELECT id, name AS habitat_name FROM Habitats";
         return $this->req($sql)->fetchAll();
     }
-    
+
     public function deleteById($id)
     {
         return $this->delete($id);
