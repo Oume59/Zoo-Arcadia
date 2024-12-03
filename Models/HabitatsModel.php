@@ -14,6 +14,7 @@ class HabitatsModel extends Model
         $this->table = "Habitats";
     }
 
+     // Setters pour definir/modifier et Getters pour obtenir :
     public function getId() {
         return $this->id;
     }
