@@ -28,66 +28,56 @@ WHERE u.email = :email",
         )->fetch();
     }
 
-
-    // Obtenir la valeur de id
+    // Setters pour definir/modifier et Getters pour obtenir :
     public function getId()
     {
         return $this->id;
     }
 
-    // Modifier la valeur de id
     public function setId($id): self
     {
         $this->id = $id;
         return $this;
     }
 
-    // Obtenir la valeur de username
     public function getUsername()
     {
         return $this->username;
     }
 
-    // Modifier la valeur de username
     public function setUsername($username): self
     {
         $this->username = $username;
         return $this;
     }
 
-    // Obtenir la valeur de password
     public function getPassword()
     {
         return $this->password;
     }
 
-    // Modifier la valeur de password
     public function setPassword($password): self
     {
         $this->password = $password;
         return $this;
     }
 
-    // Obtenir la valeur de email
     public function getEmail()
     {
         return $this->email;
     }
 
-    // Modifier la valeur de email
     public function setEmail($email): self
     {
         $this->email = $email;
         return $this;
     }
 
-    // Obtenir la valeur de id_role
     public function getIdRole()
     {
         return $this->id_role;
     }
 
-    // Modifier la valeur de id_role
     public function setIdRole($id_role): self
     {
         $this->id_role = $id_role;
