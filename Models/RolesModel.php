@@ -12,26 +12,23 @@ class RolesModel extends Model
         $this->table = "Roles";
     }
 
-    // Getter pour l'ID
+    // Setters pour definir/modifier et Getters pour obtenir :
     public function getId()
     {
         return $this->id;
     }
 
-    // Setter pour l'ID
     public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
-    // Getter pour le rôle
     public function getRole()
     {
         return $this->role;
     }
 
-    // Setter pour le rôle
     public function setRole($role)
     {
         $this->role = $role;
