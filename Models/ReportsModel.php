@@ -37,87 +37,69 @@ class ReportsModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
-    public function getId() {
+     // Setters pour definir/modifier et Getters pour obtenir :
+    public function getId()
+    {
         return $this->id;
     }
 
-
-    public function setId($id): self {
+    public function setId($id): self
+    {
         $this->id = $id;
         return $this;
     }
 
-    /**
-     * Get the value of date_report
-     */
-    public function getDate_Report() {
+    public function getDate_Report()
+    {
         return $this->date_report;
     }
 
-    /**
-     * Set the value of date_report
-     */
-    public function setDate_Report($date_report): self {
+    public function setDate_Report($date_report): self
+    {
         $this->date_report = $date_report;
         return $this;
     }
 
-    /**
-     * Get the value of details
-     */
-    public function getDetails() {
+    public function getDetails()
+    {
         return $this->details;
     }
 
-    /**
-     * Set the value of details
-     */
-    public function setDetails($details): self {
+    public function setDetails($details): self
+    {
         $this->details = $details;
         return $this;
     }
 
-    /**
-     * Get the value of health_state
-     */
-    public function getHealth_State() {
+    public function getHealth_State()
+    {
         return $this->health_state;
     }
 
-    /**
-     * Set the value of health_state
-     */
-    public function setHealth_State($health_state): self {
+    public function setHealth_State($health_state): self
+    {
         $this->health_state = $health_state;
         return $this;
     }
 
-    /**
-     * Get the value of food
-     */
-    public function getFood() {
+    public function getFood()
+    {
         return $this->food;
     }
 
-    /**
-     * Set the value of food
-     */
-    public function setFood($food): self {
+    public function setFood($food): self
+    {
         $this->food = $food;
         return $this;
     }
 
-    /**
-     * Get the value of animal_id
-     */
-    public function getAnimal_Id() {
+    public function getAnimal_Id()
+    {
         return $this->animal_id;
     }
 
-    /**
-     * Set the value of animal_id
-     */
-    public function setAnimal_Id($animal_id): self {
+    public function setAnimal_Id($animal_id): self
+    {
         $this->animal_id = $animal_id;
         return $this;
     }
