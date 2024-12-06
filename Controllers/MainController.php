@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ServicesModel;
+
 // Héritage de Controller
 class MainController extends Controller
 {
@@ -9,18 +11,8 @@ class MainController extends Controller
     public function index()
     {
         // Renvoyer la vue d'accueil services visiteurs
+        $servicesModel = new ServicesModel();
+        $services = $servicesModel->findAll(); // Récupération de la liste des services
         $this->render("Accueil/index");
-    }
-
-    // Méthode pour afficher la vue des visiteurs pour les animaux
-    public function animauxVisiteur()
-    {
-        $this->render("ViewAnimaux/index");
-    }
-    // Méthode pour afficher la page des habitats
-    public function habitatsVisiteurs()
-    {
-        // Renvoyer la vue Habitats visiteurs
-        $this->render("Habitats/index");
     }
 }

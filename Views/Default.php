@@ -39,10 +39,10 @@
                                 <a class="nav-link" href="/">Accueil & Services</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Habitats</a>
+                                <a class="nav-link" href="/Habitats">Habitats</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/animaux-visiteur">Animaux</a>
+                                <a class="nav-link" href="/Animaux">Animaux</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>

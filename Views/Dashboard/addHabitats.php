@@ -2,7 +2,7 @@
 echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
 ?>
 
-<form action="/Habitats/addHabitat" method="POST" enctype="multipart/form-data">
+<form action="/DashHabitats/addHabitat" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <div>

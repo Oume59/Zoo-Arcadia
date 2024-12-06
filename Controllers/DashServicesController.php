@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ServicesModel;
 
-class ServicesController extends Controller
+class DashServicesController extends Controller
 {
     public function index()
     {
