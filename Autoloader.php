@@ -11,7 +11,7 @@ class Autoloader
     public static function register()
     {
         require_once __DIR__ . "/vendor/autoload.php";
-        spl_autoload_register([__CLASS__, 'Autoload']);
+        spl_autoload_register([__CLASS__, 'autoload']);
     }
 
     //Méthode qui SI elle trouve une classe, elle la charge. SINON, elle affiche un message d'erreur.

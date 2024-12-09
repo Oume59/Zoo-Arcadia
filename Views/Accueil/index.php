@@ -1,6 +1,5 @@
-<!-- h1 ACCUEIL -->
-
 <link rel="stylesheet" href="/assets/css/accueil.css">
+<link rel="stylesheet" href="/assets/css/default.css">
 
 <img class="imgaccueil" src="/assets/img/tigreaccueil.jpg" alt="" />
 

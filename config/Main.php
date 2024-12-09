@@ -10,74 +10,75 @@ class Main
     {
         session_start();
 
-        // Génération d'un token CSRF si il n'existe pas
+        //Génération d'un token CSRF (s'il n'existe pas)
         if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // génére un token aléatoire
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
 
-        // On récupére l'url de la requête
+        //Récupération de l'url
         $uri = $_SERVER['REQUEST_URI'];
 
-        // Verif que uri n'est pas vide et se termine par un /
+        //Vérification que uri n'est pas vide et se termine par un /
         if (!empty($uri) && $uri != '/' && $uri[-1] === "/") {
-            // On enlève le /
+            //Retirer le /
             $uri = substr($uri, 0, -1);
 
-            // Envoi un code de redirection permanent
+            //chekCsrfTokenode de redirection permanent
             http_response_code(301);
 
-            // Redirection vers l'url sans /
+            //Redirection vers l'url sans /
             header('Location: ' . $uri);
         }
 
-        // Vérif le token CSRF pour les requêtes POST
+        //Vérif du jeton CSRF et assainit DATA POST si la requete est de type POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $csrfToken = $_POST['csrf_token'] ?? '';
             $this->chekCsrfToken($csrfToken);
 
-            // Assainissement des données en POST (nettoie les data pour supprimer tout contenu non sûr ou inutile)
+            //Assainissement des DATA en POST
             $_POST = $this->sanitizeFormData($_POST);
         }
 
-        // Gestion des paramètre d'URL + p=controleur/methode/paramètres et séparation des paramètres dans un tableau
+        //Gestion des params d'URL
+        //p=controleur/methode/paramètres et séparation des paramètres dans un tableau
         $params = isset($_GET['p']) ? explode('/', filter_var($_GET['p'], FILTER_SANITIZE_URL)) : [];
 
-        // Vérif s'il y a un controleur spécifié;
         if (isset($params[0]) && $params[0] != '') {
-            // Récupération du controleur a instancier
+            //Récupération du controleur à instancier
+            //Majuscule en 1 er lettre et ajout du namespace complet avant et ajout du "controller" après
             $controllerName = '\\App\\Controllers\\' . ucfirst(array_shift($params)) . 'Controller';
 
             if (class_exists($controllerName)) {
-                // Créer une instance du controleur
+                //on Instencie le controleur
                 $controller = new $controllerName();
             } else {
-                http_response_code(404); // Si controleur n'existe pas, renvoi erreur
-                exit();
+                $this->error404("Controler non trouvé : $controllerName");
+                return;
             }
 
-            // Récupération du 2 eme paramètre d'url pour l'action a éxécuter
+            //Récupération du second paramètre d'url
             $action = (isset($params[0])) ? array_shift($params) : 'index';
 
             if (method_exists($controller, $action)) {
-                // Si il reste des paramètres on les passent à la méthode
+                //S'il reste des paramètres on les passent à la méthode
                 call_user_func_array([$controller, $action], $params);
             } else {
-                http_response_code(404); // Si la méthode existe pas, erreur renvoyée
-                echo "la page recherchée n'existe pas";
+                $this->error404("Méthode non trouvée : $action");
+                return;
             }
         } else {
-            // On instancie le controleur principal par defaut si pas de params
+            //Instencie le controleur par defaut car pas de paramètres
             $controller = new MainController();
 
-            // Appel de la methode index
+            //Appel de la méthode index
             $controller->index();
         }
     }
-
+    
     public function chekCsrfToken($token)
     {
         if (!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) { // Vérif si le token CSRF est valide
-            http_response_code(403); // Si token invalide, envoi erreur
+            http_response_code(403); //Si token invalide, envoi erreur
             echo "CSRF Token ivalide";
             exit();
         }
@@ -86,15 +87,15 @@ class Main
     private function sanitizeFormData(array $data)
     {
         $sanitizedData = [];
-        foreach ($data as $key => $value) { // Si valeur = tab, elle  appelle la fonction récursivement (la fonction s'appelle elle même)
-            if (is_array($value)) { // On utilise à nouveau la fonction sanitizeFormData pour traiter chaque valeur dans tab
+        foreach ($data as $key => $value) { //Si valeur = tab, elle  appelle la fonction récursivement (la fonction s'appelle elle même)
+            if (is_array($value)) { //On utilise à nouveau la fonction sanitizeFormData pour traiter chaque valeur dans tab
                 $sanitizedData[$key] = $this->sanitizeFormData($value);
             } else {
-                // Enleve les balises HTML des STRINGS uniquement pour éviter les injections de code malveillant dans la page
+                //Enleve les balises HTML des STRINGS uniquement pour éviter les injections de code malveillant dans la page
                 if (is_string($value)) {
                     $sanitizedData[$key] = strip_tags($value);
                 } else {
-                    // Valeur par défaut si ce n'est pas une STRING
+                    //Valeur par défaut si ce n'est pas une STRING
                     $sanitizedData[$key] = $value;
                 }
             }

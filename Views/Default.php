@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="/assets/css/defaultNavBar.css">
     <link rel="stylesheet" href="/assets/css/defaultFooter.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
     <title>ZOO ARCADIA</title>
 </head>
 

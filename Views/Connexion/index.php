@@ -1,6 +1,9 @@
 <?php
 echo '<link rel="stylesheet" href="/assets/css/login.css">';
 ?>
+<?php
+echo '<link rel="stylesheet" href="/assets/css/default.css">';
+?>
 
 <!-- Formulaire de connexion user (nav bar) -->
 <div class="formus"></div>

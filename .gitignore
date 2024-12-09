@@ -1,7 +1,3 @@
-/Config/ConnexionDb.php
 /Config/Emailer.php
-/vendor
 /.env
-/composer.lock
 /Config/MongoDbConfig.php
-/Dockerfile
