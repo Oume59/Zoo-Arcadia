@@ -1,0 +1,57 @@
+/* H2 */
+.title h2 {
+  top: 150%;
+  color: black;
+  border-radius: 5px;
+  padding: 50px 70px;
+  background-color: var(--olive-green);
+  margin: 0;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* CIRCLE */
+.rounded-circle {
+  top: 150%;
+  width: 800px;
+  height: 800px;
+  background-color: var(--olive-green);
+  color: black;
+  border: 3px solid var(--light-gray);
+  border-radius: 70%;
+  padding: 70px;
+  text-align: center;
+  line-height: 1.4;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.rounded-circle p {
+margin: 0;
+  line-height: 1.6; 
+}
+
+.card {
+    background-color: var(--earth-beige);
+    width: 70%;
+    margin: 1%;
+    border: 2% solid var(--black);
+    border-radius: 1px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.card p {
+color: var(--olive-green);
+font-weight: bold;
+}
+
+.card-img-top {
+    height: 300px; 
+    object-fit: cover; 
+    border-bottom: 2px solid var(--black);
+}
+
+
