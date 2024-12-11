@@ -27,7 +27,7 @@
     </div>
 </section>
 
-<!-- TITRE -->
+<!-- TITLE -->
 <div class="title d-flex justify-content-center">
     <h2>DÉCOUVREZ NOS ESPÈCES FASCINANTES</h2>
 </div>
@@ -48,7 +48,7 @@
 <!-- CARDS ANIMALS -->
 <section id="cards-animals" class="py-5">
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-2">
 
             <div class="col-md-6">
                 <div class="card">
