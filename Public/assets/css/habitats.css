@@ -1,0 +1,108 @@
+/*CAROUSEL */
+#carousel-habitats {
+  margin-top: 150px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--earth-brown); 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8; 
+    border: 2px solid var(--olive-green); /* Bordure verte */
+}
+
+.carousel-control-prev {
+    left: -70px; 
+}
+
+.carousel-control-next {
+    right: -70px; 
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); 
+    width: 20px;
+    height: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: var(--forest-green); /* Change la couleur au survol */
+    transform: scale(1.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* H2 */
+.title h2 {
+  top: 150%;
+  color: var(--black);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: var(--olive-green);
+  margin-top: 150px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* CARDS */
+#cards-habitats .container {
+  margin-top: 150px;
+  margin-bottom: 80px;
+}
+
+.card {
+  background-color: var(--earth-beige);
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 5/3; /*pour la forme rectangulaire */
+  border: 2px solid var(--black);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* effet ZOOM Légé sur les card pour un */
+  z-index: 1;
+}
+
+.card p {
+  color: var(--olive-green);
+  font-weight: bold;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .btn {
+  position: absolute;
+  bottom: 20px;
+  right: 5%;
+  background-color: var(--earth-brown);
+  color: var(--olive-green);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: var(--forest-green);
+  color: var(--olive-green);
+}
