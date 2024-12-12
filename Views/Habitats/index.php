@@ -7,22 +7,22 @@
     <div id="carouselHabitats" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 80%;">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/assets/img/animvisiteurs.jpg" class="d-block w-100" alt="">
+                <img src="/assets/img/savane.jpg" class="d-block w-100" alt="">
             </div>
             <div class="carousel-item">
-                <img src="/assets/img/flamantmarais.jpg" class="d-block w-100" alt="">
+                <img src="/assets/img/chris-abney-qLW70Aoo8BE-unsplash.jpg" class="d-block w-100" alt="">
             </div>
             <div class="carousel-item">
-                <img src="/assets/img/elephantsavane.jpg" class="d-block w-100" alt="">
+                <img src="/assets/img/tomasz-anusiewicz--7K0uzlKzpA-un.jpg" class="d-block w-100" alt="">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitats" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Précédent</span>
+            <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitats" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Suivant</span>
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
 </section>
@@ -35,30 +35,32 @@
 <!-- CARDS HABITATS -->
 <section id="cards-habitats" class="py-5">
     <div class="container">
-        <div class="row g-3">
+        <div class="row justify-content-center">
 
-            <div class="col-md-6">
+            <div class="col-md-5 mb-4">
                 <div class="card">
-                    <img src="/assets/img/tigre1.jpg" class="card-img-top" alt="Tigre du Bengale">
-                    <div class="card-body">
+                    <img src="/assets/img/couvsavane.jpg" class="card-img-top" alt="Savane">
+                    <div class="card-body text-center">
                         <a href="#" class="btn btn-primary">SAVANE</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 mb-4">
                 <div class="card">
-                    <img src="/assets/img/seprentmarais1.jpg" class="card-img-top" alt="Python réticulé">
-                    <div class="card-body">
+                    <img src="/assets/img/croco.jpg" class="card-img-top" alt="Marais">
+                    <div class="card-body text-center">
                         <a href="#" class="btn btn-primary">MARAIS</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-md-5 mb-4">
                 <div class="card">
-                    <img src="/assets/img/giraffe.jpg" class="card-img-top" alt="Girafe du Niger">
-                    <div class="card-body">
+                    <img src="/assets/img/couvjungle.jpg" class="card-img-top" alt="Jungle">
+                    <div class="card-body text-center">
                         <a href="#" class="btn btn-primary">JUNGLE</a>
                     </div>
                 </div>
