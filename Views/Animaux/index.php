@@ -49,55 +49,20 @@
 <section id="cards-animals" class="py-5">
     <div class="container">
         <div class="row g-2">
-
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="/assets/img/tigre1.jpg" class="card-img-top" alt="Tigre du Bengale">
-                    <div class="card-body">
-                        <p class="card-text">Prénom : JAVA <br>
-                            Espèce : Tigre du Bengale <br>
-                            État de santé : Bonne santé générale</p>
-                        <a href="#" class="btn btn-primary">PLUS D'INFOS</a>
+            <?php foreach ($animaux as $animal): ?>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="/assets/img/<?= htmlspecialchars($animal->img) ?>" class="card-img-top" alt="<?= htmlspecialchars($animal->name) ?>">
+                        <div class="card-body">
+                            <p class="card-text">Prénom : <?= htmlspecialchars($animal->name) ?><br>
+                                Espèce : <?= htmlspecialchars($animal->animal_species ?? 'Inconnue') ?><br>
+                                Habitat : <?= htmlspecialchars($animal->habitat_name ?? 'Inconnu') ?><br>
+                                État : <?= htmlspecialchars($animal->health_state) ?></p>
+                            <a href="/Reports/showAnimalReports/<?= htmlspecialchars($animal->id) ?>" class="btn btn-primary">PLUS D'INFOS</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="/assets/img/seprentmarais1.jpg" class="card-img-top" alt="Python réticulé">
-                    <div class="card-body">
-                        <p class="card-text">Prénom : MONTY <br>
-                            Espèce : Python réticulé <br>
-                            État de santé : Changement de peau</p>
-                        <a href="#" class="btn btn-primary">PLUS D'INFOS</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="/assets/img/giraffe.jpg" class="card-img-top" alt="Girafe du Niger">
-                    <div class="card-body">
-                        <p class="card-text">Prénom : SHELL <br>
-                            Espèce : Girafe du Niger <br>
-                            État de santé : Stress léger</p>
-                        <a href="#" class="btn btn-primary">PLUS D'INFOS</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="/assets/img/bebegorille.jpg" class="card-img-top" alt="Gorille">
-                    <div class="card-body">
-                        <p class="card-text">Prénom : MONGO <br>
-                            Espèce : Gorille <br>
-                            État de santé : En attente de vaccination</p>
-                        <a href="#" class="btn btn-primary">PLUS D'INFOS</a>
-                    </div>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

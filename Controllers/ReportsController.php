@@ -44,4 +44,24 @@ class ReportsController extends Controller
             exit;
         }
     }
+
+    public function showAnimalReports($id)
+    {
+        $reportsModel = new ReportsModel();
+        $reports = $reportsModel->getReportsByAnimalId($id);
+        
+        $animauxModel = new AnimauxModel();
+        $animal = $animauxModel->find($id);
+        
+        if (!$animal) {
+            http_response_code(404);
+            echo "Animal non trouvé.";
+            exit;
+        }
+    
+        $this->render('Reports/showAnimalReports', [
+            'reports' => $reports,
+            'animal' => $animal
+        ]);
+    }    
 }

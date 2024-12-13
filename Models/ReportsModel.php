@@ -37,6 +37,23 @@ class ReportsModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
+    public function getReportsByAnimalId($animal_id)
+{
+    $sql = "
+        SELECT 
+            r.id, 
+            r.date_report, 
+            r.details, 
+            r.health_state,
+            r.food
+        FROM 
+            {$this->table} r
+        WHERE 
+            r.animal_id = :animal_id
+    ";
+    return $this->req($sql, ['animal_id' => $animal_id])->fetchAll();
+}
+
      // Setters pour definir/modifier et Getters pour obtenir :
     public function getId()
     {
