@@ -16,11 +16,11 @@
                 <img src="/assets/img/elephantsavane.jpg" class="d-block w-100" alt="Image d'éléphants">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselAnimaux" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselAnimaux" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
