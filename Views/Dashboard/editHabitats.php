@@ -14,7 +14,7 @@
     <label>Image actuelle :</label>
     <br>
     <?php if (!empty($habitat->img)): ?>
-        <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Image de l'habitat" style="max-width: 150px; max-height: 150px;">
+        <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Image de l'habitat" class="image-edit">
     <?php else: ?>
         <p>Aucune image disponible</p>
     <?php endif; ?>

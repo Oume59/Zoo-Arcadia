@@ -19,7 +19,7 @@
         <label>Image actuelle :</label>
         <br>
         <?php if (!empty($service->img)): ?>
-            <img src="/assets/img/<?php echo htmlspecialchars($service->img); ?>" alt="Image du service" style="max-width: 150px; max-height: 150px;">
+            <img src="/assets/img/<?php echo htmlspecialchars($service->img); ?>" alt="Image du service" class="image-edit">
         <?php else: ?>
             <p>Aucune image disponible</p>
         <?php endif; ?>

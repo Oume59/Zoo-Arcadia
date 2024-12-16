@@ -6,17 +6,16 @@ services:
       context: .
     container_name: my-php-container
     ports:
-      - "8080:80"  # Accéder à l'application via localhost:8080
+      - "8080:80" # Accéder à l'application via localhost:8080
     env_file:
-      - .env       # Charger les variables d'environnement
+      - .env # Charger les variables d'environnement
     depends_on:
       - db
       - mongo
     volumes:
-      - .:/var/www/html  # Montre le dossier local dans le conteneur
+      - .:/var/www/html # Montre le dossier local dans le conteneur (montage global pratique pr le developpement mais pas pour fichier uploadés = img)
     networks:
       - app-network
-
 
   db:
     image: mariadb:10.11

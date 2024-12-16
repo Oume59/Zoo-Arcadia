@@ -29,18 +29,13 @@
     </select>
     <br>
 
-    <label>Image actuelle :</label>
-    <br>
-    <?php if (!empty($animaux->img)): ?>
-        <img src="/assets/img/<?php echo htmlspecialchars($animaux->img); ?>" alt="Image de l'animal" style="max-width: 150px; max-height: 150px;">
-    <?php else: ?>
-        <p>Aucune image disponible</p>
-    <?php endif; ?>
-    <br>
+    <label for="current_image" class="form-label">Image actuelle :</label>
+    <img src="/assets/img/<?php echo htmlspecialchars($animaux->img); ?>" alt="Image de l'animal" class="image-edit">
 
-    <label>Modifier l'image :</label>
-    <input type="file" name="image" accept="image/*">
+    <label for="image" class="form-label">Nouvelle image :</label>
+    <input type="file" class="form-control" id="img" name="img" accept="image/*">
     <br>
 
     <button type="submit">Enregistrer les modifications</button>
+
 </form>

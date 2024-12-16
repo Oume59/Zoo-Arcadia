@@ -18,7 +18,7 @@
                 <td><?php echo htmlspecialchars($animal->animal_species ?? 'Non défini'); ?></td>
                 <td><?php echo htmlspecialchars($animal->habitat_name ?? 'Non défini'); ?></td>
                 <td> <?php if (!empty($animal->img)): ?>
-                        <img src="/assets/img/<?php echo htmlspecialchars($animal->img); ?>" alt="Photo de l'animal" style="max-width: 50px; max-height: 50px;">
+                        <img src="/assets/img/<?php echo htmlspecialchars($animal->img); ?>" alt="Photo de l'animal" class="image-list">
                     <?php else: ?>
                         Pas d'image
                     <?php endif; ?>

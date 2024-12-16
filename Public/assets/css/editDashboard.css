@@ -55,3 +55,12 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
   background-color: #2e7d32;
 }
+
+.image-edit {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 10px;
+}

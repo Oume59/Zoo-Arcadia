@@ -18,7 +18,7 @@
                     <td><?php echo htmlspecialchars($service->description); ?></td>
                     <td>
                         <?php if (!empty($service->img)): ?>
-                            <img src="/assets/img/<?php echo htmlspecialchars($service->img); ?>" alt="Image du service" style="max-width: 50px; max-height: 50px;">
+                            <img src="/assets/img/<?php echo htmlspecialchars($service->img); ?>" alt="Image du service" class="image-list">
                         <?php else: ?>
                             Pas d'image
                         <?php endif; ?>

@@ -23,11 +23,11 @@ class DashHabitatsController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Traitement de l'image
             $imgPath = null;
-            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = __DIR__ . '/../Public/assets/img/';
-                $tmpName = $_FILES['image']['tmp_name'];
-                $fileName = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
-                $fileExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                $tmpName = $_FILES['img']['tmp_name'];
+                $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
+                $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
 
                 // Déplacement de l'image vers le dossier cible
@@ -60,11 +60,11 @@ class DashHabitatsController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Traitement de l'image
             $imgPath = $habitat->img; // Conserve l'image actuelle par défaut
-            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = __DIR__ . '/../Public/assets/img/';
-                $tmpName = $_FILES['image']['tmp_name'];
-                $fileName = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
-                $fileExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                $tmpName = $_FILES['img']['tmp_name'];
+                $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
+                $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
 
                 if (move_uploaded_file($tmpName, $image)) {

@@ -17,7 +17,7 @@
                 <td><?php echo htmlspecialchars($habitat->description ?? 'Non défini'); ?></td>
                 <td>
                     <?php if (!empty($habitat->img)): ?>
-                        <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Photo de l'habitat" style="max-width: 50px; max-height: 50px;">
+                        <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Photo de l'habitat" class="image-list">
                     <?php else: ?>
                         Pas d'image
                     <?php endif; ?>
