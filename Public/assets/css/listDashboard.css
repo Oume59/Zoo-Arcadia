@@ -1,16 +1,22 @@
 body {
   font-family: "Roboto", sans-serif;
   color: var(--noir-paragraphes);
-  background-color: #f5f5dc;
+  background-color: var(--earth-beige);
+  border: var(--light-gray);
   margin: 0 20px;
 }
 
 p {
   font-size: 18px;
-  color: #78905f;
+  color: var(--olive-green);
   font-weight: bold;
   margin: 20px 0;
   text-align: center;
+}
+
+.table-custom {
+  border-collapse: collapse;
+  width: 100%;
 }
 
 table {
@@ -20,36 +26,37 @@ table {
   border-collapse: collapse;
   background-color: var(--beige-terreux);
   color: var(--noir-paragraphes);
-  border: 1px solid var(--gris-clair);
+  border: 2px solid var(--light-gray);
 }
 
 thead th {
-  background-color: #78905f;
+  background-color: var(--olive-green);
   color: black;
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--light-gray);
   text-align: left;
+  text-align: center;
 }
 
 tbody td {
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--light-gray);
 }
 
 /* Lien des actions */
 td a {
-  color: #795548;
+  color: var(--earth-brown);
   text-decoration: none;
   font-weight: bold;
 }
 
 td a:hover {
-  color: #2e7d32;
+  color: var(--forest-green);
 }
 
 /* Boutons */
 button {
-  background-color: #795548;
+  background-color: var(--earth-brown);
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -57,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: #2e7d32;
+  background-color: var(--forest-green);
 }
 
 .image-list {

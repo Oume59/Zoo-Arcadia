@@ -44,7 +44,7 @@ header {
 }
 
 .nav-link {
-  color: black;
+  color: var(--black);
   font-weight: bold;
   transition: color 0.3s ease;
   font-size: 18px;
@@ -73,7 +73,7 @@ header {
 }
 
 .admin-link {
-  color: black;
+  color: var(--black);
   font-weight: bold;
 }
 

@@ -1,9 +1,10 @@
+/* STYLE DES FONCTIONNALITÉES "ADD" DU CODE */
 body {
-  background-color: #f5f5dc;
+  background-color: var(--earth-beige);
 }
 
 form {
-  background-color: #f5f5dc;
+  background-color: var(--earth-beige);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -21,7 +22,7 @@ form div {
 }
 
 label {
-  color: #78905f;
+  color: var(--olive-green);
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
@@ -33,19 +34,19 @@ input[type="password"],
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #78905f;
+  border: 1px solid var(--olive-green);
   border-radius: 5px;
   font-size: 18px;
   background-color: #ffffff;
-  color: #000000;
+  color: var(--black);
   box-sizing: border-box;
 }
 
 button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background-color: #795548;
-  color: black;
+  background-color: var(--earth-brown);
+  color: var(--black);
   font-size: 18px;
   border: none;
   border-radius: 5px;
@@ -55,11 +56,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #2e7d32;
+  background-color: var(--forest-green);
 }
 
 p.success-message {
-  color: green;
+  color: var(--forest-green);
   text-align: center;
   font-weight: bold;
 }
