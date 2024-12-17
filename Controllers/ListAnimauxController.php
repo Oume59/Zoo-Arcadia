@@ -35,7 +35,7 @@ class ListAnimauxController extends Controller
             // Traitement de l'image si une nouvelle image est uploadée
             $imgPath = $animaux->img; // Garde l'image actuelle par défaut
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
-                $uploadDir = '/assets/img/'; // Chemin absolu dans le conteneur Docker
+                $uploadDir = __DIR__ . '/../Public/assets/img/'; // Chemin absolu vers le dossier upload
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
