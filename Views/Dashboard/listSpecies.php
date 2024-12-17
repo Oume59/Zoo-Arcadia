@@ -2,10 +2,11 @@
 
 <p>Liste des Espèces</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Nom de l'espèce</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

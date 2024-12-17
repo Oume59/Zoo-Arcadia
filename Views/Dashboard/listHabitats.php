@@ -2,12 +2,13 @@
 
 <p>Liste des Habitats</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Nom</th>
             <th>Description</th>
             <th>Photo</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>

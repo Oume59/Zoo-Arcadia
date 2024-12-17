@@ -2,12 +2,13 @@
 
 <p>Liste des Services</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Nom</th>
             <th>Description</th>
             <th>Image</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

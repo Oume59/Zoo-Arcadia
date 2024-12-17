@@ -2,13 +2,14 @@
 
 <p>Liste des Animaux</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Nom</th>
             <th>Espèce</th>
             <th>Habitat</th>
             <th>Photo</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

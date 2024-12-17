@@ -2,7 +2,7 @@
 
 <p>Liste des Rapports Vétérinaires</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Date</th>
@@ -10,6 +10,7 @@
             <th>État de Santé</th>
             <th>Nourriture</th>
             <th>Animal</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

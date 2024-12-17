@@ -2,12 +2,13 @@
 
 <p>Liste des Utilisateurs</p>
 
-<table style="border-collapse: collapse; width: 100%;">
+<table class="table-custom">
     <thead>
         <tr>
             <th>Nom d'utilisateur</th>
             <th>Email</th>
             <th>Rôle</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
