@@ -1,9 +1,9 @@
 body {
-  background-color: #f5f5dc;
+  background-color: var(--earth-beige);
 }
 
 .admin-container {
-  background-color: #f5f5dc;
+  background-color: var(--earth-beige);
   padding: 20px;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
@@ -15,8 +15,8 @@ body {
 
 .admin-link {
   display: block;
-  background-color: #795548;
-  color: black;
+  background-color: var(--earth-brown);
+  color: var(--black);
   text-align: center;
   padding: 15px;
   border-radius: 8px;
@@ -27,7 +27,8 @@ body {
 }
 
 .admin-link:hover {
-  background-color: #2e7d32;
+  background-color: var(--forest-green); 
+  color: var(--black);
 }
 
 @media (min-width: 768px) {
@@ -44,7 +45,7 @@ body {
 }
 
 button {
-  background-color: #795548;
+  background-color: var(--earth-brown);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -55,11 +56,11 @@ button {
 }
 
 button:hover {
-  background-color: #2e7d32;
+  background-color: var(--forest-green);
 }
 
 p {
-  color: #000000;
+  color: var(--black);
   font-size: 18px;
 }
 
