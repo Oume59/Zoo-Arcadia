@@ -14,6 +14,7 @@ services:
       - mongo
     volumes:
       - .:/var/www/html # Montre le dossier local dans le conteneur (montage global pratique pr le developpement mais pas pour fichier uploadés = img)
+      - ./php.ini:/usr/local/etc/php/php.ini # Copie du fichier php.ini vers le conteneur
     networks:
       - app-network
 
