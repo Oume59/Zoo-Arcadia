@@ -93,28 +93,6 @@ class ListAnimauxController extends Controller
             exit();
     }
 
-    public function update($id) // Traiter la soumission du formulaire de la modif de l'animal (MAJ)
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $animauxModel = new AnimauxModel();
-            $animauxModel->setId($id)
-                ->setName($_POST['name'] ?? null)
-                ->setSpecies_Id($_POST['species_id'] ?? null)
-                ->setHabitat_Id($_POST['habitat_id'] ?? null)
-                ->setImg($_POST['img'] ?? null);
-
-            if ($animauxModel->update($id)) { // Appelle la méthode update héritée de Model
-                $_SESSION["success_message"] = 'Animal mis à jour avec succès.';
-            } else {
-                $_SESSION["error_message"] = 'Erreur lors de la mise à jour de l\'animal.';
-
-                // Rediriger vers la liste des espèces après la MAJ
-                header('Location: /Dashboard/editAnimaux');
-                exit();
-            }
-        }
-    }
-
     private $animauxModel;
 
 public function setAnimauxModel($model)
