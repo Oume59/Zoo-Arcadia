@@ -14,8 +14,11 @@
   bottom: 0;
 }
 
+p {
+  color: var(--black);
+}
+
 .footer-text {
-  font-size: 1rem;
   margin: 0 10px;
   line-height: 1.5;
   text-align: center;

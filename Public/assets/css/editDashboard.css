@@ -4,8 +4,7 @@ body {
   background-color: var(--earth-beige);
 }
 
-p {
-  font-size: 18px;
+h3 {
   color: var(--olive-green);
   font-weight: bold;
   margin: 20px 0;
