@@ -56,18 +56,4 @@ class ListSpeciesController extends Controller
         header('Location: /ListSpecies/list');
         exit();
     }
-
-    public function update($id) // Traiter la soumission du formulaire de la modif de la liste des espèces
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $speciesModel = new SpeciesModel();
-            $speciesModel->setId($id)
-                ->setSpecies($_POST['species'] ?? null); // Vérifie que le champ 'species' est défini
-            $speciesModel->update($id); // Appelle la méthode update héritée de Model
-
-            // Rediriger vers la liste des espèces après la MAJ
-            header('Location: /Dashboard/editSpecies');
-            exit();
-        }
-    }
 }
