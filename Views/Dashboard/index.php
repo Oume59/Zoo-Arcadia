@@ -1,5 +1,5 @@
 <?php
-echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
+$css = "dashboard";
 ?>
 
 <div class="stylee"></div>
@@ -9,7 +9,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
         <div class="row">
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashAnimaux" class="admin-link">Ajout d'animaux</a> <!--DASH ADMIN OK-->
+                <a href="/DashAnimaux" class="admin-link">Ajouter un animal</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -17,15 +17,15 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Species" class="admin-link">Ajout Espèce</a> <!--DASH ADMIN OK-->
+                <a href="/Species" class="admin-link">Ajouter une Espèce</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/ListSpecies/list" class="admin-link">Liste Espèces</a> <!--DASH ADMIN OK-->
+                <a href="/ListSpecies/list" class="admin-link">Liste des Espèces</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/AddUsers" class="admin-link">Ajout d'Utilisateur</a> <!--DASH ADMIN OK-->
+                <a href="/AddUsers" class="admin-link">Ajouter un Utilisateur</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -33,7 +33,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashHabitats" class="admin-link">Ajout Habitat</a> <!--DASH ADMIN OK-->
+                <a href="/DashHabitats" class="admin-link">Ajouter un Habitat</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -41,7 +41,7 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/DashServices" class="admin-link">Services</a> <!--DASH ADMIN OK-->
+                <a href="/DashServices" class="admin-link">Ajouter un Service</a> <!--DASH ADMIN OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
@@ -51,15 +51,15 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
 
             <!--DASH VETO  -->
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Reports" class="admin-link">Ajout Rapport Animal</a> <!--DASH VETO OK -->
+                <a href="/Reports" class="admin-link">Ajouter un Rapport Animal</a> <!--DASH VETO OK -->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/ListReports/list" class="admin-link">Liste rapports des Animaux</a> <!--DASH VETO + ADMIN + EMPLOYE OK-->
+                <a href="/ListReports/list" class="admin-link">Liste des rapports Animaux</a> <!--DASH VETO + ADMIN + EMPLOYE OK-->
             </div>
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Consultation/list" class="admin-link">Nombre de consultation par animal</a> <!--DASH ADMIN OK-->
+                <a href="/Consultation/list" class="admin-link">Nombre de consultations par animal</a> <!--DASH ADMIN OK-->
             </div>
 
             <!--DASH EMPLOYE -->
@@ -70,12 +70,6 @@ echo '<link rel="stylesheet" href="/assets/css/dashboard.css">';
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Reviews/list" class="admin-link">Liste des avis</a>
             </div>
-
-
-            <!--DASH EMPLOYE-->
-            <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                <a href="/Contact" class="admin-link">Contact</a>
-            </div> 
 
             <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                 <a href="/Horaires" class="admin-link">Horaires</a> <!--DASH ADMIN OK-->

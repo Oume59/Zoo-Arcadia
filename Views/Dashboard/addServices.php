@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="/assets/css/dashboard.css">
-
+<?php
+$css = "dashboard";
+?>
 
 <form action="/DashServices/addService" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">

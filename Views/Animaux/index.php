@@ -1,6 +1,9 @@
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/animaux.css">
-
+<?php
+$css = "default";
+?>
+<?php
+$css = "animaux";
+?>
 
 <!-- CAROUSEL -->
 <section id="carousel-animals" class="py-4">

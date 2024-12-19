@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <?php if (isset($css)): ?>
+        <link href="/assets/css/<?= $css ?>.css" rel="stylesheet">
+    <?php endif; ?>
     <link rel="stylesheet" href="/assets/css/defaultNavBar.css">
-    <link rel="stylesheet" href="/assets/css/defaultFooter.css">
     <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/defaultFooter.css">
+    
     <title>ZOO ARCADIA</title>
 </head>
 
@@ -150,7 +153,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="/assets/js/modals.js"></script> 
+    <script src="/assets/js/modals.js"></script>
 
 </body>
 

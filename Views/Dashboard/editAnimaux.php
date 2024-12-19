@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="/assets/css/editDashboard.css">
+<?php
+$css = "editDashboard";
+?>
 
 <form action="/ListAnimaux/edit/<?php echo $animaux->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -32,7 +34,7 @@
     <label for="current_image" class="form-label">Image actuelle :</label>
     <img src="/assets/img/<?php echo htmlspecialchars($animaux->img); ?>" alt="Image de l'animal" class="image-edit">
 
-    <label for="image" class="form-label">Nouvelle image :</label>
+    <label for="img" class="form-label">Nouvelle image :</label>
     <input type="file" class="form-control" id="img" name="img" accept="image/*">
     <br>
 

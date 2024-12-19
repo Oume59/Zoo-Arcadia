@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="/assets/css/listdashboard.css">
+<?php
+$css = "listDashboard";
+?>
 
-<p>Liste des Services</p>
+<h3>Liste des Services</h3>
 
 <table class="table-custom">
     <thead>

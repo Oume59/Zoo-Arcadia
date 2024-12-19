@@ -1,3 +1,7 @@
+<?php
+$css = "listDashboard";
+?>
+
 <p>Rapports pour <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></p>
 
 <?php if (!empty($reports)): ?>

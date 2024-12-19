@@ -1,6 +1,9 @@
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/habitats.css">
-
+<?php
+$css = "default";
+?>
+<?php
+$css = "habitats";
+?>
 
 <!-- CAROUSEL -->
 <section id="carousel-habitats" class="py-4">

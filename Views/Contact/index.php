@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="/assets/css/editDashboard.css">
+<?php
+$css = "editDashboard";
+?>
 
-<p>Contactez-nous</p>
+<h3>Contactez-nous</h3>
 
 <?php if (!empty($message)): ?>
     <p style="color: <?= strpos($message, 'succès') !== false ? 'green' : 'red'; ?>;">

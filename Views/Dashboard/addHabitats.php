@@ -1,5 +1,5 @@
 <?php
-echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
+$css = "filesDashboard";
 ?>
 
 <form action="/DashHabitats/addHabitat" method="POST" enctype="multipart/form-data">

@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="/assets/css/editDashboard.css">
+<?php
+$css = "editDashboard";
+?>
+
 
 <form action="/ListHabitats/edit/<?php echo $habitat->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -21,7 +24,7 @@
     <br>
 
     <label>Modifier l'image :</label>
-    <input type="file" name="image" accept="image/*">
+    <input type="file" name="img" accept="image/*">
     <br>
 
     <button type="submit">Enregistrer les modifications</button>

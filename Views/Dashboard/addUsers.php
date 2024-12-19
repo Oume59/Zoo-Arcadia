@@ -1,8 +1,7 @@
 <!-- Formulaire créa nouveau utilisateur rôle employé/vétérinaire -->
 <?php
-echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
+$css = "filesDashboard";
 ?>
-
 
 <form action="/AddUsers/addUsers" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">

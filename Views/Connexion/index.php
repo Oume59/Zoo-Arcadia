@@ -1,8 +1,8 @@
 <?php
-echo '<link rel="stylesheet" href="/assets/css/login.css">';
+$css = "login";
 ?>
 <?php
-echo '<link rel="stylesheet" href="/assets/css/default.css">';
+$css = "default";
 ?>
 
 <!-- Formulaire de connexion user (nav bar) -->

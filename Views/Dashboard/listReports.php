@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="/assets/css/listDashboard.css">
+<?php
+$css = "listDashboard";
+?>
 
-<p>Liste des Rapports Vétérinaires</p>
+<h3>Liste des Rapports Vétérinaires</h3>
 
 <table class="table-custom">
     <thead>

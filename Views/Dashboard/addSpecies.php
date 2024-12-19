@@ -1,7 +1,6 @@
 <?php
-echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
+$css = "filesDashboard";
 ?>
-
 
 <form action="/species/index" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">

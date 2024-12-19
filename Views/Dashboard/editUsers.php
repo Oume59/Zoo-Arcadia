@@ -1,7 +1,9 @@
-<link rel="stylesheet" href="/assets/css/editDashboard.css">
+<?php
+$css = "editDashboard";
+?>
 <!-- Modifier la liste utilisateur depuis le dashboard de l'admin -->
 
-<p>Éditer l'utilisateur</p>
+<h3>Éditer l'utilisateur</h3>
 
 <form action="/ListUsers/edit/<?php echo $user->id ?>" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">

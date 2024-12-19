@@ -1,7 +1,6 @@
 <?php
-echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
+$css = "filesDashboard";
 ?>
-
 
 <form action="/DashAnimaux/addAnimal" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -35,8 +34,8 @@ echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
     </div>
 
     <div>
-        <label for="image">Image Animal :</label>
-        <input type="file" id="image" name="image" required>
+        <label for="img">Image Animal :</label>
+        <input type="file" id="img" name="img" required>
     </div>
 
     <button type="submit">Ajouter l'animal</button>
