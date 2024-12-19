@@ -29,7 +29,6 @@ class DashAnimauxController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Traitement de l'image
-            $imgPath = null;
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = __DIR__ . '/../Public/assets/img/'; // Chemin absolu vers le dossier upload
                 $tmpName = $_FILES['img']['tmp_name'];
@@ -37,11 +36,8 @@ class DashAnimauxController extends Controller
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
 
-                // Déplacement de l'image vers le dossier cible
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = '/assets/img/' . $fileName . '.' . $fileExtension;
-                } else {
-                    $error = "Erreur lors du téléchargement de l'image.";
+                    $imgPath = $fileName . '.' . $fileExtension; // MAJ avec le nouveau chemin d'image
                 }
             }
 
@@ -56,7 +52,7 @@ class DashAnimauxController extends Controller
             ])->create();
 
             // Redirection après succès
-            header("Location: /DashAnimaux");
+            header("Location: /ListAnimaux/List");
             exit;
         }
     }
