@@ -1,5 +1,5 @@
 <?php
-$css = "dashboard";
+$css = "filesDashboard";
 ?>
 
 <form action="/DashServices/addService" method="POST" enctype="multipart/form-data">
@@ -16,24 +16,20 @@ $css = "dashboard";
     </div>
 
     <div>
-        <label for="image">Image :</label>
-        <input type="file" id="image" name="image" accept="image/*">
+        <label for="img">Image :</label>
+        <input type="file" id="img" name="img" accept="image/*">
     </div>
 
     <button type="submit">Ajouter le service</button>
 </form>
 
 <!-- Messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])): ?>
-    <p style="color: green;"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])) : ?>
+    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])): ?>
-    <p style="color: red;"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])) : ?>
+    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
-
-<?php
-echo '<link rel="stylesheet" href="/assets/css/filesDashboard.css">';
-?>

@@ -34,11 +34,11 @@ $css = "filesDashboard";
 
 <!-- Messages de succès ou d'erreur -->
 <?php if (isset($_SESSION['success_message'])) : ?>
-    <p style="color: green;"><?php echo $_SESSION['success_message']; ?></p>
+    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
 <?php if (isset($_SESSION['error_message'])) : ?>
-    <p style="color: red;"><?php echo $_SESSION['error_message']; ?></p>
+    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
