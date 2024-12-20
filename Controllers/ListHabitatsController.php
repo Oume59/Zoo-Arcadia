@@ -77,41 +77,6 @@ class ListHabitatsController extends Controller
         exit();
     }
 
-    public function add()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Traitement de l'image
-            $imgPath = null;
-            if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
-                $uploadDir = __DIR__ . '/../Public/assets/img/';
-                $tmpName = $_FILES['img']['tmp_name'];
-                $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
-                $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-                $image = $uploadDir . $fileName . '.' . $fileExtension;
-
-                if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = $fileName . '.' . $fileExtension;
-                } else {
-                    $error = "Erreur lors du téléchargement de l'image.";
-                }
-            }
-
-            // Hydratation des données
-            $habitatsModel = new HabitatsModel();
-            $habitatsModel->hydrate([
-                'name' => $_POST['name'] ?? null,
-                'description' => $_POST['description'] ?? null,
-                'img' => $imgPath
-            ])->create();
-
-            $_SESSION["success_message"] = 'Habitat ajouté avec succès';
-            header("Location: /ListHabitats/list");
-            exit;
-        }
-
-        $this->render('Dashboard/addHabitats');
-    }
-
     private $habitatsModel;
 
 public function setHabitatsModel($model)

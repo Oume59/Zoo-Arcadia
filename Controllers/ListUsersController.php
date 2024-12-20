@@ -42,7 +42,7 @@ class ListUsersController extends Controller
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'utilisateur';
             }
             // Redirection après mise à jour
-            header('Location: /Dashboard');
+            header('Location: /ListUsers/list');
             exit();
         }
 
@@ -60,22 +60,5 @@ class ListUsersController extends Controller
         // Rediriger vers la liste des utilisateurs après la suppression
         header('Location: /ListUsers/list');
         exit();
-    }
-
-    public function update($id) // Traiter la soumission du formulaire de la modif de la liste des utilisateurs
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userModel = new UserModel();
-            $userModel->setId($id)
-                ->setUsername($_POST['username'])
-                ->setEmail($_POST['email'])
-                ->setId_Role($_POST['role']);
-
-            $userModel->update($id); // Appelle la méthode update héritée de Model
-
-            // Rediriger vers la liste des utilisateurs après la MAJ
-            header('Location: /Dashboard/editUsers');
-            exit();
-        }
     }
 }

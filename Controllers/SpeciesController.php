@@ -13,6 +13,9 @@ class SpeciesController extends Controller
         $SpeciesModel = new SpeciesModel();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $SpeciesModel->hydrate($_POST)->create();
+            // Redirection après l'ajout
+            header('Location: /ListSpecies/list');
+            exit();
         }
         $species = $SpeciesModel->findAll();
         $this->render('Dashboard/addSpecies', ['species' => $species]);

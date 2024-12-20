@@ -84,7 +84,7 @@ class AddUsersController extends Controller
             $_SESSION['error_message'] = "Tous les champs sont requis.";
         }
         // Redirection après ajout
-        header("Location: /Dashboard");
+        header("Location: /ListUsers/list");
         exit;
     }
     private function sendEmail($to, $subject, $message)

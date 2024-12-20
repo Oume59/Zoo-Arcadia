@@ -38,7 +38,7 @@ class ListSpeciesController extends Controller
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'espèce';
             }
             // Redirection après mise à jour
-            header('Location: /Dashboard');
+            header('Location: /ListSpecies/list');
             exit();
         }
 

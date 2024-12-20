@@ -40,7 +40,7 @@ class ReportsController extends Controller
     
             // Redirection après succès
             $_SESSION['success_message'] = "Le rapport a été ajouté avec succès.";
-            header("Location: /Reports");
+            header("Location: /ListReports/list");
             exit;
         }
     }

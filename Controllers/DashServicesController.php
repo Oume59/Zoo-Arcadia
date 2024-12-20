@@ -22,17 +22,15 @@ class DashServicesController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Traitement de l'image
-            $imgPath = null;
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
-                $uploadDir = __DIR__ . '/../Public/assets/img/';
+                $uploadDir = __DIR__ . '/../Public/assets/img/'; // Chemin absolu vers le dossier upload
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-                $image = $uploadDir . $fileName . '.' . $fileExtension;
+                $image = $fileName . '.' . $fileExtension;
 
-                // Déplacement de l'image
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = $fileName . '.' . $fileExtension;
+                    $imgPath = $fileName . '.' . $fileExtension; // MAJ avec le nouveau chemin d'image
                 }
             }
 
@@ -44,9 +42,11 @@ class DashServicesController extends Controller
                 'img' => $imgPath
             ])->create();
 
+            $_SESSION['success_message'] = 'Service ajouté avec succès';
             // Redirection après succès
-            header("Location: /Services");
+            header("Location: /ListServices/List");
             exit;
         }
+        $this->render('Dashboard/addServices');
     }
 }

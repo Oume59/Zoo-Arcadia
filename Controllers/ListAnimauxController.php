@@ -89,7 +89,7 @@ class ListAnimauxController extends Controller
             }
 
             // Redirection vers la dashboard
-            header("Location: /Dashboard");
+            header("Location: /ListAnimaux/list");
             exit();
     }
 
