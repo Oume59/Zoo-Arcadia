@@ -7,7 +7,7 @@ $css = "habitats";
 
 <!-- CAROUSEL -->
 <section id="carousel-habitats" class="py-4">
-    <div id="carouselHabitats" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 80%;">
+    <div id="carouselHabitats" class="carousel slide mx-auto  custom-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/assets/img/savane.jpg" class="d-block w-100" alt="">
