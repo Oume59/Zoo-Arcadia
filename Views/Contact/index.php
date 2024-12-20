@@ -5,9 +5,9 @@ $css = "editDashboard";
 <h3>Contactez-nous</h3>
 
 <?php if (!empty($message)): ?>
-    <p style="color: <?= strpos($message, 'succès') !== false ? 'green' : 'red'; ?>;">
-        <?= $message; ?>
-    </p>
+    <div class="<?= strpos($message, 'succès') !== false ? 'success-message' : 'error-message'; ?>">
+        <?= htmlspecialchars($message); ?>
+    </div>
 <?php endif; ?>
 
 <form action="/Contact/sendContactMail" method="POST">
