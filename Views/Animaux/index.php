@@ -7,7 +7,7 @@ $css = "animaux";
 
 <!-- CAROUSEL -->
 <section id="carousel-animals" class="py-4">
-    <div id="carouselAnimaux" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 80%;">
+    <div id="carouselAnimaux" class="carousel slide mx-auto custom-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/assets/img/animvisiteurs.jpg" class="d-block w-100" alt="Image de visiteurs et animaux">
