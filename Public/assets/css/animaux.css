@@ -3,6 +3,10 @@
   margin-top: 150px;
 }
 
+.custom-carousel {
+  max-width: 80%;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;

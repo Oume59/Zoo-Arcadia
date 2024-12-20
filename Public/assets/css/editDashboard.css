@@ -63,3 +63,16 @@ form button[type="submit"]:hover {
   display: block;
   margin-bottom: 10px;
 }
+
+p.success-message {
+  color: var(--forest-green);
+  text-align: center;
+  font-weight: bold;
+}
+
+p.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+

@@ -1,0 +1,50 @@
+/* Main pour le rapport */
+.report-container {
+    background-color: var(--earth-beige);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--light-gray);
+  }
+  
+  /* Titre de la section */
+  .report-title {
+    color: var(--olive-green);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Liste des rapports */
+  .report-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .report-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: var(--earth-beige);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--light-gray);
+  }
+  
+  .report-item strong {
+    color: var(--earth-brown);
+  }
+  
+  .report-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .no-report {
+    text-align: center;
+    color: var(--earth-brown);
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
