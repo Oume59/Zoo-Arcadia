@@ -1,8 +1,5 @@
 <?php
-$css = "accueil";
-?>
-<?php
-$css = "default";
+$css = "accueil"; // CSS Specifique 
 ?>
 
 <img class="imgaccueil" src="/assets/img/tigreaccueil.jpg" alt="" />
