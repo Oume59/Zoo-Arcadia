@@ -21,16 +21,17 @@ class DashServicesController extends Controller
     public function addService()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Traitement de l'image
+            $imgPath = null; // Initialisation pour éviter les erreurs
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = __DIR__ . '/../Public/assets/img/'; // Chemin absolu vers le dossier upload
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-                $image = $fileName . '.' . $fileExtension;
-
+                $image = $uploadDir . $fileName . '.' . $fileExtension;
+    
+                // Déplacement de l'image
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = $fileName . '.' . $fileExtension; // MAJ avec le nouveau chemin d'image
+                    $imgPath = 'assets/img/' . $fileName . '.' . $fileExtension; // Chemin relatif pour la BDD
                 }
             }
 
