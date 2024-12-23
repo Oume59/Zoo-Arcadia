@@ -29,6 +29,7 @@ class DashAnimauxController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Traitement de l'image
+            $imgPath = null;
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = __DIR__ . '/../Public/assets/img/'; // Chemin absolu vers le dossier upload
                 $tmpName = $_FILES['img']['tmp_name'];
