@@ -1,7 +1,4 @@
 <?php
-$css = "default";
-?>
-<?php
 $css = "animaux";
 ?>
 
