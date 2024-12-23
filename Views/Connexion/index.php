@@ -1,9 +1,6 @@
 <?php
 $css = "login";
 ?>
-<?php
-$css = "default";
-?>
 
 <!-- Formulaire de connexion user (nav bar) -->
 <div class="formus"></div>
