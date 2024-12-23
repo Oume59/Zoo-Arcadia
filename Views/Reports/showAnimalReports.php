@@ -2,7 +2,7 @@
 $css = "showAnimalReports";
 ?>
 
-<h3 class="report-title">Rapports pour <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
+<h3 class="report-title">Rapport du Vétérinaire : <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
 
 <?php if (!empty($reports)): ?>
     <div class="report-container">
