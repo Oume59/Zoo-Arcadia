@@ -1,7 +1,4 @@
 <?php
-$css = "default";
-?>
-<?php
 $css = "habitats";
 ?>
 
@@ -44,7 +41,7 @@ $css = "habitats";
                 <div class="card">
                     <img src="/assets/img/couvsavane.jpg" class="card-img-top" alt="Savane">
                     <div class="card-body text-center">
-                        <a href="#" class="btn btn-primary">SAVANE</a>
+                    <a href="/Habitats/showHabitatsCards/1" class="btn btn-primary">SAVANE</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +50,7 @@ $css = "habitats";
                 <div class="card">
                     <img src="/assets/img/croco.jpg" class="card-img-top" alt="Marais">
                     <div class="card-body text-center">
-                        <a href="#" class="btn btn-primary">MARAIS</a>
+                    <a href="/Habitats/showHabitatsCards/3" class="btn btn-primary">MARAIS</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +61,7 @@ $css = "habitats";
                 <div class="card">
                     <img src="/assets/img/couvjungle.jpg" class="card-img-top" alt="Jungle">
                     <div class="card-body text-center">
-                        <a href="#" class="btn btn-primary">JUNGLE</a>
+                    <a href="/Habitats/showHabitatsCards/2" class="btn btn-primary">JUNGLE</a>
                     </div>
                 </div>
             </div>
