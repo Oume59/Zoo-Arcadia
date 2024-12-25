@@ -7,8 +7,26 @@ class DashboardController extends Controller
     public function index()
     {
 
-        if (isset($_SESSION['id'])) { // Vérifie si l'utilisateur est connecté en vérif la variable id (si oui, on renvoi la vue avec $this->render)
-            $this->render('Dashboard/index');
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['id'])) {
+            // Vérification des rôles pour personnaliser l'accès
+            if ($_SESSION['role'] === 'administrateur') {
+                $this->render('Dashboard/index', ['role' => 'administrateur']);
+            } elseif ($_SESSION['role'] === 'veterinaire') {
+                $this->render('Dashboard/index', ['role' => 'veterinaire']);
+            } elseif ($_SESSION['role'] === 'employe') {
+                $this->render('Dashboard/index', ['role' => 'employe']);
+            } else {
+                // Rôle non reconnu
+                http_response_code(403);
+                echo "Rôle non reconnu. Accès interdit.";
+                exit;
+            }
+        } else {
+            // Si l'utilisateur n'est pas connecté
+            http_response_code(403);
+            echo "Accès interdit. Veuillez vous connecter.";
+            exit;
         }
     }
 }
