@@ -1,4 +1,4 @@
-<?php 
+<?php
 $css = "showHabitatsCards";
 ?>
 
@@ -23,9 +23,9 @@ $css = "showHabitatsCards";
                     <div class="card">
                         <img src="/assets/img/<?= htmlspecialchars($animal->img); ?>" class="card-img-top" alt="<?= htmlspecialchars($animal->name); ?>">
                         <div class="card-body text-center">
-                            <h5 class="card-title"><?= htmlspecialchars($animal->name); ?></h5>
+                            <p class="card-title"><?= htmlspecialchars($animal->name); ?></p>
                             <p class="card-text">Espèce : <?= htmlspecialchars($animal->species_name ?? 'Inconnue'); ?></p>
-                            <a href="/Reports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>" class="btn btn-primary">Voir les rapports</a>
+                            <a href="/Reports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>" class="btn btn-primary">Voir le rapport vétérinaire</a>
                         </div>
                     </div>
                 </div>
