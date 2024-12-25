@@ -64,12 +64,13 @@ h3 {
   font-size: 16px;
   color: var(--olive-green);
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 /* Boutons */
 .btn {
   background-color: var(--earth-brown);
-  color: var(--earth-beige);
+  color: var(--olive-green);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -81,3 +82,4 @@ h3 {
   background-color: var(--forest-green);
   color: var(--olive-green);
 }
+
