@@ -20,7 +20,7 @@ class HabitatsController extends Controller
         $habitatsModel = new HabitatsModel();
         $animauxModel = new AnimauxModel();
         $speciesModel = new SpeciesModel(); // Ajoute une instance de SpeciesModel
-    
+
         // Récupère les données de l'habitat via son ID
         $habitat = $habitatsModel->find($id);
         if (!$habitat) {
@@ -29,13 +29,13 @@ class HabitatsController extends Controller
             echo "Habitat introuvable.";
             exit;
         }
-    
+
         // Récupère les animaux liés à cet habitat
         $animalsInHabitat = $animauxModel->findBy(['habitat_id' => $id]);
-    
+
         // Récupère toutes les espèces
         $species = $speciesModel->getSpecies();
-    
+
         // Associe chaque animal à son espèce
         foreach ($animalsInHabitat as &$animal) {
             $animal->species_name = 'Inconnue'; // Valeur par défaut si aucune espèce trouvée
@@ -46,7 +46,7 @@ class HabitatsController extends Controller
                 }
             }
         }
-    
+
         // Rendu de la vue avec les données de l'habitat et des animaux
         $this->render('Habitats/showHabitatsCards', [
             'habitat' => $habitat,
