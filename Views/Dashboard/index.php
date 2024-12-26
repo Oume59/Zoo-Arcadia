@@ -8,7 +8,7 @@ $css = "dashboard";
     <div class="admin-dash">
         <div class="row">
 
-            <!-- Section Administrateur -->
+            <!-- autorisations Administrateur -->
             <?php if ($_SESSION['role'] === 'administrateur') : ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/AddUsers" class="admin-link">Ajouter un Utilisateur</a>
@@ -29,11 +29,23 @@ $css = "dashboard";
                     <a href="/ListServices/list" class="admin-link">Liste des Services</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/Consultation/list" class="admin-link">Statistiques Consultations</a>
+                    <a href="/DashAnimaux" class="admin-link">Ajouter un Animal</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/ListAnimaux/list" class="admin-link">Liste des Animaux</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/ListReports/list" class="admin-link">Liste des Rapports (Filtres)</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="#footer" class="admin-link">Voir les Horaires</a> <!-- Lien vers le footer -->
                 </div>
             <?php endif; ?>
 
-            <!-- Section Vétérinaire -->
+            <!-- autorisations Vétérinaire -->
             <?php if ($_SESSION['role'] === 'veterinaire') : ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/Reports" class="admin-link">Ajouter un Rapport Animal</a>
@@ -46,7 +58,8 @@ $css = "dashboard";
                 </div>
             <?php endif; ?>
 
-            <!-- Section Employé -->
+
+            <!-- autorisations Employé -->
             <?php if ($_SESSION['role'] === 'employe') : ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/Reviews" class="admin-link">Avis à Valider</a>
@@ -55,13 +68,10 @@ $css = "dashboard";
                     <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/DashServices" class="admin-link">Modifier les Services</a>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/ListServices/list" class="admin-link">Liste des Services</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/FoodTracking" class="admin-link">Suivi des Aliments</a>
+                    <a href="/FoodTracking" class="admin-link">Nourriture Quotidienne</a> <!-- Vue à créer -->
                 </div>
             <?php endif; ?>
         </div>
