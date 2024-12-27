@@ -76,7 +76,7 @@
     <!--END MAIN CONTENT -->
 
     <!-- FOOTER -->
-    <div class="footer-container">
+    <div id="footer" class="footer-container">
         <div class="row">
             <div class="col-md-4">
                 <p class="footer-text"><strong>Adresse :</strong><br>
@@ -87,6 +87,7 @@
                 </p>
             </div>
             <div class="col-md-4">
+                <id class="Horaires"></id=>
                 <p class="footer-text"><strong>Horaires :</strong><br>
                     Le zoo est ouvert tous les jours :<br>
                     de 9h00 à 19h00.<br>
