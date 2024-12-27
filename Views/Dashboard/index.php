@@ -35,13 +35,13 @@ $css = "dashboard";
                     <a href="/ListAnimaux/list" class="admin-link">Liste des Animaux</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/ListReports/list" class="admin-link">Liste des Rapports (Filtres)</a>
+                    <a href="/ListReports/list" class="admin-link">Liste des Rapports vétérinaire</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="#footer" class="admin-link">Voir les Horaires</a> <!-- Lien vers le footer -->
+                    <a href="/#footer" class="admin-link">Horaires</a> <!-- Lien vers le footer -->
                 </div>
             <?php endif; ?>
 
@@ -71,7 +71,7 @@ $css = "dashboard";
                     <a href="/ListServices/list" class="admin-link">Liste des Services</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/FoodTracking" class="admin-link">Nourriture Quotidienne</a> <!-- Vue à créer -->
+                    <a href="/ListReports/list" class="admin-link">Nourriture Quotidienne des Animaux</a> <!-- Vue à créer -->
                 </div>
             <?php endif; ?>
         </div>

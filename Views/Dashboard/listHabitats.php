@@ -9,6 +9,7 @@ $css = "listDashboard";
         <tr>
             <th>Nom</th>
             <th>Description</th>
+            <th>Commentaire Vétérinaire</th>
             <th>Photo</th>
             <th>Action</th>
         </tr>
@@ -18,6 +19,7 @@ $css = "listDashboard";
             <tr>
                 <td><?php echo htmlspecialchars($habitat->name); ?></td>
                 <td><?php echo htmlspecialchars($habitat->description ?? 'Non défini'); ?></td>
+                <td><?= !empty($habitat->commentaire) ? htmlspecialchars($habitat->commentaire) : 'Pas de commentaire'; ?></td>
                 <td>
                     <?php if (!empty($habitat->img)): ?>
                         <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Photo de l'habitat" class="image-list">

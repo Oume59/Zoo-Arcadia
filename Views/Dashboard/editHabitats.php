@@ -14,6 +14,12 @@ $css = "editDashboard";
     <textarea name="description" required><?php echo htmlspecialchars($habitat->description); ?></textarea>
     <br>
 
+    <?php if ($_SESSION['role'] === 'veterinaire'): ?>
+        <label>Commentaire Vétérinaire :</label>
+        <textarea name="commentaire"><?= htmlspecialchars($habitat->commentaire ?? ''); ?></textarea>
+        <br>
+    <?php endif; ?>
+
     <label>Image actuelle :</label>
     <br>
     <?php if (!empty($habitat->img)): ?>

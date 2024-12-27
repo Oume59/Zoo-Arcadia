@@ -17,7 +17,7 @@ $css = "editDashboard";
     <input type="text" name="health_state" value="<?php echo htmlspecialchars($report->health_state); ?>" required>
     <br>
 
-    <label>Nourriture :</label>
+    <label>Nourriture (Recommandée) :</label>
     <input type="text" name="food" value="<?php echo htmlspecialchars($report->food); ?>" required>
     <br>
 
@@ -35,12 +35,35 @@ $css = "editDashboard";
     <button type="submit">Enregistrer les modifications</button>
 </form>
 
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
-    <?php unset($_SESSION['success_message']); ?>
-<?php endif; ?>
+<!-- Modifier la consommation alimentaire des animaux -->
+<?php if ($_SESSION['role'] === 'employe'): ?>
+    <h4>Consommation alimentaire donnée sur la journée</h4>
+    <form action="/ListReports/edit/<?php echo $report->id; ?>" method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
-    <?php unset($_SESSION['error_message']); ?>
-<?php endif; ?>
+        <label>Date :</label>
+        <input type="date" name="daily_food_date" value="<?php echo date('Y-m-d'); ?>" required>
+        <br>
+
+        <label>Heure :</label>
+        <input type="time" name="daily_food_time" value="<?php echo date('H:i'); ?>" required>
+        <br>
+
+        <label>Description de la nourriture :</label>
+        <textarea name="daily_food_details" placeholder="Exemple : 2 kg de viande, 1 pomme"></textarea>
+        <br>
+    <?php endif; ?>
+
+
+    <?php if (isset($_SESSION['success_message'])) : ?>
+        <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+        <?php unset($_SESSION['success_message']); ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['error_message'])) : ?>
+        <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+        <?php unset($_SESSION['error_message']); ?>
+    <?php endif; ?>
+
+    <button type="submit">Enregistrer les modifications</button>
+    </form>
