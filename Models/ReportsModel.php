@@ -10,6 +10,7 @@ class ReportsModel extends Model
     protected $health_state;
     protected $food;
     protected $animal_id;
+    protected $daily_food;
 
     public function __construct()
     {
@@ -21,40 +22,42 @@ class ReportsModel extends Model
     {
         $sql = "
             SELECT 
-            r.id, 
-            r.date_report, 
-            r.details, 
-            r.health_state,
-            r.food, 
-            r.animal_id, 
-            a.name,
-            a.id AS idAnimal
-        FROM 
-            {$this->table} r
-        LEFT JOIN 
-            Animals a ON r.animal_id = a.id
+                r.id, 
+                r.date_report, 
+                r.details, 
+                r.health_state,
+                r.food, 
+                r.animal_id,
+                r.daily_food, 
+                a.name AS animal_name
+            FROM 
+                {$this->table} r
+            LEFT JOIN 
+                Animals a ON r.animal_id = a.id
         ";
         return $this->req($sql)->fetchAll();
     }
 
+    // Récupérer un rapport par l'ID de l'animal
     public function getReportsByAnimalId($animal_id)
-{
-    $sql = "
-        SELECT 
-            r.id, 
-            r.date_report, 
-            r.details, 
-            r.health_state,
-            r.food
-        FROM 
-            {$this->table} r
-        WHERE 
-            r.animal_id = :animal_id
-    ";
-    return $this->req($sql, ['animal_id' => $animal_id])->fetchAll();
-}
+    {
+        $sql = "
+            SELECT 
+                r.id, 
+                r.date_report, 
+                r.details, 
+                r.health_state,
+                r.food,
+                r.daily_food
+            FROM 
+                {$this->table} r
+            WHERE 
+                r.animal_id = :animal_id
+        ";
+        return $this->req($sql, ['animal_id' => $animal_id])->fetchAll();
+    }
 
-     // Setters pour definir/modifier et Getters pour obtenir :
+    // Setters pour definir/modifier et Getters pour obtenir :
     public function getId()
     {
         return $this->id;
@@ -120,4 +123,15 @@ class ReportsModel extends Model
         $this->animal_id = $animal_id;
         return $this;
     }
+
+    public function getDailyFood()
+{
+    return $this->daily_food;
+}
+
+public function setDailyFood($daily_food): self
+{
+    $this->daily_food = $daily_food;
+    return $this;
+}
 }
