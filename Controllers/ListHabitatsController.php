@@ -48,6 +48,7 @@ class ListHabitatsController extends Controller
             $habitatsModel->hydrate([
                 'name' => $_POST['name'] ?? $habitat->name,
                 'description' => $_POST['description'] ?? $habitat->description,
+                'commentaire' => $_POST['commentaire'] ?? $habitat->commentaire,
                 'img' => $imgPath
             ]);
 
