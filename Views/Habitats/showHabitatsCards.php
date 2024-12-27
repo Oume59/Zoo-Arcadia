@@ -12,6 +12,10 @@ $css = "showHabitatsCards";
         <div class="col-md-6">
             <h3>Description</h3>
             <p><?= nl2br(htmlspecialchars($habitat->description)); ?></p>
+            <br>
+            <h3>Commentaire Vétérinaire :</h3>
+<p><?= !empty($habitat->commentaire) ? htmlspecialchars($habitat->commentaire) : 'Aucun commentaire disponible.'; ?></p>
+<br>
         </div>
     </div>
 
