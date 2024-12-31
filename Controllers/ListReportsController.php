@@ -26,20 +26,20 @@ class ListReportsController extends Controller
     {
         $reportsModel = new ReportsModel();
         $animauxModel = new AnimauxModel();
-    
+
         // Récupérer le rapport par ID
         $report = $reportsModel->find($id);
         $animals = $animauxModel->findAll();
-    
+
         if (!$report) {
             $_SESSION['error_message'] = "Rapport introuvable.";
             header("Location: /ListReports/list");
             exit();
         }
-    
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_SESSION['role'] === 'veterinaire') {
-                // Mise à jour des champs pour les vétérinaires
+                // Mise à jour des champs pour le vétérinaire
                 $reportsModel->hydrate([
                     'date_report' => $_POST['date_report'] ?? $report->date_report,
                     'details' => $_POST['details'] ?? $report->details,
@@ -47,21 +47,17 @@ class ListReportsController extends Controller
                     'food' => $_POST['food'] ?? $report->food,
                     'animal_id' => $_POST['animal_id'] ?? $report->animal_id,
                 ]);
-            } if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if ($_SESSION['role'] === 'employe') {
-                    $dailyFood = ($_POST['daily_food_date'] ?? '') . " à " . ($_POST['daily_food_time'] ?? '') . " : " . ($_POST['daily_food_details'] ?? '');
-                    $reportsModel->hydrate([
-                        'food' => $report->food . "\n" . $dailyFood,
-                    ]);
-                }
-            
-                if ($reportsModel->update($id)) {
-                    $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
-                    header("Location: /ListReports/list");
-                    exit();
-                }
-            }          
-            
+            } elseif ($_SESSION['role'] === 'employe') {
+                // Mise à jour spécifique pour l'employé
+                $dailyFood = ($_POST['daily_food_date'] ?? '') . " à " . ($_POST['daily_food_time'] ?? '') . " : " . ($_POST['daily_food_details'] ?? '');
+
+                // Vérifie que `daily_food` est correctement transmis
+                $reportsModel->hydrate([
+                    'daily_food' => trim($dailyFood),
+                ]);
+            }
+
+            // Exécution de l'update
             if ($reportsModel->update($id)) {
                 $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
                 header("Location: /ListReports/list");
@@ -70,13 +66,13 @@ class ListReportsController extends Controller
                 $_SESSION['error_message'] = "Erreur lors de la modification.";
             }
         }
-    
+
         $this->render('Dashboard/editReports', [
             'report' => $report,
             'animals' => $animals,
         ]);
     }
-    
+
     public function delete($id)
     {
         if ($id) {
