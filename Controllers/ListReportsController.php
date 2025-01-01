@@ -47,23 +47,26 @@ class ListReportsController extends Controller
                     'food' => $_POST['food'] ?? $report->food,
                     'animal_id' => $_POST['animal_id'] ?? $report->animal_id,
                 ]);
-            } elseif ($_SESSION['role'] === 'employe') {
+            } else if ($_SESSION['role'] === 'employe') {
                 // Mise à jour spécifique pour l'employé
                 $dailyFood = ($_POST['daily_food_date'] ?? '') . " à " . ($_POST['daily_food_time'] ?? '') . " : " . ($_POST['daily_food_details'] ?? '');
-
-                // Vérifie que `daily_food` est correctement transmis
                 $reportsModel->hydrate([
                     'daily_food' => trim($dailyFood),
                 ]);
             }
 
-            // Exécution de l'update
-            if ($reportsModel->update($id)) {
-                $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
-                header("Location: /ListReports/list");
-                exit();
+            // Vérifie si les valeurs sont correctement définies avant l'update
+            if (!empty($reportsModel->getDailyFood())) {
+                // Exécution de l'update
+                if ($reportsModel->update($id)) {
+                    $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
+                    header("Location: /ListReports/list");
+                    exit();
+                } else {
+                    $_SESSION['error_message'] = "Erreur lors de la modification.";
+                }
             } else {
-                $_SESSION['error_message'] = "Erreur lors de la modification.";
+                $_SESSION['error_message'] = "Les données transmises sont invalides.";
             }
         }
 
@@ -72,6 +75,7 @@ class ListReportsController extends Controller
             'animals' => $animals,
         ]);
     }
+
 
     public function delete($id)
     {
