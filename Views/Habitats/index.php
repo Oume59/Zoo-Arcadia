@@ -36,35 +36,18 @@ $css = "habitats";
 <section id="cards-habitats" class="py-5">
     <div class="container">
         <div class="row justify-content-center">
-
-            <div class="col-md-5 mb-4">
-                <div class="card">
-                    <img src="/assets/img/couvsavane.jpg" class="card-img-top" alt="Savane">
-                    <div class="card-body text-center">
-                    <a href="/Habitats/showHabitatsCards/1" class="btn btn-primary">SAVANE</a>
+            <?php foreach ($habitats as $habitat): ?>
+                <div class="col-md-5 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/<?= htmlspecialchars($habitat->img) ?>" class="card-img-top" alt="<?= htmlspecialchars($habitat->name) ?>">
+                        <div class="card-body text-center">
+                            <a href="/Habitats/showHabitatsCards/<?= htmlspecialchars($habitat->id) ?>" class="btn btn-primary">
+                                <?= htmlspecialchars($habitat->name) ?>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-5 mb-4">
-                <div class="card">
-                    <img src="/assets/img/croco.jpg" class="card-img-top" alt="Marais">
-                    <div class="card-body text-center">
-                    <a href="/Habitats/showHabitatsCards/3" class="btn btn-primary">MARAIS</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-5 mb-4">
-                <div class="card">
-                    <img src="/assets/img/couvjungle.jpg" class="card-img-top" alt="Jungle">
-                    <div class="card-body text-center">
-                    <a href="/Habitats/showHabitatsCards/2" class="btn btn-primary">JUNGLE</a>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
