@@ -40,9 +40,9 @@ $css = "dashboard";
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/#footer" class="admin-link">Horaires</a> <!-- Lien vers le footer -->
-                </div>
+                <!--<div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/#footer" class="admin-link">Horaires</a> A MODIFIER DIRECTEMENT VIA LE FOOTER
+                </div> -->
             <?php endif; ?>
 
             <!-- autorisations Vétérinaire -->
