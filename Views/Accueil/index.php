@@ -44,7 +44,7 @@ $css = "accueil"; // CSS Specifique
                         <div class="card-title-overlay">
                             <p><?= htmlspecialchars($service->name) ?></p>
                         </div>
-                        <a href="/Services/details/<?= htmlspecialchars($service->id) ?>"
+                        <a href="/Main/showServicesCards/<?= htmlspecialchars($service->id) ?>"
                             class="btn btn-infos">INFOS</a>
                     </div>
                 </div>
@@ -52,3 +52,8 @@ $css = "accueil"; // CSS Specifique
         </div>
     </div>
 </section>
+
+<!-- REVIEWS -->
+<div class="title d-flex justify-content-center">
+    <h3>LES AVIS</h3>
+</div>
