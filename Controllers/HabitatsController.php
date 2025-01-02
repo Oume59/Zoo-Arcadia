@@ -11,8 +11,12 @@ class HabitatsController extends Controller
 
     public function index()
     {
-        // Renvoyer la vue d'Animaux visiteurs
-        $this->render("Habitats/index");
+        $habitatsModel = new HabitatsModel();
+        $habitats = $habitatsModel->findAll(); // Récupère tous les habitats
+
+        $this->render('Habitats/index', [
+            'habitats' => $habitats
+        ]);
     }
 
     public function showHabitatsCards($id)
