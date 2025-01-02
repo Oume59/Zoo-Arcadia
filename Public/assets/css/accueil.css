@@ -8,14 +8,15 @@
 
 .title h1 {
   position: absolute;
-  top: 90%;
+  top: 100%; 
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   border-radius: 5px;
-  padding: 50px 70px;
-  background-color: rgba(255, 255, 255, 0.7);
+  padding: 60px 90px;
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
+  white-space: nowrap; 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -48,14 +49,27 @@
 
 .title h2 {
   color: var(--black);
-  padding: 25px 100px; /* Plus grand rectangle */
+  padding: 25px 550px; 
   background-color: var(--olive-green);
-  margin-top: 80px; /* Plus d'espace avec le cercle au-dessus */
-  margin-bottom: 50px; /* Plus d'espace avec les cartes */
+  margin-top: 20px; 
+  margin-bottom: 100px; 
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 5px; /* Ajoute une légère courbure pour harmoniser */
+  border-radius: 5px; 
+  display: inline-block;
+}
+
+.title h3 {
+  color: var(--black);
+  padding: 25px 550px; 
+  background-color: var(--olive-green);
+  margin-top: 20px; 
+  margin-bottom: 100px; 
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px; 
   display: inline-block;
 }
 
