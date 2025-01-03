@@ -1,50 +1,77 @@
-/* Main pour le rapport */
-.report-container {
-    background-color: var(--earth-beige);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--light-gray);
-  }
-  
-  /* Titre de la section */
-  .report-title {
-    color: var(--olive-green);
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Liste des rapports */
-  .report-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .report-item {
-    margin-bottom: 15px;
-    padding: 15px;
-    background-color: var(--earth-beige);
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--light-gray);
-  }
-  
-  .report-item strong {
-    color: var(--earth-brown);
-  }
-  
-  .report-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .no-report {
-    text-align: center;
-    color: var(--earth-brown);
-    font-style: italic;
-    margin-top: 20px;
-  }
-  
+/* STYLE RAPPORTS VETO + CONSO FOOD ANIMALS */
+.report-title {
+  color: var(--olive-green);
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 70px auto 30px; /* Espace supplémentaire au-dessus */
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--earth-brown);
+  display: inline-block;
+}
+
+.centered h4 {
+  color: var(--olive-green);
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: var(--earth-beige);
+  border: 2px solid var(--earth-brown);
+  display: inline-block;
+  margin: 20px auto;
+  text-align: center;
+  width: fit-content;
+}
+
+.report-container,
+.consumption-container {
+  background-color: var(--earth-beige);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 20px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--earth-brown);
+  text-align: left;
+}
+
+.report-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.report-item {
+  background-color: var(--earth-beige);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid var(--earth-brown);
+  font-size: 16px;
+}
+
+.report-item strong {
+  color: var(--olive-green);
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-consumption,
+.no-report {
+  text-align: center;
+  color: var(--olive-green);
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.report-item:hover,
+.consumption-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
