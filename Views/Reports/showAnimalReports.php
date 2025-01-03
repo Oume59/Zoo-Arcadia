@@ -2,10 +2,14 @@
 $css = "showAnimalReports";
 ?>
 
-<h3 class="report-title">Détails pour : <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
+<div class="centered">
+    <h3 class="report-title highlighted">Détails pour : <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
+</div>
 
-<!-- Reports vétérinaire -->
-<h4>Rapports Vétérinaires</h4>
+<!-- REPORTS VETERINARY -->
+<div class="centered">
+    <h4>Rapports Vétérinaires</h4>
+</div>
 
 <?php if (!empty($reports)): ?>
     <div class="report-container">
@@ -24,8 +28,10 @@ $css = "showAnimalReports";
     <p class="no-report">Aucun rapport vétérinaire disponible pour cet animal.</p>
 <?php endif; ?>
 
-<!-- Conso foo/J ANIMALS -->
-<h4>Consommations Alimentaires</h4>
+<!-- CONSO FOOD/J ANIMALS -->
+<div class="centered">
+    <h4>Consommations Alimentaires</h4>
+</div>
 
 <?php if (!empty($foodConsumptions)): ?>
     <div class="consumption-container">
