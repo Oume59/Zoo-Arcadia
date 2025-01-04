@@ -8,7 +8,7 @@ $css = "showAnimalReports";
 
 <!-- REPORTS VETERINARY -->
 <div class="centered">
-    <h4>Rapports Vétérinaires</h4>
+    <h4>Rapports Vétérinaire</h4>
 </div>
 
 <?php if (!empty($reports)): ?>
