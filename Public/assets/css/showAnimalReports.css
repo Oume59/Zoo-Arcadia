@@ -4,7 +4,7 @@
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-  margin: 70px auto 30px; /* Espace supplémentaire au-dessus */
+  margin: 70px auto 30px; 
   padding-bottom: 10px;
   border-bottom: 2px solid var(--earth-brown);
   display: inline-block;
