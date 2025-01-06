@@ -2,7 +2,7 @@
 $css = "editDashboard";
 ?>
 
-<!-- Formulaire pour les vétérinaires -->
+<!-- REPORTS VETERINARY -->
 <?php if ($_SESSION['role'] === 'veterinaire'): ?>
     <h4>Modification du rapport vétérinaire</h4>
     <form action="/ListReports/edit/<?php echo $report->id; ?>" method="POST">
@@ -39,29 +39,29 @@ $css = "editDashboard";
     </form>
 <?php endif; ?>
 
-<!-- Formulaire pour les employés -->
+<!-- CONSO FOOD/J ANIMALS -->
 <?php if ($_SESSION['role'] === 'employe'): ?>
     <h4>Consommation alimentaire donnée sur la journée</h4>
     <form action="/ListReports/edit/<?php echo $report->id; ?>" method="POST">
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
         <label>Date :</label>
-        <input type="date" name="daily_food_date" value="<?php echo date('Y-m-d'); ?>" required>
-        <br>
+    <input type="date" name="daily_food_date" value="<?php echo date('Y-m-d'); ?>" required>
+    <br>
 
-        <label>Heure :</label>
-        <input type="time" name="daily_food_time" value="<?php echo date('H:i'); ?>" required>
-        <br>
+    <label>Heure :</label>
+    <input type="time" name="daily_food_time" value="<?php echo date('H:i'); ?>" required>
+    <br>
 
-        <label>Description de la nourriture :</label>
-        <textarea name="daily_food_details" placeholder="Exemple : 2 kg de viande, 1 pomme" required></textarea>
-        <br>
+    <label>Description de la nourriture :</label>
+    <textarea name="daily_food_details" placeholder="Exemple : 2 kg de viande, 1 pomme" required></textarea>
+    <br>
 
-        <button type="submit">Enregistrer les modifications</button>
-    </form>
+    <button type="submit">Enregistrer les modifications</button>
+</form>
 <?php endif; ?>
 
-<!-- Affichage des messages de succès ou d'erreur -->
+<!-- MESSAGES de succès ou d'erreur -->
 <?php if (isset($_SESSION['success_message'])) : ?>
     <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
