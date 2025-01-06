@@ -11,13 +11,14 @@ class ReportsModel extends Model
     protected $food;
     protected $animal_id;
     protected $daily_food;
+    protected $daily_food_date;
+    protected $daily_food_time;
 
     public function __construct()
     {
         $this->table = "Veterinary_report";
     }
 
-    // Récupère les rapports vétérinaires avec toutes les infos nécessaires
     public function getReportsWithAnimals()
     {
         $sql = "
@@ -28,7 +29,9 @@ class ReportsModel extends Model
                 r.health_state,
                 r.food, 
                 r.animal_id,
-                r.daily_food, 
+                r.daily_food,
+                r.daily_food_date, 
+                r.daily_food_time,
                 a.name AS animal_name
             FROM 
                 {$this->table} r
@@ -38,7 +41,6 @@ class ReportsModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
-    // Récupérer un rapport par l'ID de l'animal
     public function getReportsByAnimalId($animal_id)
     {
         $sql = "
@@ -48,7 +50,9 @@ class ReportsModel extends Model
                 r.details, 
                 r.health_state,
                 r.food,
-                r.daily_food
+                r.daily_food,
+                r.daily_food_date, 
+                r.daily_food_time
             FROM 
                 {$this->table} r
             WHERE 
@@ -57,7 +61,23 @@ class ReportsModel extends Model
         return $this->req($sql, ['animal_id' => $animal_id])->fetchAll();
     }
 
-    // Setters pour definir/modifier et Getters pour obtenir :
+    public function getFoodConsumptionsByAnimalId($animal_id)
+    {
+        $sql = "
+            SELECT 
+                r.daily_food_date AS date, 
+                r.daily_food_time AS time, 
+                r.daily_food AS food 
+            FROM 
+                {$this->table} r
+            WHERE 
+                r.animal_id = :animal_id 
+                AND r.daily_food IS NOT NULL
+        ";
+        return $this->req($sql, ['animal_id' => $animal_id])->fetchAll();
+    }
+
+    // Setters et Getters
     public function getId()
     {
         return $this->id;
@@ -125,13 +145,35 @@ class ReportsModel extends Model
     }
 
     public function getDailyFood()
-{
-    return $this->daily_food;
-}
+    {
+        return $this->daily_food;
+    }
 
-public function setDailyFood($daily_food): self
-{
-    $this->daily_food = $daily_food;
-    return $this;
-}
+    public function setDailyFood($daily_food): self
+    {
+        $this->daily_food = $daily_food;
+        return $this;
+    }
+
+    public function getDailyFoodDate()
+    {
+        return $this->daily_food_date;
+    }
+
+    public function setDailyFoodDate($daily_food_date): self
+    {
+        $this->daily_food_date = $daily_food_date;
+        return $this;
+    }
+
+    public function getDailyFoodTime()
+    {
+        return $this->daily_food_time;
+    }
+
+    public function setDailyFoodTime($daily_food_time): self
+    {
+        $this->daily_food_time = $daily_food_time;
+        return $this;
+    }
 }
