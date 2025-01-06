@@ -27,7 +27,7 @@ class ListReportsController extends Controller
         $reportsModel = new ReportsModel();
         $animauxModel = new AnimauxModel();
 
-        // Récupérer le rapport par ID
+        // Récupérer le rapport Véto par ID
         $report = $reportsModel->find($id);
         $animals = $animauxModel->findAll();
 
@@ -49,14 +49,12 @@ class ListReportsController extends Controller
                 ]);
             } else if ($_SESSION['role'] === 'employe') {
                 // Mise à jour spécifique pour l'employé
-                $dailyFood = ($_POST['daily_food_date'] ?? '') . " à " . ($_POST['daily_food_time'] ?? '') . " : " . ($_POST['daily_food_details'] ?? '');
                 $reportsModel->hydrate([
-                    'daily_food' => trim($dailyFood),
+                    'daily_food' => $_POST['daily_food'] ?? $report->daily_food,
+                    'daily_food_date' => $_POST['daily_food_date'] ?? $report->daily_food_date,
+                    'daily_food_time' => $_POST['daily_food_time'] ?? $report->daily_food_time,
                 ]);
-            }
-
-            // Vérifie si les valeurs sont correctement définies avant l'update
-            if (!empty($reportsModel->getDailyFood())) {
+            
                 // Exécution de l'update
                 if ($reportsModel->update($id)) {
                     $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
@@ -76,7 +74,6 @@ class ListReportsController extends Controller
         ]);
     }
 
-
     public function delete($id)
     {
         if ($id) {
@@ -94,5 +91,23 @@ class ListReportsController extends Controller
 
         header("Location: /ListReports/list");
         exit();
+    }
+
+    public function showAnimalReports($animal_id)
+    {
+        $reportsModel = new ReportsModel();
+        $animauxModel = new AnimauxModel();
+
+        $animal = $animauxModel->find($animal_id);
+        $reports = $reportsModel->getReportsByAnimalId($animal_id);
+
+        // Récupérer les consommations alimentaires pour l'animal
+        $foodConsumptions = $reportsModel->getFoodConsumptionsByAnimalId($animal_id);
+
+        $this->render('showAnimalReports', [
+            'animal' => $animal,
+            'reports' => $reports,
+            'foodConsumptions' => $foodConsumptions,
+        ]);
     }
 }
