@@ -27,7 +27,7 @@ class ListReportsController extends Controller
         $reportsModel = new ReportsModel();
         $animauxModel = new AnimauxModel();
 
-        // Récupérer le rapport Véto par ID
+        // Récupérer le rapport par ID
         $report = $reportsModel->find($id);
         $animals = $animauxModel->findAll();
 
@@ -38,36 +38,31 @@ class ListReportsController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_SESSION['role'] === 'veterinaire') {
                 // Mise à jour des champs pour le vétérinaire
-                $reportsModel->hydrate([
+                
+                $data = [
+                    'id' => $id,
                     'date_report' => $_POST['date_report'] ?? $report->date_report,
                     'details' => $_POST['details'] ?? $report->details,
                     'health_state' => $_POST['health_state'] ?? $report->health_state,
                     'food' => $_POST['food'] ?? $report->food,
                     'animal_id' => $_POST['animal_id'] ?? $report->animal_id,
-                ]);
-            } else if ($_SESSION['role'] === 'employe') {
-                // Mise à jour spécifique pour l'employé
-                $reportsModel->hydrate([
                     'daily_food' => $_POST['daily_food'] ?? $report->daily_food,
                     'daily_food_date' => $_POST['daily_food_date'] ?? $report->daily_food_date,
                     'daily_food_time' => $_POST['daily_food_time'] ?? $report->daily_food_time,
-                ]);
-            
-                // Exécution de l'update
-                if ($reportsModel->update($id)) {
-                    $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
-                    header("Location: /ListReports/list");
-                    exit();
-                } else {
-                    $_SESSION['error_message'] = "Erreur lors de la modification.";
-                }
+                ];
+                $reportsModel->hydrate($data);
+            // MAJ DES DATA
+            if ($reportsModel->update($id, $data)) {
+                $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
+                header("Location: /ListReports/list");
+                exit();
             } else {
-                $_SESSION['error_message'] = "Les données transmises sont invalides.";
+                $_SESSION['error_message'] = "Erreur lors de la modification.";
             }
         }
 
+        // RENVOI A VIEW
         $this->render('Dashboard/editReports', [
             'report' => $report,
             'animals' => $animals,
@@ -91,23 +86,5 @@ class ListReportsController extends Controller
 
         header("Location: /ListReports/list");
         exit();
-    }
-
-    public function showAnimalReports($animal_id)
-    {
-        $reportsModel = new ReportsModel();
-        $animauxModel = new AnimauxModel();
-
-        $animal = $animauxModel->find($animal_id);
-        $reports = $reportsModel->getReportsByAnimalId($animal_id);
-
-        // Récupérer les consommations alimentaires pour l'animal
-        $foodConsumptions = $reportsModel->getFoodConsumptionsByAnimalId($animal_id);
-
-        $this->render('showAnimalReports', [
-            'animal' => $animal,
-            'reports' => $reports,
-            'foodConsumptions' => $foodConsumptions,
-        ]);
     }
 }
