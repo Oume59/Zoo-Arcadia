@@ -70,26 +70,21 @@ class Model extends ConnexionDb
     }
 
 
-    public function update(int $id) // Met à jour une entrée en fonction de son identifiant
+    public function update(int $id, array $data)
     {
         $champs = [];
         $valeurs = [];
 
-        // Prépare les champs et valeurs pour la mise à jour
-        foreach ($this as $champ => $valeur) {
-
-            if ($valeur != null && $champ != 'db' && $champ != 'table') {
+        foreach ($data as $champ => $valeur) {
+            if ($valeur !== null && $champ != 'db' && $champ != 'table') {
                 $champs[] = "$champ = ?";
                 $valeurs[] = $valeur;
             }
         }
         $valeurs[] = $id;
+        $listChamps = implode(', ', $champs);
 
-        // Concatène les champs pour la requête
-        $liste_champs = implode(', ', $champs);
-
-        // Exécution de la requete
-        return $this->req('UPDATE ' . $this->table . ' SET ' . $liste_champs . ' WHERE id = ?', $valeurs);
+        return $this->req('UPDATE ' . $this->table . ' SET ' . $listChamps . ' WHERE id = ?', $valeurs);
     }
 
 
