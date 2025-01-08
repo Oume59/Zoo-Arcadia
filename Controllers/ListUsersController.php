@@ -27,30 +27,50 @@ class ListUsersController extends Controller
     }
 
     public function edit($id)
-    {
-        $userModel = new UserModel();
-        $user = $userModel->find($id); // Récupère un utilisateur spécifique
+{
+    $userModel = new UserModel();
+    $user = $userModel->find($id); // Récupère un utilisateur par son ID
 
-        $RolesModel = new RolesModel();
-        $roles = $RolesModel->findAll(); // Récupère tous les rôles pour le choix dans le formulaire
+    // Vérification si l'utilisateur existe
+    if (!$user) {
+        $_SESSION["error_message"] = "Utilisateur introuvable.";
+        header('Location: /ListUsers/list');
+        exit();
+    }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $userModel->hydrate($_POST);
-            if ($userModel->update($id)) {
-                $_SESSION["success_message"] = 'Utilisateur modifié avec succès';
-            } else {
-                $_SESSION["error_message"] = 'Erreur lors de la modification de l\'utilisateur';
-            }
-            // Redirection après mise à jour
-            header('Location: /ListUsers/list');
-            exit();
+    $rolesModel = new RolesModel();
+    $roles = $rolesModel->findAll(); // Récupère tous les rôles
+
+    // Traitement du formulaire
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Hydrate les données
+        $data = [
+            'id' => $id,
+            'username' => $_POST['username'] ?? $user->username,
+            'email' => $_POST['email'] ?? $user->email,
+            'id_role' => $_POST['id_role'] ?? $user->id_role,
+        ];
+
+        $userModel->hydrate($data);
+
+        if ($userModel->update($id, $data)) {
+            $_SESSION["success_message"] = "Utilisateur modifié avec succès.";
+        } else {
+            $_SESSION["error_message"] = "Erreur lors de la modification de l'utilisateur.";
         }
 
-        $this->render('Dashboard/editUsers', [
-            'user' => $user, // Envoie l'utilisateur à la vue pour édition
-            'roles' => $roles // Envoie les rôles à la vue pour le choix du rôle
-        ]);
+        // Redirection après traitement
+        header('Location: /ListUsers/list');
+        exit();
     }
+
+    // Transmet les données à la vue
+    $this->render('Dashboard/editUsers', [
+        'user' => $user,
+        'roles' => $roles,
+    ]);
+}
+
 
     public function delete($id) // Utiliser la méthode delete pour supp un utilisateur de la BDD
     {

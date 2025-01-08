@@ -44,15 +44,17 @@ class ListHabitatsController extends Controller
                 }
             }
 
-            // Hydratation des données
-            $habitatsModel->hydrate([
+            $data = [
+                'id' => $id,
                 'name' => $_POST['name'] ?? $habitat->name,
                 'description' => $_POST['description'] ?? $habitat->description,
                 'commentaire' => $_POST['commentaire'] ?? $habitat->commentaire,
-                'img' => $imgPath
-            ]);
+                'img' => $imgPath,
+            ];
 
-            if ($habitatsModel->update($id)) {
+            $habitatsModel->hydrate($data);
+
+            if ($habitatsModel->update($id, $data)) {
                 $_SESSION["success_message"] = 'Habitat modifié avec succès';
             } else {
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'habitat';
@@ -62,12 +64,10 @@ class ListHabitatsController extends Controller
             exit();
         }
 
-        // Transmet les données à la vue
         $this->render('Dashboard/editHabitats', [
-            'habitat' => $habitat
+            'habitat' => $habitat,
         ]);
     }
-
     public function delete($id)
     {
         $habitatsModel = new HabitatsModel();
@@ -80,8 +80,8 @@ class ListHabitatsController extends Controller
 
     private $habitatsModel;
 
-public function setHabitatsModel($model)
-{
-    $this->habitatsModel = $model;
-}
+    public function setHabitatsModel($model)
+    {
+        $this->habitatsModel = $model;
+    }
 }

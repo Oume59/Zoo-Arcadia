@@ -31,19 +31,26 @@ class ListSpeciesController extends Controller
         $species = $speciesModel->find($id); // Récupère une espèce spécifique
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $speciesModel->hydrate($_POST);
-            if ($speciesModel->update($id)) {
+            $data = [
+                'id' => $id,
+                'name' => $_POST['name'] ?? $species->name,
+                'description' => $_POST['description'] ?? $species->description,
+            ];
+
+            $speciesModel->hydrate($data);
+
+            if ($speciesModel->update($id, $data)) {
                 $_SESSION["success_message"] = 'Espèce modifiée avec succès';
             } else {
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'espèce';
             }
-            // Redirection après mise à jour
+
             header('Location: /ListSpecies/list');
             exit();
         }
 
         $this->render('Dashboard/editSpecies', [
-            'species' => $species, // Envoie l'espèce à la vue pour édition
+            'species' => $species,
         ]);
     }
 

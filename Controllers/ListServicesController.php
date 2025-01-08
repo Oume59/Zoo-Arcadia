@@ -44,14 +44,16 @@ class ListServicesController extends Controller
                 }
             }
 
-            // Hydratation des données et mise à jour
-            $servicesModel->hydrate([
+            $data = [
+                'id' => $id,
                 'name' => $_POST['name'] ?? $service->name,
                 'description' => $_POST['description'] ?? $service->description,
-                'img' => $imgPath
-            ]);
+                'img' => $imgPath,
+            ];
 
-            if ($servicesModel->update($id)) {
+            $servicesModel->hydrate($data);
+
+            if ($servicesModel->update($id, $data)) {
                 $_SESSION["success_message"] = 'Service modifié avec succès';
             } else {
                 $_SESSION["error_message"] = 'Erreur lors de la modification du service';
@@ -61,9 +63,8 @@ class ListServicesController extends Controller
             exit();
         }
 
-        // Rendu de la vue
         $this->render('Dashboard/editServices', [
-            'service' => $service
+            'service' => $service,
         ]);
     }
 
@@ -79,8 +80,8 @@ class ListServicesController extends Controller
 
     private $servicesModel;
 
-public function setServicesModel($model)
-{
-    $this->servicesModel = $model;
-}
+    public function setServicesModel($model)
+    {
+        $this->servicesModel = $model;
+    }
 }

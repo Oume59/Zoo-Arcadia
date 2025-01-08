@@ -46,15 +46,17 @@ class ListAnimauxController extends Controller
                 }
             }
 
-            // Hydratation des DATA
-            $animauxModel->hydrate([
+            $data = [
+                'id' => $id,
                 'name' => $_POST['name'] ?? $animaux->name,
                 'species_id' => $_POST['species_id'] ?? $animaux->species_id,
                 'habitat_id' => $_POST['habitat_id'] ?? $animaux->habitat_id,
-                'img' => $imgPath
-            ]);
+                'img' => $imgPath,
+            ];
 
-            if ($animauxModel->update($id)) {
+            $animauxModel->hydrate($data);
+
+            if ($animauxModel->update($id, $data)) {
                 $_SESSION["success_message"] = 'Animal modifié avec succès';
             } else {
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'animal';
@@ -64,39 +66,38 @@ class ListAnimauxController extends Controller
             exit();
         }
 
-        // Transmet les données à la vue
         $this->render('Dashboard/editAnimaux', [
             'animaux' => $animaux,
             'species' => $species,
-            'habitats' => $habitats
+            'habitats' => $habitats,
         ]);
     }
 
     public function delete($id)
     {
-            if ($id) {
-                $AnimauxModel = new AnimauxModel();
+        if ($id) {
+            $AnimauxModel = new AnimauxModel();
 
-                $result = $AnimauxModel->deleteById($id);
+            $result = $AnimauxModel->deleteById($id);
 
-                if ($result) {
-                    $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
-                } else {
-                    $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
-                }
+            if ($result) {
+                $_SESSION['success_message'] = "L'animal a été supprimé avec succès.";
             } else {
-                $_SESSION['error_message'] = "animal invalide.";
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'animal.";
             }
+        } else {
+            $_SESSION['error_message'] = "animal invalide.";
+        }
 
-            // Redirection vers la dashboard
-            header("Location: /ListAnimaux/list");
-            exit();
+        // Redirection vers la dashboard
+        header("Location: /ListAnimaux/list");
+        exit();
     }
 
     private $animauxModel;
 
-public function setAnimauxModel($model)
-{
-    $this->animauxModel = $model;
-}
+    public function setAnimauxModel($model)
+    {
+        $this->animauxModel = $model;
+    }
 }

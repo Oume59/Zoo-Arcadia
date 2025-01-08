@@ -38,20 +38,20 @@ class ListReportsController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Mise à jour des champs pour le vétérinaire
-                
-                $data = [
-                    'id' => $id,
-                    'date_report' => $_POST['date_report'] ?? $report->date_report,
-                    'details' => $_POST['details'] ?? $report->details,
-                    'health_state' => $_POST['health_state'] ?? $report->health_state,
-                    'food' => $_POST['food'] ?? $report->food,
-                    'animal_id' => $_POST['animal_id'] ?? $report->animal_id,
-                    'daily_food' => $_POST['daily_food'] ?? $report->daily_food,
-                    'daily_food_date' => $_POST['daily_food_date'] ?? $report->daily_food_date,
-                    'daily_food_time' => $_POST['daily_food_time'] ?? $report->daily_food_time,
-                ];
-                $reportsModel->hydrate($data);
+            // Mise à jour des champs pour le vétérinaire
+
+            $data = [
+                'id' => $id,
+                'date_report' => $_POST['date_report'] ?? $report->date_report,
+                'details' => $_POST['details'] ?? $report->details,
+                'health_state' => $_POST['health_state'] ?? $report->health_state,
+                'food' => $_POST['food'] ?? $report->food,
+                'animal_id' => $_POST['animal_id'] ?? $report->animal_id,
+                'daily_food' => $_POST['daily_food'] ?? $report->daily_food,
+                'daily_food_date' => $_POST['daily_food_date'] ?? $report->daily_food_date,
+                'daily_food_time' => $_POST['daily_food_time'] ?? $report->daily_food_time,
+            ];
+            $reportsModel->hydrate($data);
             // MAJ DES DATA
             if ($reportsModel->update($id, $data)) {
                 $_SESSION['success_message'] = "Les modifications ont été enregistrées avec succès.";
