@@ -17,7 +17,7 @@ class AnimauxController extends Controller
 
     //Add l'état de santé pour chaque animal 
     foreach ($animaux as $animal) {
-        $reports = $reportsModel->getReportsByAnimalId($animal->id);
+        $reports = $reportsModel->getAllReportsByAnimalId($animal->id);
         $animal->health_state = !empty($reports) ? $reports[0]->health_state : 'Inconnu';
     }
 
