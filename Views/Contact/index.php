@@ -35,3 +35,8 @@ $css = "editDashboard";
 
     <button type="submit">Envoyer</button>
 </form>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+<a href="/Main" class="btn-back">QUITTER</a>
+</div>

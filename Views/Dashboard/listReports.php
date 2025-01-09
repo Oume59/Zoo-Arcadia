@@ -33,3 +33,8 @@ $css = "listDashboard";
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+<a href="/Dashboard" class="btn-back">QUITTER</a>
+</div>

@@ -78,3 +78,8 @@ $css = "editDashboard";
     <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+<a href="/Dashboard" class="btn-back">QUITTER</a>
+</div>

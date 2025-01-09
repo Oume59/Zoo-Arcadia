@@ -39,3 +39,8 @@ $css = "showHabitatsCards";
         <?php endif; ?>
     </div>
 </div>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+    <a href="/Habitats" class="btn-back">QUITTER</a>
+</div>

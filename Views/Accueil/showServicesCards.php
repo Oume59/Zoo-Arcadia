@@ -31,3 +31,9 @@ $css = "showServicesCards";
         });
     });
 </script>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+<a href="/Main" class="btn-back">QUITTER</a>
+</div>
+

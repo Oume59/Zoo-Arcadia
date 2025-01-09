@@ -32,19 +32,20 @@ $css = "showAnimalReports";
 </div>
 
 <?php if (!empty($reports)): ?>
-    <div class="consumption-container">
-        <ul class="consumption-list">
-                <li class="consumption-item">
-                    <strong>Date :</strong> <?= $reports->daily_food_date ?>
-                </li>
-                <li class="consumption-item">
-                    <strong>Heure :</strong> <?= $reports->daily_food_time ?>
-                </li>
-                <li class="consumption-item">
-                    <strong>Description :</strong> <?= $reports->daily_food ?>
-                </li>
+    <div class="report-container"> <!-- Même classe que rapports vétérinaires -->
+        <ul class="report-list"> <!-- Même liste -->
+            <li class="report-item"> <!-- Même élément -->
+                <strong>Date :</strong> <?= $reports->daily_food_date ?><br>
+                <strong>Heure :</strong> <?= $reports->daily_food_time ?><br>
+                <strong>Description :</strong> <?= $reports->daily_food ?><br>
+            </li>
         </ul>
     </div>
 <?php else: ?>
     <p class="no-consumption">Aucune consommation alimentaire enregistrée pour cet animal.</p>
 <?php endif; ?>
+
+<!-- BUTTON RETURN -->
+<div class="centered">
+    <a href="/Animaux" class="btn-back">QUITTER</a>
+</div>
