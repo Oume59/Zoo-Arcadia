@@ -70,3 +70,28 @@ button:hover {
   max-width: 50px;
   max-height: 50px;
 }
+
+.centered {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 20px; 
+}
+
+.centered .btn-back {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: var(--earth-brown);
+  color: var(--olive-green);
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid var(--earth-brown);
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.centered .btn-back:hover {
+  background-color: var(--forest-green);
+  color: var(--olive-green);
+}
