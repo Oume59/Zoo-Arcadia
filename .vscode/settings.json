@@ -1,0 +1,5 @@
+{
+  // Propriété qui configure le chemin supp pour l'environnement IntelliSense d'Intelephense
+  // Permet à VSCODE de reconnaître les types et méthodes spécifiques (ex ObjectId pour MongoDb, même si pas natif de PHP)
+  "intelephense.environment.includePaths": ["./Stubs"]
+}
