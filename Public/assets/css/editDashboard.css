@@ -101,3 +101,35 @@ p.error-message {
   background-color: var(--forest-green);
   color: var(--olive-green);
 }
+
+#edit-reviews-page {
+  background-color: var(--earth-beige);
+  font-family: "Roboto", sans-serif;
+}
+
+#edit-reviews-page h4 {
+  text-align: center;
+  color: var(--olive-green);
+}
+
+#edit-reviews-page table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#edit-reviews-page th,
+#edit-reviews-page td {
+  border: 1px solid var(--light-gray);
+  padding: 10px;
+  text-align: left;
+}
+
+#edit-reviews-page .btn-success {
+  background-color: var(--forest-green);
+  color: white;
+}
+
+#edit-reviews-page .btn-danger {
+  background-color: var(--earth-brown);
+  color: white;
+}
