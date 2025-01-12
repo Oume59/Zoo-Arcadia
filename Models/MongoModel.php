@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-require_once __DIR__ . '/../../vendor/autoload.php'; // Charge l'autoloader pour inclure la dépendance externe MongoDB
-
 use App\Config\MongoDbConfig; // USE la class de config MongoDB pour se connecter à la BDD
 use MongoDB\BSON\ObjectId; // USE type BSON ObjectId pour manipuler les identifiants MongoDB
 
