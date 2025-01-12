@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ServicesModel;
+use App\Models\ReviewsModel;
 
 // Héritage de Controller
 class MainController extends Controller
@@ -11,9 +12,18 @@ class MainController extends Controller
     public function index()
     {
         $servicesModel = new ServicesModel();
-        $services = $servicesModel->findAll(); // Récupération de la liste des services
+        $reviewsModel = new ReviewsModel();
+
+        // Récupération des services
+        $services = $servicesModel->findAll();
+
+        // Récupération des avis validés par l'employé
+        $validatedReviews = $reviewsModel->getValidatedReviews();
+
+        // Passer les données à la vue
         $this->render("Accueil/index", [
-            'services' => $services // Passage de la variable à la vue
+            'services' => $services,
+            'validatedReviews' => $validatedReviews // Passe les avis validés à la vue
         ]);
     }
 
