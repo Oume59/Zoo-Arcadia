@@ -38,7 +38,7 @@ $css = "dashboard";
                     <a href="/ListReports/list" class="admin-link">Liste des Rapports vétérinaire</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
+                    <a href="/Reviews/listReviews" class="admin-link">Liste des Avis</a>
                 </div>
                 <!--<div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/#footer" class="admin-link">Horaires</a> A MODIFIER DIRECTEMENT VIA LE FOOTER
@@ -62,10 +62,10 @@ $css = "dashboard";
             <!-- autorisations Employé -->
             <?php if ($_SESSION['role'] === 'employe') : ?>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/Reviews" class="admin-link">Avis à Valider</a>
+                    <a href="/Reviews/pending" class="admin-link">Avis à Valider</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/Reviews/list" class="admin-link">Liste des Avis</a>
+                    <a href="/Reviews/listReviews" class="admin-link">Liste des Avis</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/ListServices/list" class="admin-link">Liste des Services</a>

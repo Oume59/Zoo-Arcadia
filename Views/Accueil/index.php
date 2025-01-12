@@ -57,3 +57,98 @@ $css = "accueil"; // CSS Specifique
 <div class="title d-flex justify-content-center">
     <h3>LES AVIS</h3>
 </div>
+
+<section id="avis">
+    <div class="container py-4">
+
+        <!-- CAROUSEL -->
+        <div id="carouselAvis" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <?php if (empty($validatedReviews)): ?>
+            <div class="carousel-item active">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <p>Aucun avis validé n'est disponible pour le moment.</p>
+                    </div>
+                </div>
+            </div>
+        <?php else: ?>
+            <?php $isActive = true; ?>
+            <?php foreach ($validatedReviews as $review): ?>
+                <div class="carousel-item <?= $isActive ? 'active' : ''; ?>">
+                    <div class="card custom-card mx-auto">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title"><?= htmlspecialchars($review['pseudo']); ?></h5>
+                                <div class="text-warning">
+                                    <?= str_repeat('⭐', $review['note']); ?>
+                                    <?= str_repeat('<span class="text-secondary">⭐</span>', 5 - $review['note']); ?>
+                                </div>
+                            </div>
+                            <p class="card-text mt-3">"<?= htmlspecialchars($review['avis']); ?>"</p>
+                        </div>
+                    </div>
+                </div>
+                <?php $isActive = false; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselAvis" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ADD REVIEWS -->
+<div class="text-center mt-4 mb-5">
+    <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#modalAvis">POSTER</button>
+</div>
+
+<!-- MODAL REVIEWS -->
+<div class="modal fade" id="modalAvis" tabindex="-1" aria-labelledby="modalAvisLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/Reviews/addReview" method="POST" id="formAvis">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                <div class="modal-header">
+                    <div class="modal-title" id="modalAvisLabel"><strong>Poster un Avis :</strong></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="pseudo" class="form-label">Pseudo :</label>
+                        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="avis" class="form-label">Votre avis :</label>
+                        <textarea class="form-control" id="avis" name="avis" rows="3" placeholder="Entrez votre avis ici" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Votre note :</label>
+                        <div id="stars" class="d-flex gap-2">
+                            <span class="star" data-value="1" style="color: lightgray;">⭐</span>
+                            <span class="star" data-value="2" style="color: lightgray;">⭐</span>
+                            <span class="star" data-value="3" style="color: lightgray;">⭐</span>
+                            <span class="star" data-value="4" style="color: lightgray;">⭐</span>
+                            <span class="star" data-value="5" style="color: lightgray;">⭐</span>
+                        </div>
+
+                        <input type="hidden" id="note" name="note" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script src="/assets/js/modals.js"></script>
