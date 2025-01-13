@@ -17,15 +17,11 @@ window.onclick = function (event) {
 };
 
 // Gestion  des étoiles REVIEWS
-document.querySelectorAll('.star').forEach(star => {
-    star.addEventListener('click', function () {
-        const stars = Array.from(this.parentNode.children);
-        const index = stars.indexOf(this);
+const ratingStars = document.querySelectorAll('.rating input');
+const hiddenNoteInput = document.getElementById('note');
 
-        stars.forEach((s, i) => {
-            s.style.color = i <= index ? 'gold' : 'lightgray'; 
-        });
-
-        document.querySelector('#note').value = index + 1; // Enregistre la note sélectionnée
+ratingStars.forEach((star) => {
+    star.addEventListener('change', () => {
+        hiddenNoteInput.value = star.value;
     });
 });
