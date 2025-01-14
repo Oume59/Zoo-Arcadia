@@ -13,13 +13,26 @@ class ReviewsController extends Controller
         $this->reviewsModel = new ReviewsModel();
     }
 
+    private function sanitizeInput($data) // Sécurité !!
+    {
+        // Nettoyage des DATA utilisateur pour éviter les injections + caractères indésirables
+        return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+    }
+
     // ADD avis
     public function addReview()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $avis = htmlspecialchars($_POST['avis']);
-            $note = (int) $_POST['note'];
+            // Nettoyage des entrées USERS
+            $pseudo = $this->sanitizeInput($_POST['pseudo']);
+            $avis = $this->sanitizeInput($_POST['avis']);
+            $note = filter_var($_POST['note'], FILTER_VALIDATE_INT);
+
+            if (empty($pseudo) || empty($avis) || $note === false || $note < 1 || $note > 5) {
+                $_SESSION['error_message'] = "Veuillez vérifier vos informations. Tous les champs sont obligatoires et la note doit être comprise entre 1 et 5.";
+                header('Location: /#avis');
+                exit();
+            }
 
             $this->reviewsModel->createReview([
                 'pseudo' => $pseudo,
