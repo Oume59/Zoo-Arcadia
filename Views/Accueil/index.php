@@ -8,7 +8,7 @@ $css = "accueil"; // CSS Specifique
     <h1>PLONGEZ AU COEUR DE LA NATURE SAUVAGE</h1>
 </div>
 
-<!-- PARTIE SERVICES -->
+<!-- SERVICES -->
 <section id="description-zoo" class="text-center py-5">
     <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center">
         <p>
@@ -63,36 +63,35 @@ $css = "accueil"; // CSS Specifique
 
         <!-- CAROUSEL -->
         <div id="carouselAvis" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <?php if (empty($validatedReviews)): ?>
-            <div class="carousel-item active">
-                <div class="card custom-card">
-                    <div class="card-body text-center">
-                        <p>Aucun avis validé n'est disponible pour le moment.</p>
-                    </div>
-                </div>
-            </div>
-        <?php else: ?>
-            <?php $isActive = true; ?>
-            <?php foreach ($validatedReviews as $review): ?>
-                <div class="carousel-item <?= $isActive ? 'active' : ''; ?>">
-                    <div class="card custom-card mx-auto">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-title"><?= htmlspecialchars($review['pseudo']); ?></h5>
-                                <div class="text-warning">
-                                    <?= str_repeat('⭐', $review['note']); ?>
-                                    <?= str_repeat('<span class="text-secondary">⭐</span>', 5 - $review['note']); ?>
-                                </div>
+            <div class="carousel-inner">
+                <?php if (empty($validatedReviews)): ?>
+                    <div class="carousel-item active">
+                        <div class="card custom-card">
+                            <div class="card-body text-center">
+                                <p>Aucun avis validé n'est disponible pour le moment.</p>
                             </div>
-                            <p class="card-text mt-3">"<?= htmlspecialchars($review['avis']); ?>"</p>
                         </div>
                     </div>
-                </div>
-                <?php $isActive = false; ?>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        </div>
+                <?php else: ?>
+                    <?php $isActive = true; ?>
+                    <?php foreach ($validatedReviews as $review): ?>
+                        <div class="carousel-item <?= $isActive ? 'active' : ''; ?>">
+                            <div class="card custom-card mx-auto">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= htmlspecialchars($review['pseudo']); ?></h5>
+                                    <div class="rating-display">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <span class="star <?= $i <= $review['note'] ? 'filled' : ''; ?>">★</span>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <p class="card-text mt-3">"<?= html_entity_decode($review['avis']); ?>"</p> // sécurié dans le controller
+                                </div>
+                            </div>
+                        </div>
+                        <?php $isActive = false; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Précédent</span>
@@ -131,16 +130,22 @@ $css = "accueil"; // CSS Specifique
                     </div>
                     <div class="mb-3">
                         <label for="note" class="form-label">Votre note :</label>
-                        <div id="stars" class="d-flex gap-2">
-                            <span class="star" data-value="1" style="color: lightgray;">⭐</span>
-                            <span class="star" data-value="2" style="color: lightgray;">⭐</span>
-                            <span class="star" data-value="3" style="color: lightgray;">⭐</span>
-                            <span class="star" data-value="4" style="color: lightgray;">⭐</span>
-                            <span class="star" data-value="5" style="color: lightgray;">⭐</span>
+                        <div class="rating">
+                            <input type="radio" id="star1" name="etoiles" value="1" required>
+                            <label for="star1">★</label>
+                            <input type="radio" id="star2" name="etoiles" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" id="star3" name="etoiles" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" id="star4" name="etoiles" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" id="star5" name="etoiles" value="5">
+                            <label for="star5">★</label>
                         </div>
 
-                        <input type="hidden" id="note" name="note" required>
+                        <input type="hidden" id="note" name="note" value="" required>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
