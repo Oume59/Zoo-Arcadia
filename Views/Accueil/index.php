@@ -1,5 +1,5 @@
 <?php
-$css = "accueil"; // CSS Specifique 
+$css = "accueil";
 ?>
 
 <img class="imgaccueil" src="/assets/img/tigreaccueil.jpg" alt="" />
@@ -78,13 +78,15 @@ $css = "accueil"; // CSS Specifique
                         <div class="carousel-item <?= $isActive ? 'active' : ''; ?>">
                             <div class="card custom-card mx-auto">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= htmlspecialchars($review['pseudo']); ?></h5>
-                                    <div class="rating-display">
-                                        <?php for ($i = 1; $i <= 5; $i++): ?>
-                                            <span class="star <?= $i <= $review['note'] ? 'filled' : ''; ?>">★</span>
-                                        <?php endfor; ?>
+                                    <div class="card-title d-flex justify-content-between align-items-center">
+                                        <span class="pseudo"><?= htmlspecialchars($review['pseudo']); ?></span>
+                                        <div class="rating-display d-flex">
+                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                <span class="star <?= $i <= $review['note'] ? 'filled' : ''; ?>">★</span>
+                                            <?php endfor; ?>
+                                        </div>
                                     </div>
-                                    <p class="card-text mt-3">"<?= html_entity_decode($review['avis']); ?>"</p> // sécurié dans le controller
+                                    <p class="card-text mt-3">"<?= html_entity_decode($review['avis']); ?>"</p> <!-- sécurité dans le controller -->
                                 </div>
                             </div>
                         </div>
@@ -129,7 +131,7 @@ $css = "accueil"; // CSS Specifique
                         <textarea class="form-control" id="avis" name="avis" rows="3" placeholder="Entrez votre avis ici" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="note" class="form-label">Votre note :</label>
+                        <label for="note" class="form-label">Votre note (requis pour soumettre votre avis) :</label>
                         <div class="rating">
                             <input type="radio" id="star1" name="etoiles" value="1" required>
                             <label for="star1">★</label>
