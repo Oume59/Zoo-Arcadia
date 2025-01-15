@@ -1,0 +1,120 @@
+/* GESTION DES AVIS - STYLE GLOBAL */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--earth-beige);
+}
+
+h3,
+h4 {
+  color: var(--olive-green);
+  font-weight: bold;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* TABLEAU */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: var(--earth-beige);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead th {
+  background-color: var(--olive-green);
+  color: var(--earth-beige);
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+tbody td {
+  border: 1px solid var(--light-gray);
+  padding: 15px;
+  text-align: left;
+  color: var(--black);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+tbody tr:hover {
+  background-color: var(--olive-green-light);
+  transition: background-color 0.3s ease;
+}
+
+/* ACTIONS : LIENS */
+.action-validate,
+.action-delete {
+  background: none;
+  border: none;
+  color: var(--forest-green);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.action-validate:hover {
+  color: var(--olive-green);
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.action-delete {
+  color: var(--earth-brown);
+}
+
+.action-delete:hover {
+  color: var(--forest-green-dark);
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+/* MESSAGE DE SUCCÈS / ERREUR */
+.alert {
+  width: 80%;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alert-success {
+  background-color: var(--forest-green-light);
+  color: var(--olive-green);
+}
+
+.alert-error {
+  background-color: var(--earth-brown-light);
+  color: var(--earth-brown);
+}
+
+/* BOUTON QUITTER */
+.centered {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.centered .btn-back {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--earth-brown);
+  color: var(--olive-green);
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid var(--earth-brown);
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.centered .btn-back:hover {
+  background-color: var(--forest-green);
+  color: var(--olive-green);
+}
