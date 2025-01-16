@@ -87,6 +87,7 @@ $css = "accueil";
                                         </div>
                                     </div>
                                     <p class="card-text mt-3">"<?= html_entity_decode($review['avis']); ?>"</p> <!-- sécurité dans le controller -->
+                                    <p class="card-date text-end"><small>Publié le : <?= htmlspecialchars($review['date'] ?? 'Non spécifié'); ?></small></p>
                                 </div>
                             </div>
                         </div>
@@ -123,11 +124,11 @@ $css = "accueil";
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="pseudo" class="form-label">Pseudo :</label>
+                        <label for="pseudo" class="form-label">Pseudo (requis pour soumettre votre avis) :</label>
                         <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="avis" class="form-label">Votre avis :</label>
+                        <label for="avis" class="form-label">Votre avis (requis pour soumettre votre avis) :</label>
                         <textarea class="form-control" id="avis" name="avis" rows="3" placeholder="Entrez votre avis ici" required></textarea>
                     </div>
                     <div class="mb-3">
@@ -144,10 +145,7 @@ $css = "accueil";
                             <input type="radio" id="star5" name="etoiles" value="5">
                             <label for="star5">★</label>
                         </div>
-
-                        <input type="hidden" id="note" name="note" value="" required>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
