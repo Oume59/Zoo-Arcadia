@@ -15,38 +15,38 @@ class ReviewsController extends Controller
 
     private function sanitizeInput($data) // Sécurité !!
     {
-        // Nettoyage des DATA utilisateur pour éviter les injections + caractères indésirables
+        // Nettoyage des DATA users pour éviter les injections + caractères indésirables
         return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
     }
 
     // ADD avis
     public function addReview()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Nettoyage des entrées USERS
-            $pseudo = $this->sanitizeInput($_POST['pseudo']);
-            $avis = $this->sanitizeInput($_POST['avis']);
-            $note = filter_var($_POST['note'], FILTER_VALIDATE_INT);
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Récupération des DATA
+        $pseudo = $this->sanitizeInput($_POST['pseudo'] ?? '');
+        $avis = $this->sanitizeInput($_POST['avis'] ?? '');
+        $note = filter_var($_POST['etoiles'] ?? null, FILTER_VALIDATE_INT);
 
-            if (empty($pseudo) || empty($avis) || $note === false || $note < 1 || $note > 5) {
-                $_SESSION['error_message'] = "Veuillez vérifier vos informations. Tous les champs sont obligatoires et la note doit être comprise entre 1 et 5.";
-                header('Location: /#avis');
-                exit();
-            }
-
-            $this->reviewsModel->createReview([
-                'pseudo' => $pseudo,
-                'avis' => $avis,
-                'note' => $note,
-                'validated' => false
-            ]);
-
-            // Redirection après ajout
-            $_SESSION['success_message'] = "Votre avis a été soumis avec succès. Il est en attente de validation.";
+        // Validation des DATA
+        if (empty($pseudo) || empty($avis) || $note === null || $note < 1 || $note > 5) {
             header('Location: /#avis');
             exit();
         }
+
+        // Enregistrement review
+        $this->reviewsModel->createReview([
+            'pseudo' => $pseudo,
+            'avis' => $avis,
+            'note' => $note, 
+            'validated' => false
+        ]);
+
+        header('Location: /#avis');
+        exit();
     }
+}
+
 
     // Afficher les avis en attente (dashboard employé)
     public function pending()
