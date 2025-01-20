@@ -30,7 +30,7 @@ class ConsultationsAnimalsController extends Controller
     // Obtenir toutes les consultations (pour le dashboard)
     public function getAllCounts()
     {
-        $counts = $this->consultationsAnimalsModel->getAllViewCounts();
-        echo json_encode($counts);
-    }
+        $counts = $this->consultationsAnimalsModel->getAllViewCounts(); // Récupérer les données
+        $this->render('Dashboard/consultationsAnimals', ['counts' => $counts]);
+    }    
 }
