@@ -2,48 +2,93 @@
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  margin-top: 30px;
   background-color: var(--earth-beige);
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   padding: 30px;
-  font-family: "Roboto", sans-serif;
-}
-
-.container p {
-  font-weight: bold;
-}
-
-h3 {
-  color: var(--olive-green);
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.row.align-items-center {
-  display: flex;
-  align-items: center;
 }
 
 .row.align-items-center img {
-  max-width: 100%;
-  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.row.align-items-center .col-md-6 p {
-  color: var(--black);
-  line-height: 1.6;
-  text-align: justify;
+/* CERCLES */
+.report-container {
+  background-color: var(--earth-beige);
+  border: 2px solid var(--earth-brown);
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Cards ANIMALS */
+.report-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.report-container h4 {
+  color: var(--olive-green);
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.report-container p {
+  line-height: 1.6;
+  color: var(--black);
+  text-align: center;
+  margin: 0;
+  padding: 0 15px;
+  word-wrap: break-word;
+}
+
+/* TITLE */
+h3 {
+  text-align: center;
+  padding: 10px;
+  margin: 30px auto;
+  border: 2px solid var(--earth-brown);
+  border-radius: 8px;
+  background-color: var(--earth-beige);
+  color: var(--olive-green);
+  font-weight: bold;
+}
+
+/* CARDS ANIMALS */
+.row.cards-animals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .card {
   background-color: var(--earth-beige);
-  border-radius: 10px;
+  flex: 1 1 calc(33% - 20px);
+  max-width: 300px;
+  height: 420px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -53,25 +98,26 @@ h3 {
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: auto;
+  aspect-ratio: 12 / 11; /* ratio harmonieux */
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 
 .card-title {
-  font-size: 18px;
   color: var(--olive-green);
   font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .card-text {
-  font-size: 16px;
   color: var(--olive-green);
   margin-bottom: 10px;
   font-weight: bold;
+  text-align: center;
 }
 
-/* Boutons */
 .btn {
   background-color: var(--earth-brown);
   color: var(--olive-green);
@@ -87,16 +133,18 @@ h3 {
   color: var(--olive-green);
 }
 
+/* BOUTON DE RETOUR */
 .centered {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  margin: 20px; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
 }
 
 .centered .btn-back {
-  display: inline-block; 
-  padding: 20px 40px; 
+  display: inline-block;
+  padding: 20px 40px;
   margin: 20px;
   background-color: var(--earth-brown);
   color: var(--olive-green);
@@ -105,7 +153,6 @@ h3 {
   border: 2px solid var(--earth-brown);
   border-radius: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  text-align: center;
 }
 
 .centered .btn-back:hover {

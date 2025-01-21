@@ -27,7 +27,6 @@ body {
 }
 
 .admin-link:hover {
-  background-color: var(--forest-green); 
   color: var(--black);
 }
 
@@ -53,10 +52,6 @@ button {
   font-size: 18px;
   transition: background-color 0.3s ease;
   margin-top: 20px;
-}
-
-button:hover {
-  background-color: var(--forest-green);
 }
 
 .stylee {

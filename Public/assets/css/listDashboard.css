@@ -95,3 +95,7 @@ button:hover {
   background-color: var(--forest-green);
   color: var(--olive-green);
 }
+
+.animal-table {
+  margin-bottom: 30px;
+}
