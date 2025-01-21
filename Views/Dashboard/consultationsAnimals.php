@@ -4,7 +4,7 @@ $css = "listDashboard";
 
 <h3>Consultation des Clics/cartes des animaux du Zoo :</h3>
 
-<table>
+<table class="animal-table">
     <thead>
         <tr>
             <th>Animal</th>

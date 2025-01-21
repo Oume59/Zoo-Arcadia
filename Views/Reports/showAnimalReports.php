@@ -3,7 +3,7 @@ $css = "showAnimalReports";
 ?>
 
 <div class="centered">
-<h3 class="report-title highlighted">Détails pour : <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
+    <h3 class="report-title highlighted">Détails pour : <?= htmlspecialchars($animal->name ?? 'Animal inconnu') ?></h3>
 </div>
 
 <!-- REPORTS VETERINRY -->
@@ -14,12 +14,12 @@ $css = "showAnimalReports";
 <?php if (!empty($reports)): ?>
     <div class="report-container">
         <ul class="report-list">
-                <li class="report-item">
-                    <strong>Date :</strong> <?= $reports->date_report ?><br>
-                    <strong>Détails :</strong> <?= $reports->details ?><br>
-                    <strong>État de santé :</strong> <?= $reports->health_state ?><br>
-                    <strong>Nourriture recommandée :</strong> <?= $reports->food ?><br>
-                </li>
+            <li class="report-item">
+                <strong>Date :</strong> <?= $reports->date_report ?><br>
+                <strong>Détails :</strong> <?= $reports->details ?><br>
+                <strong>État de santé :</strong> <?= $reports->health_state ?><br>
+                <strong>Nourriture recommandée :</strong> <?= $reports->food ?><br>
+            </li>
         </ul>
     </div>
 <?php else: ?>
@@ -47,5 +47,8 @@ $css = "showAnimalReports";
 
 <!-- BUTTON RETURN -->
 <div class="centered">
-    <a href="/Animaux" class="btn-back">QUITTER</a>
+    <button class="btn-back" onclick="closePage()">QUITTER</button>
 </div>
+
+<!-- SCRIPT -->
+<script src="/assets/js/button.js"></script>
