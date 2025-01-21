@@ -2,11 +2,11 @@
 
 function openModal(modalId) {
   document.getElementById(modalId).style.display = "block";
-} 
+}
 
 function closeModal(modalId) {
   document.getElementById(modalId).style.display = "none";
-} 
+}
 
 // Fermer la modale si l'utilisateur clique en dehors de celle-ci
 window.addEventListener("click", (event) => {
