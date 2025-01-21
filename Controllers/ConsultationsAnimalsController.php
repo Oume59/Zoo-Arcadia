@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\ConsultationsAnimalsModel;
 
 class ConsultationsAnimalsController extends Controller
+
 {
     private $consultationsAnimalsModel;
 
@@ -13,24 +14,40 @@ class ConsultationsAnimalsController extends Controller
         $this->consultationsAnimalsModel = new ConsultationsAnimalsModel();
     }
 
-    // Incrémenter le compteur de views pour un animal
+    // Incrémente le compteur de vues pour un animal spécifique
     public function increment($animal)
     {
-        $this->consultationsAnimalsModel->incrementViewCount($animal);
+        if (empty($animal)) {
+            echo json_encode(['error' => "Le nom de l'animal est requis."]);
+            return;
+        }
+
+        $this->consultationsAnimalsModel->incrementViewCount($animal); // Appel model pour incrémenter le compteur
+        // Retourne une réponse JSON pour indiquer le succès de l'opération
         echo json_encode(['message' => "Compteur de '$animal' mis à jour."]);
     }
 
-    // Obtenir les consult par animal donné
+    //Récupère le nombre de consultations pour un animal donné
     public function getCount($animal)
     {
+        if (empty($animal)) {
+            echo json_encode(['error' => "Le nom de l'animal est requis."]);
+            return;
+        }
+
+        // Récupère le compteur depuis le modèle
         $count = $this->consultationsAnimalsModel->getViewCount($animal);
+        // Retourne le nombre de consultations
         echo json_encode(['views_consultations' => $count]);
     }
 
-    // Obtenir toutes les consultations (pour le dashboard)
+    // Récupère toutes les consultations pour le dashboard
     public function getAllCounts()
     {
-        $counts = $this->consultationsAnimalsModel->getAllViewCounts(); // Récupérer les données
+        // Récup les données depuis le model
+        $counts = $this->consultationsAnimalsModel->getAllViewCounts();
+
+        // Passe les données à la vue pour les afficher dans le tableau de bord
         $this->render('Dashboard/consultationsAnimals', ['counts' => $counts]);
-    }    
+    }
 }
