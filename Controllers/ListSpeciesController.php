@@ -56,9 +56,18 @@ class ListSpeciesController extends Controller
 
     public function delete($id) // Utiliser la méthode delete pour supp une espèce de la BDD
     {
-        $speciesModel = new SpeciesModel();
-        $speciesModel->delete($id); // héritée de Model principal
-
+        if ($id) {
+            $speciesModel = new SpeciesModel();
+            $result = $speciesModel->delete($id);
+    
+            if ($result) {
+                $_SESSION['success_message'] = "L'espèce a été supprimée avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'espèce.";
+            }
+        } else {
+            $_SESSION['error_message'] = "Espèce invalide.";
+        }
         // Rediriger vers la liste des espèces après la suppression
         header('Location: /ListSpecies/list');
         exit();

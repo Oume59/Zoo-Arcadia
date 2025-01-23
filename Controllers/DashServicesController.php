@@ -27,11 +27,23 @@ class DashServicesController extends Controller
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+                // Validation du type MIME (pour + de sécurité côté client + côté serveur)
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $tmpName);
+                finfo_close($finfo);
+
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    // Arrête l'exécution en cas de type MIME non autorisé
+                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                }
+
+                // Déplacement de l'image vers le dossier cible
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
-    
-                // Déplacement de l'image
+
+                // Déplacement du fichier vers le dossier cible
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = 'assets/img/' . $fileName . '.' . $fileExtension; // Chemin relatif pour la BDD
+                    $imgPath = $fileName . '.' . $fileExtension; // Chemin relatif pour la base de données
                 }
             }
 

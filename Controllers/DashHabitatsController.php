@@ -28,13 +28,20 @@ class DashHabitatsController extends Controller
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-                $image = $uploadDir . $fileName . '.' . $fileExtension;
+                // Validation du type MIME (pour + de sécurité côté client + côté serveur)
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $tmpName);
+                finfo_close($finfo);
+
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                }
 
                 // Déplacement de l'image vers le dossier cible
+                $image = $uploadDir . $fileName . '.' . $fileExtension;
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = $fileName . '.' . $fileExtension;
-                } else {
-                    $error = "Erreur lors du téléchargement de l'image.";
+                    $imgPath = $fileName . '.' . $fileExtension; // Enregistre le nom du fichier
                 }
             }
 

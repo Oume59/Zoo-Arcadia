@@ -35,10 +35,21 @@ class DashAnimauxController extends Controller
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-                $image = $uploadDir . $fileName . '.' . $fileExtension;
 
+                // Validation du type MIME (pour + de sécurité côté client + côté serveur)
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $tmpName);
+                finfo_close($finfo);
+
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    // Affiche une erreur OU redirige en cas de type MIME non autorisé
+                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                }
+
+                $image = $uploadDir . $fileName . '.' . $fileExtension;
                 if (move_uploaded_file($tmpName, $image)) {
-                    $imgPath = $fileName . '.' . $fileExtension; // MAJ avec le nouveau chemin d'image
+                    $imgPath = $fileName . '.' . $fileExtension; // MAJ avec le nouveau chemin d'image enregistré
                 }
             }
 

@@ -74,9 +74,18 @@ class ListUsersController extends Controller
 
     public function delete($id) // Utiliser la méthode delete pour supp un utilisateur de la BDD
     {
-        $userModel = new UserModel();
-        $userModel->delete($id); // héritée de Model.php
+        if ($id) {
+            $userModel = new UserModel();
+            $result = $userModel->delete($id);
 
+            if ($result) {
+                $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'utilisateur.";
+            }
+        } else {
+            $_SESSION['error_message'] = "Utilisateur invalide.";
+        }
         // Rediriger vers la liste des utilisateurs après la suppression
         header('Location: /ListUsers/list');
         exit();

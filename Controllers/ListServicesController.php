@@ -37,6 +37,15 @@ class ListServicesController extends Controller
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+                // Validation du type MIME (pour + de sécurité côté client + côté serveur)
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $tmpName);
+                finfo_close($finfo);
+
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                }
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
 
                 if (move_uploaded_file($tmpName, $image)) {
@@ -70,10 +79,19 @@ class ListServicesController extends Controller
 
     public function delete($id)
     {
-        $servicesModel = new ServicesModel();
-        $servicesModel->delete($id);
+        if ($id) {
+            $servicesModel = new ServicesModel();
+            $result = $servicesModel->delete($id);
 
-        $_SESSION['success_message'] = 'Service supprimé avec succès';
+            if ($result) {
+                $_SESSION['success_message'] = "Le service a été supprimé avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression du service.";
+            }
+        } else {
+            $_SESSION['error_message'] = "Service invalide.";
+        }
+           // Rediriger vers la liste des services après la suppression
         header('Location: /ListServices/list');
         exit();
     }

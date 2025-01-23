@@ -37,6 +37,16 @@ class ListHabitatsController extends Controller
                 $tmpName = $_FILES['img']['tmp_name'];
                 $fileName = pathinfo($_FILES['img']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+                // Validation du type MIME (pour + de sécurité côté client + côté serveur)
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $tmpName);
+                finfo_close($finfo);
+
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                }
+
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
 
                 if (move_uploaded_file($tmpName, $image)) {
@@ -68,12 +78,22 @@ class ListHabitatsController extends Controller
             'habitat' => $habitat,
         ]);
     }
+
     public function delete($id)
     {
-        $habitatsModel = new HabitatsModel();
-        $habitatsModel->delete($id); // Supprime un habitat
+        if ($id) {
+            $habitatsModel = new HabitatsModel();
+            $result = $habitatsModel->delete($id);
 
-        // Rediriger vers la liste des habitats après la suppression
+            if ($result) {
+                $_SESSION['success_message'] = "L'habitat a été supprimé avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'habitat.";
+            }
+        } else {
+            $_SESSION['error_message'] = "ID invalide.";
+        }
+
         header('Location: /ListHabitats/list');
         exit();
     }
