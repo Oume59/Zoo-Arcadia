@@ -141,7 +141,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Données collectées : Le zoo Arcadia collecte des données personnelles telles que le nom et l’adresse e-mail via le formulaire de contact et les avis laissés sur le site.</p>
-                    <p>Cookies utilisés : Nous utilisons des cookies analytiques, de session et fonctionnels pour améliorer l'expérience utilisateur et le suivi statistique.</p>
+                    <p>Cookies utilisés : Nous utilisons uniquement les cookies de session nécessaires au fonctionnement du site. Ces cookies permettent de maintenir la connexion des employés lors de leur navigation sur l'interface. Ils ne contiennent aucune donnée personnelle sensible et sont supprimés automatiquement à la fin de la session.</p>
                     <p>Finalité : Les données sont utilisées uniquement pour la gestion des avis, des services demandés, et les statistiques de consultation des animaux.</p>
                     <p>Droits : Conformément au RGPD, vous avez le droit d'accéder, de modifier ou de supprimer vos données personnelles à tout moment.</p>
                     <p>Contact RGPD : Pour toute question liée à vos données personnelles, veuillez nous contacter via le formulaire de contact.</p>
