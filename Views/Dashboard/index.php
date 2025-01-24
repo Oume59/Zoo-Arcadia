@@ -32,7 +32,7 @@ $css = "dashboard";
                     <a href="/DashAnimaux" class="admin-link">Ajouter un Animal</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/ListAnimaux/list" class="admin-link">Liste des Animaux</a>
+                    <a href="/DashAnimaux/list" class="admin-link">Liste des Animaux</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/ListReports/list" class="admin-link">Liste des Rapports vétérinaire</a>
