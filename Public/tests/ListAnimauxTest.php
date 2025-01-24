@@ -5,7 +5,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase; // classe fournie par phpUnit qui permet de lancer le test
 use App\Models\AnimauxModel;
 
-class ListAnimauxTest extends TestCase // Test unitaire qui vérifie si controller "ListAnimauxController" utilise bien son model associé pour récup la liste des animaux (avec espèces + habitats) et transmets à la vue.
+class ListAnimauxTest extends TestCase // Test unitaire qui vérifie si controller "DashAnimauxController" utilise bien son model associé pour récup la liste des animaux (avec espèces + habitats) et transmets à la vue.
 {
     public function testGetAnimalsWithSpeciesAndHabitat(): void
     {
