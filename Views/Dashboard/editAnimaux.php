@@ -2,7 +2,7 @@
 $css = "editDashboard";
 ?>
 
-<form action="/ListAnimaux/edit/<?php echo $animaux->id; ?>" method="POST" enctype="multipart/form-data">
+<form action="/DashAnimaux/edit/<?php echo $animaux->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <label>Nom de l'animal :</label>
