@@ -27,8 +27,8 @@ $css = "listDashboard";
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="/ListAnimaux/edit/<?php echo $animal->id; ?>">Éditer l'animal</a> |
-                    <a href="/ListAnimaux/delete/<?php echo $animal->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?');">Supprimer</a>
+                    <a href="/DashAnimaux/edit/<?php echo $animal->id; ?>">Éditer l'animal</a> |
+                    <a href="/DashAnimaux/delete/<?php echo $animal->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?');">Supprimer</a>
                 </td>
 
                 </td>
