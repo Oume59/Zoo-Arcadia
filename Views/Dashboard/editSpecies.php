@@ -4,7 +4,7 @@ $css = "editDashboard";
 
 <h3>Éditer l'espèce</h3>
 
-<form action="/ListSpecies/edit/<?php echo $species->id ?>" method="POST">
+<form action="/DashSpecies/edit/<?php echo $species->id ?>" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <label>Nom de l'espèce :</label>

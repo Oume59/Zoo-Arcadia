@@ -28,8 +28,8 @@ $css = "listDashboard";
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="/ListHabitats/edit/<?php echo $habitat->id; ?>">Éditer l'habitat</a> |
-                    <a href="/ListHabitats/delete/<?php echo $habitat->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet habitat ?');">Supprimer</a>
+                    <a href="/DashHabitats/edit/<?php echo $habitat->id; ?>">Éditer l'habitat</a> |
+                    <a href="/DashHabitats/delete/<?php echo $habitat->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet habitat ?');">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

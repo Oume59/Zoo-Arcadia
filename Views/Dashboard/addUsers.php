@@ -3,7 +3,7 @@
 $css = "filesDashboard";
 ?>
 
-<form action="/AddUsers/addUsers" method="POST">
+<form action="/DashUsers/addUsers" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     <div>
         <label for="username">Nom d'utilisateur :</label>

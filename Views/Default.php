@@ -53,7 +53,7 @@
                             </li> <!-- CONDITION POUR QUE LA DECONNEXION SOIT VISIBLE SEULEMENT POUR LES UTILISATEURS -->
                             <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['administrateur', 'veterinaire', 'employe'])): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/deconnexion">Déconnexion</a>
+                                    <a class="nav-link" href="/LoginUsers/deconnexion">Déconnexion</a>
                                 </li>
                             <?php endif; ?>
                         </ul>

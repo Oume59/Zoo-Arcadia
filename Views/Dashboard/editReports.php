@@ -4,7 +4,7 @@ $css = "editDashboard";
 
 <!-- Formulaire pour les vétérinaires -->
 <h4>Modification du rapport vétérinaire</h4>
-<form action="/ListReports/edit/<?php echo $report->id; ?>" method="POST">
+<form action="/DashReports/edit/<?php echo $report->id; ?>" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     <?php if ($_SESSION['role'] === 'veterinaire'): ?>
 

@@ -2,7 +2,7 @@
 $css = "filesDashboard";
 ?>
 
-<form action="/species/index" method="POST">
+<form action="/Dashspecies/addSpecies" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     <div>
         <label for="species">Espèce :</label>

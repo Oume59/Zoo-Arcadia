@@ -5,7 +5,7 @@ $css = "editDashboard";
 
 <h3>Éditer l'utilisateur</h3>
 
-<form action="/ListUsers/edit/<?php echo $user->id ?>" method="POST">
+<form action="/DashUsers/edit/<?php echo $user->id ?>" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <label>Nom d'utilisateur :</label>

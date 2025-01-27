@@ -58,7 +58,7 @@ $css = "animaux";
                                 Espèce : <?= htmlspecialchars($animal->animal_species ?? 'Inconnue') ?><br>
                                 Habitat : <?= htmlspecialchars($animal->habitat_name ?? 'Inconnu') ?><br>
                                 État : <?= htmlspecialchars($animal->health_state) ?></p>
-                            <a href="/Reports/showAnimalReports/<?= htmlspecialchars($animal->id) ?>"
+                            <a href="/DashReports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>"
                                 class="btn btn-primary" data-animal="<?= htmlspecialchars($animal->name) ?>" data-id="<?= htmlspecialchars($animal->id) ?>">PLUS D'INFOS</a>
                         </div>
                     </div>

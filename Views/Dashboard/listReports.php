@@ -26,8 +26,8 @@ $css = "listDashboard";
                 <td><?= !empty($report->daily_food) ? nl2br(htmlspecialchars($report->daily_food)) : 'Aucune donnée entrée'; ?></td>
                 <td><?= htmlspecialchars($report->animal_name); ?></td>
                 <td>
-                    <a href="/ListReports/edit/<?= $report->id; ?>">Modifier</a>
-                    <a href="/ListReports/delete/<?= $report->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?');">Supprimer</a>
+                    <a href="/DashReports/edit/<?= $report->id; ?>">Modifier</a>
+                    <a href="/DashReports/delete/<?= $report->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?');">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

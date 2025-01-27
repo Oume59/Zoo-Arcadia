@@ -2,7 +2,7 @@
 $css = "filesDashboard";
 ?>
 
-<form action="/Reports/addReport" method="POST">
+<form action="/DashReports/addReport" method="POST">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <div>

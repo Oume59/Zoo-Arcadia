@@ -3,7 +3,7 @@ $css = "editDashboard";
 ?>
 
 
-<form action="/ListHabitats/edit/<?php echo $habitat->id; ?>" method="POST" enctype="multipart/form-data">
+<form action="/DashHabitats/edit/<?php echo $habitat->id; ?>" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <label>Nom de l'habitat :</label>

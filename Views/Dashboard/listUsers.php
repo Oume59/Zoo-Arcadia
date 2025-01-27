@@ -20,8 +20,8 @@ $css = "listDashboard";
                 <td><?php echo htmlspecialchars($user->email); ?></td>
                 <td><?php echo htmlspecialchars($user->user_role); ?></td>
                 <td>
-                    <a href="/ListUsers/edit/<?php echo $user->id; ?>">Éditer l'utilisateur</a> |
-                    <a href="/ListUsers/delete/<?php echo $user->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</a>
+                    <a href="/DashUsers/edit/<?php echo $user->id; ?>">Éditer l'utilisateur</a> |
+                    <a href="/DashUsers/delete/<?php echo $user->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</a>
                 </td>
 
                 </td>

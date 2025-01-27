@@ -27,8 +27,8 @@ $css = "listDashboard";
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a href="/ListServices/edit/<?php echo $service->id; ?>">Modifier</a> |
-                        <a href="/ListServices/delete/<?php echo $service->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service ?');">Supprimer</a>
+                        <a href="/DashServices/edit/<?php echo $service->id; ?>">Modifier</a> |
+                        <a href="/DashServices/delete/<?php echo $service->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce service ?');">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

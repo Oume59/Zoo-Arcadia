@@ -37,7 +37,7 @@ $css = "showHabitatsCards";
                         <div class="card-body text-center">
                             <p class="card-title"><?= htmlspecialchars($animal->name); ?></p>
                             <p class="card-text">Espèce : <?= htmlspecialchars($animal->species_name ?? 'Inconnue'); ?></p>
-                            <a href="/Reports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>" class="btn btn-primary">Voir le rapport vétérinaire</a>
+                            <a href="/DashReports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>" class="btn btn-primary">Voir le rapport vétérinaire</a>
                         </div>
                     </div>
                 </div>

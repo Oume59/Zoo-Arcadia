@@ -16,8 +16,8 @@ $css = "listDashboard";
             <tr>
                 <td><?php echo htmlspecialchars($item->species); ?></td>
                 <td>
-                    <a href="/ListSpecies/edit/<?php echo $item->id; ?>">Éditer l'espèce</a> |
-                    <a href="/ListSpecies/delete/<?php echo $item->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette espèce ?');">Supprimer</a>
+                    <a href="/DashSpecies/edit/<?php echo $item->id; ?>">Éditer l'espèce</a> |
+                    <a href="/DashSpecies/delete/<?php echo $item->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette espèce ?');">Supprimer</a>
                 </td>
 
                 </td>
