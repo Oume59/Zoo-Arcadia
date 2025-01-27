@@ -4,19 +4,32 @@ namespace App\Controllers;
 
 use App\Models\SpeciesModel;
 
-class ListSpeciesController extends Controller
+class DashSpeciesController extends Controller
 {
 
+    public function index()
+    {
+          // Récupération de la liste des espèces
+        $speciesModel = new SpeciesModel();
+        $species = $speciesModel->findAll();
+
+        // Rendu de la vue avec la add des espèces
+        $this->render('Dashboard/addSpecies', [
+            'species' => $species,
+        ]);
+    }
 
     public function list()
     {
+        // Liste des espèces
         $speciesModel = new SpeciesModel();
         $species = $speciesModel->findAll(); // Récupère toutes les espèces
+
         if (isset($_SESSION['id'])) {
-            $this->render( // Affiche la vue
+            $this->render(
                 'Dashboard/listSpecies',
                 [
-                    'species' => $species // Envoie la liste complète des espèces
+                    'species' => $species // Envoi de la liste complète des espèces
                 ]
             );
         } else {
@@ -25,16 +38,33 @@ class ListSpeciesController extends Controller
         }
     }
 
+    public function addSpecies()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $speciesModel = new SpeciesModel();
+            $speciesModel->hydrate([
+                'species' => $_POST['species'] ?? null,
+            ])->create();
+
+            $_SESSION['success_message'] = 'Espèce ajoutée avec succès';
+
+            // Redirection après succès
+            header("Location: /DashSpecies/list");
+            exit();
+        }
+
+        $this->render('DashSpecies/addSpecies');
+    }
+
     public function edit($id)
     {
         $speciesModel = new SpeciesModel();
         $species = $speciesModel->find($id); // Récupère une espèce spécifique
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'id' => $id,
-                'name' => $_POST['name'] ?? $species->name,
-                'description' => $_POST['description'] ?? $species->description,
+                'species' => $_POST['species'] ?? $species->species,
             ];
 
             $speciesModel->hydrate($data);
@@ -45,7 +75,7 @@ class ListSpeciesController extends Controller
                 $_SESSION["error_message"] = 'Erreur lors de la modification de l\'espèce';
             }
 
-            header('Location: /ListSpecies/list');
+            header('Location: /DashSpecies/list');
             exit();
         }
 
@@ -54,12 +84,12 @@ class ListSpeciesController extends Controller
         ]);
     }
 
-    public function delete($id) // Utiliser la méthode delete pour supp une espèce de la BDD
+    public function delete($id)
     {
         if ($id) {
             $speciesModel = new SpeciesModel();
             $result = $speciesModel->delete($id);
-    
+
             if ($result) {
                 $_SESSION['success_message'] = "L'espèce a été supprimée avec succès.";
             } else {
@@ -68,8 +98,8 @@ class ListSpeciesController extends Controller
         } else {
             $_SESSION['error_message'] = "Espèce invalide.";
         }
-        // Rediriger vers la liste des espèces après la suppression
-        header('Location: /ListSpecies/list');
+
+        header('Location: /DashSpecies/list');
         exit();
     }
 }

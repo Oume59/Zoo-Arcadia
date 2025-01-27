@@ -8,17 +8,29 @@ use App\Models\UserModel;
 use App\Models\RolesModel;
 use PHPMailer\PHPMailer\PHPMailer;
 
-class AddUsersController extends Controller
+class DashUsersController extends Controller
 {
     public function index()
     {
-        // Récupération de la liste des rôles pour affichage dans le for
+        // Récupération de la liste des rôles pour affichage dans le formuliare
         $rolesModel = new RolesModel();
         $roles = $rolesModel->findAll();
 
         $this->render('Dashboard/addUsers', ['roles' => $roles]);
     }
 
+    public function list()
+    {
+        $userModel = new UserModel();
+        $users = $userModel->selectAllRole();
+        if (isset($_SESSION['id'])) {
+            // Affiche la vue avec la liste des utilisateurs
+            $this->render('Dashboard/listUsers', ['users' => $users]);  // Envoie la liste cimplète des utilisateurs
+        } else {
+            http_response_code(404);
+            echo "Page non trouvée";
+        }
+    }
 
     public function addUsers()
     {
@@ -51,9 +63,6 @@ class AddUsersController extends Controller
             // Hashage du mot de passe
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            // Appel du modèle pour l'insertion
-            $result = $userModel->create($username, $email, $password, $role);
-
             // Récup et hydratation des données
             $data = [
                 'username' => $username,
@@ -62,7 +71,7 @@ class AddUsersController extends Controller
                 'id_role' => $role
             ];
             $userModel->hydrate($data);
-            $userModel->create($data);
+            $result = $userModel->create($data); // Appel du modèle pour l'insertion
 
             if ($result) {
                 // Envoi de l'email à l'utilisateur (sans le mot de passe)
@@ -84,9 +93,10 @@ class AddUsersController extends Controller
             $_SESSION['error_message'] = "Tous les champs sont requis.";
         }
         // Redirection après ajout
-        header("Location: /ListUsers/list");
+        header("Location: /DashUsers/list");
         exit;
     }
+
     private function sendEmail($to, $subject, $message)
     {
         $mail = new PHPMailer(true);
@@ -118,5 +128,70 @@ class AddUsersController extends Controller
             error_log("Erreur lors de l'envoi de l'email : " . $mail->ErrorInfo);
             return false;
         }
+    }
+
+    public function edit($id)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->find($id); // Récupère un utilisateur par son ID
+
+        // Vérification si l'utilisateur existe
+        if (!$user) {
+            $_SESSION["error_message"] = "Utilisateur introuvable.";
+            header('Location: /listUsers');
+            exit();
+        }
+
+        $rolesModel = new RolesModel();
+        $roles = $rolesModel->findAll(); // Récupère tous les rôles
+
+        // Traitement du formulaire
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Hydrate les données
+            $data = [
+                'id' => $id,
+                'username' => $_POST['username'] ?? $user->username,
+                'email' => $_POST['email'] ?? $user->email,
+                'id_role' => $_POST['id_role'] ?? $user->id_role,
+            ];
+
+            $userModel->hydrate($data);
+
+            if ($userModel->update($id, $data)) {
+                $_SESSION["success_message"] = "Utilisateur modifié avec succès.";
+            } else {
+                $_SESSION["error_message"] = "Erreur lors de la modification de l'utilisateur.";
+            }
+
+            // Redirection après traitement
+            header('Location: /listUsers');
+            exit();
+        }
+
+        // Transmet les données à la vue
+        $this->render('Dashboard/editUsers', [
+            'user' => $user,
+            'roles' => $roles,
+        ]);
+    }
+
+    public function delete($id)
+    {
+        // Utiliser la méthode delete pour supprimer un utilisateur de la BDD
+        if ($id) {
+            $userModel = new UserModel();
+            $result = $userModel->delete($id);
+
+            if ($result) {
+                $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la suppression de l'utilisateur.";
+            }
+        } else {
+            $_SESSION['error_message'] = "Utilisateur invalide.";
+        }
+        // Rediriger vers la liste des utilisateurs après la suppression
+        header('Location: /listUsers');
+        exit();
     }
 }

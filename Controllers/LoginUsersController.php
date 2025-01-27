@@ -14,7 +14,6 @@ class LoginUsersController extends Controller
     }
 
     // Connexion utilisateur
-
     public function connexion()
     {
         // Vérif de la methode en post
@@ -24,10 +23,10 @@ class LoginUsersController extends Controller
             $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
         $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
-
         // Validation de l'email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error_message'] = "Email non valide";
+            header('Location: /LoginUsers');
             exit();
         }
 
@@ -37,8 +36,6 @@ class LoginUsersController extends Controller
 
         // Vérif du mot de passe
         if ($user && password_verify($password, $user->password)) {
-
-
 
             // Stockage des infos  dans la session
             $_SESSION['id'] = $user->id;
@@ -54,5 +51,14 @@ class LoginUsersController extends Controller
             header('Location:/LoginUsers');
             exit();
         }
+    }
+
+    // Efface toutes les variables de session pour déconnecter l'utilisateur, puis les redirige vers la page principale (la fonction ne renvoi rien (pas de return))
+    public function deconnexion()
+    {
+        session_unset();
+
+        header("Location: /"); // Cela redirige vers la racine donc vers l'accueil grace au routage
+        exit();
     }
 }
