@@ -73,7 +73,7 @@ class DashHabitatsController extends Controller
             ])->create();
 
             // Redirection après succès
-            header("Location: /ListHabitats/List");
+            header("Location: /DashHabitats/List");
             exit;
         }
     }
