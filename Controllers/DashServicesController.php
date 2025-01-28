@@ -76,7 +76,7 @@ class DashServicesController extends Controller
 
             $_SESSION['success_message'] = 'Service ajouté avec succès';
             // Redirection après succès
-            header("Location: /ListServices/List");
+            header("Location: /DashServices/List");
             exit;
         }
         $this->render('Dashboard/addServices');
