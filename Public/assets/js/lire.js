@@ -29,7 +29,7 @@ function incrementViewCount(element, event) {
       element.disabled = false;
 
       // Redirige user vers la page du rapport de l'animal
-      window.location.href = `/Reports/showAnimalReports/${animalId}`;
+      window.location.href = `/DashReports/showAnimalReports/${animalId}`;
     })
     .catch((error) => {
       // Si une erreur se produit...
