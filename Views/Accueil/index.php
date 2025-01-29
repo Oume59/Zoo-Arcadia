@@ -16,10 +16,10 @@ $css = "accueil";
             Brocéliande, en Bretagne,<br> est un zoo qui incarne des valeurs écologiques fortes.<br>
             Totalement autonome en énergie grâce aux sources renouvelables,<br> il s'engage à protéger la biodiversité<br>
             tout en offrant une expérience immersive.<br> Réparti en trois habitats — Savane, Jungle, et Marais —,<br>
-            le zoo accueille une grande diversité d'animaux,<br>
+            le zoo accueille une grande diversité d'animaux,
             tous surveillés par des vétérinaires pour garantir leur bien-être.<br>
             Le parc propose plusieurs services écoresponsables <br> afin d'améliorer l'expérience des visiteurs,<br>
-            tout en sensibilisant à l'importance de l'écologie,<br>
+            tout en sensibilisant à l'importance de l'écologie,
             dont une visite en petit train, des restaurants, et une visite guidée gratuite,<br> pour offrir aux visiteurs
             une immersion totale dans la nature.
         </p>
