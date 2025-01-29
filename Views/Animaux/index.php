@@ -37,8 +37,10 @@ $css = "animaux";
     <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center">
         <p>
             Chaque habitat est peuplé d'animaux spécifiques à leur écosystème : <br>
-            Venez observer les lions, véritables rois de la savane, ainsi que les girafes et leurs longs cous gracieux, ou encore les éléphants, symboles de force et de sagesse.
-            Les tigres majestueux rôdent dans la jungle dense, tandis que des familles de singes agiles jouent dans les arbres. Vous y découvrirez également des oiseaux tropicaux colorés qui égayent cet environnement verdoyant.
+            Venez observer les lions, véritables rois de la savane, ainsi que les girafes et leurs longs cous gracieux,
+            ou encore les éléphants, symboles de force et de sagesse.
+            Les tigres majestueux rôdent dans la jungle dense, tandis que des familles de singes agiles jouent dans les arbres.
+            Vous y découvrirez également des oiseaux tropicaux colorés qui égayent cet environnement verdoyant.
             Les crocodiles, maîtres des eaux, veillent sur leur territoire, accompagnés d'hippopotames imposants et de tortues qui se prélassent au soleil.
             Pour chaque animal, vous trouverez des rapports vétérinaires détaillés concernant leur santé, leur alimentation quotidienne et les soins prodigués.
         </p>
@@ -58,7 +60,7 @@ $css = "animaux";
                                 Espèce : <?= htmlspecialchars($animal->animal_species ?? 'Inconnue') ?><br>
                                 Habitat : <?= htmlspecialchars($animal->habitat_name ?? 'Inconnu') ?><br>
                                 État : <?= htmlspecialchars($animal->health_state) ?></p>
-                            <a href="/DashReports/showAnimalReports/<?= htmlspecialchars($animal->id); ?>"
+                            <a href="/DashReports/showAnimalReports/<?= htmlspecialchars($animal->id) ?>"
                                 class="btn btn-primary" data-animal="<?= htmlspecialchars($animal->name) ?>" data-id="<?= htmlspecialchars($animal->id) ?>">PLUS D'INFOS</a>
                         </div>
                     </div>
