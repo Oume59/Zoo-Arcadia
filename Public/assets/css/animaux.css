@@ -1,4 +1,4 @@
-/*CAROUSEL */
+/* CAROUSEL */
 #carousel-animals {
   margin-top: 150px;
 }
@@ -38,6 +38,22 @@
   height: 20px;
 }
 
+@media (max-width: 768px) {
+  .carousel-control-prev {
+    left: -53px; 
+  }
+  
+  .carousel-control-next {
+    right: -53px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 15px; 
+    height: 15px;
+  }
+}
+
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   background-color: var(--forest-green);
@@ -61,13 +77,13 @@
 
 /* CIRCLE */
 .rounded-circle {
-  margin-top: 8%;
+  margin: 8% auto;
   width: 800px;
   height: 800px;
   background-color: var(--olive-green);
   color: var(--black);
   border: 3px solid var(--light-gray);
-  border-radius: 70%;
+  border-radius: 50%;
   padding: 70px;
   text-align: center;
   line-height: 1.4;
@@ -75,10 +91,44 @@
   word-wrap: break-word;
 }
 
+/* RESPONSIVE MOBILE CIRCLE */
+@media (max-width: 768px) {
+  .rounded-circle {
+    width: 460px;
+    height: 580px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rounded-circle {
+    width: 370px;
+    height: 500px;
+    padding: 15px;
+  }
+}
+
 .rounded-circle p {
+  max-width: 85%;
   margin: 0;
-  line-height: 1.6;
-  transition: transform 0.3s ease;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.4;
+  padding: 15px 10px;
+}
+
+@media (max-width: 768px) {
+  .rounded-circle p {
+    font-size: 14px;
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rounded-circle p {
+    font-size: 14px;
+    padding: 25px 10px;
+  }
 }
 
 .rounded-circle p:hover {
@@ -107,7 +157,7 @@
 }
 
 .card:hover {
-  transform: scale(1.05); /* effet ZOOM Légé sur les card pour un */
+  transform: scale(1.05); /* EFFET ZOOM LÉGÉ SUR LES CARDS */
   z-index: 1;
 }
 

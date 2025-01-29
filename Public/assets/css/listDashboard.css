@@ -42,7 +42,7 @@ tbody td {
   border: 1px solid var(--light-gray);
 }
 
-/* Lien des actions */
+/* LIENS DES ACTIONS */
 td a {
   color: var(--earth-brown);
   text-decoration: none;
@@ -53,7 +53,7 @@ td a:hover {
   color: var(--forest-green);
 }
 
-/* Boutons */
+/* BUTTONS */
 button {
   background-color: var(--earth-brown);
   padding: 10px 15px;

@@ -17,7 +17,7 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* CERCLES */
+/* CIRCLES */
 .report-container {
   background-color: var(--earth-beige);
   border: 2px solid var(--earth-brown);
@@ -55,6 +55,27 @@
   margin: 0;
   padding: 0 15px;
   word-wrap: break-word;
+}
+
+/* responsive mobile */
+@media (max-width: 768px) {
+  .report-container {
+    width: 320px;
+    height: 350px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-container {
+    width: 320px;
+    height: 350px;
+    padding: 20px;
+  }
+
+  .report-container p {
+    font-size: 14px;
+  }
 }
 
 /* TITLE */

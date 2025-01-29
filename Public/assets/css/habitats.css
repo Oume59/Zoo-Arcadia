@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0.8;
-  border: 2px solid var(--olive-green); /* Bordure verte */
+  border: 2px solid var(--olive-green); 
 }
 
 .carousel-control-prev {
@@ -29,6 +29,22 @@
 
 .carousel-control-next {
   right: -70px;
+}
+
+@media (max-width: 768px) {
+  .carousel-control-prev {
+    left: -53px; 
+  }
+  
+  .carousel-control-next {
+    right: -53px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 15px; 
+    height: 15px;
+  }
 }
 
 .carousel-control-prev-icon,
@@ -40,7 +56,7 @@
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  background-color: var(--forest-green); /* Change la couleur au survol */
+  background-color: var(--forest-green); 
   transform: scale(1.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -69,7 +85,7 @@
   background-color: var(--earth-beige);
   width: 100%;
   max-width: 500px;
-  aspect-ratio: 5/3; /*pour la forme rectangulaire */
+  aspect-ratio: 5/3; 
   border: 2px solid var(--black);
   position: relative;
   overflow: hidden;
@@ -77,7 +93,7 @@
 }
 
 .card:hover {
-  transform: scale(1.05); /* effet ZOOM Légé sur les card pour un */
+  transform: scale(1.05); 
   z-index: 1;
 }
 

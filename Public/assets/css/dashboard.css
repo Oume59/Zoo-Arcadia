@@ -1,3 +1,5 @@
+/* DASH ADMIN/VETERINAIRE ET EMPLOYÉ */
+
 body {
   background-color: var(--earth-beige);
 }
@@ -30,6 +32,7 @@ body {
   color: var(--black);
 }
 
+/* RESPONSIVE MOBILE */
 @media (min-width: 768px) {
   .admin-link-container {
     flex: 1 1 calc(25% - 20px);
