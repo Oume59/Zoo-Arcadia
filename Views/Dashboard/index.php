@@ -3,7 +3,7 @@ $css = "dashboard";
 ?>
 
 <div class="stylee"></div>
-<!-- les href sont les controllers concérnés / la function -->
+<!-- les href sont les controllers concérnés / la methode -->
 <div class="container-fluid admin-container">
     <div class="admin-dash">
         <div class="row">
@@ -49,9 +49,6 @@ $css = "dashboard";
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
                     <a href="/ConsultationsAnimals/getAllCounts" class="admin-link">Consultations clics/Animal</a>
                 </div>
-                <!--<div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/#footer" class="admin-link">Horaires</a> A MODIFIER DIRECTEMENT VIA LE FOOTER
-                </div> -->
             <?php endif; ?>
 
             <!-- autorisations Vétérinaire -->
