@@ -6,8 +6,10 @@ use Dotenv\Dotenv;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 // Charger les variables d'environnement
+if (file_exists(__DIR__ . '/../.env')) {
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load(); // Charge les variables d'environnement
+}
 
 // Définir une constante avec le dossier racine du projet 
 define('ROOT', dirname(__DIR__));
