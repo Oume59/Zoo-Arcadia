@@ -4,7 +4,6 @@ use App\Autoloader;
 use App\Config\Main;
 //use Dotenv\Dotenv;
 
-require_once __DIR__ . '/../vendor/autoload.php';
 // Charger les variables d'environnement
 //if (file_exists(__DIR__ . '/../.env')) {
 //$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
