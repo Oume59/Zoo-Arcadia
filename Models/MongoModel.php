@@ -10,12 +10,10 @@ class MongoModel
     protected $collection;
 
     //Initialise la connexion à la collection MongoDB spécifique
-    public function __construct($collection)
+    public function __construct(string $collection)
     {
-        // Sélectionne la collection passée en param à partir de la configuration MongoDB
-        $this->collection = MongoDbConfig::getDatabase()->selectCollection($collection);
+        $this->collection = MongoDbConfig::getInstance()->getDatabase()->selectCollection($collection);
     }
-
     // CRUD NO SQL
 
     public function create(array $data): string
@@ -33,9 +31,9 @@ class MongoModel
     //Récupère tous les documents de la collection et liste de tous les doc en tableau PHP.
     public function findAll(): array
     {
-        return $this->collection->find()->toArray();
+        return iterator_to_array($this->collection->find());
     }
-
+    
     public function update(string $id, array $data): int
     {
         $result = $this->collection->updateOne(
