@@ -91,8 +91,8 @@ $css = "accueil";
                                 </div>
                             </div>
                         </div>
-                        <?php $isActive = false; ?>
                     <?php endforeach; ?>
+                    <?php $isActive = false; ?>
                 <?php endif; ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis" data-bs-slide="prev">
