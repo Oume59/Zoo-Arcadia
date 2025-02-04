@@ -10,7 +10,7 @@ class ConsultationsAnimalsModel
 
     public function __construct()
     {
-        $db = MongoDbConfig::getDatabase(); // Connexion à MongoDB
+        $db = MongoDbConfig::getInstance()->getDatabase(); // Connexion à MongoDB
         $this->collection = $db->selectCollection('consultations_views'); // collection
     }
 

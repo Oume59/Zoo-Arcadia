@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\config\ConnexionDb;
+use App\Config\ConnexionDb;
 
 class Model extends ConnexionDb
 {
