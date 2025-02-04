@@ -10,42 +10,43 @@ class ReviewsController extends Controller
 
     public function __construct()
     {
+        // Initialise le modèle ReviewsModel pour interagir avec la base de données NoSQL (MongoDB)
         $this->reviewsModel = new ReviewsModel();
     }
 
-    private function sanitizeInput($data) // Sécurité !!
+    private function sanitizeInput($data) // Sécurité !! Sécurise une entrée utilisateur pour éviter les injections XSS et les caractères indésirables.
     {
         // Nettoyage des DATA users pour éviter les injections + caractères indésirables
         return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
     }
 
-    // ADD avis
+    // ADD avis par un visiteur qui est stocké dans la BDD NoSQL et marqué comme non validé par défaut.
     public function addReview()
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupération des DATA
-        $pseudo = $this->sanitizeInput($_POST['pseudo'] ?? '');
-        $avis = $this->sanitizeInput($_POST['avis'] ?? '');
-        $note = filter_var($_POST['etoiles'] ?? null, FILTER_VALIDATE_INT);
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupération des DATA
+            $pseudo = $this->sanitizeInput($_POST['pseudo'] ?? '');
+            $avis = $this->sanitizeInput($_POST['avis'] ?? '');
+            $note = filter_var($_POST['etoiles'] ?? null, FILTER_VALIDATE_INT);
 
-        // Validation des DATA
-        if (empty($pseudo) || empty($avis) || $note === null || $note < 1 || $note > 5) {
-            header('Location: /#avis');
+            // Validation des DATA
+            if (empty($pseudo) || empty($avis) || $note === null || $note < 1 || $note > 5) {
+                header('Location: /#avis');
+                exit();
+            }
+
+            // Enregistrement review avec le statut non validé
+            $this->reviewsModel->createReview([
+                'pseudo' => $pseudo,
+                'avis' => $avis,
+                'note' => $note,
+                'validated' => false
+            ]);
+
+            header('Location: /#avis'); // Redirection vers la section des avis après soumission
             exit();
         }
-
-        // Enregistrement review
-        $this->reviewsModel->createReview([
-            'pseudo' => $pseudo,
-            'avis' => $avis,
-            'note' => $note, 
-            'validated' => false
-        ]);
-
-        header('Location: /#avis');
-        exit();
     }
-}
 
 
     // Afficher les avis en attente (dashboard employé)
@@ -68,6 +69,7 @@ class ReviewsController extends Controller
         ]);
     }
 
+    // Change le statut l'avis en validé
     public function validateReview()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -84,6 +86,7 @@ class ReviewsController extends Controller
         }
     }
 
+    // Supprime l'avis de la BDD NoSQL
     public function deleteReview()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -100,6 +103,7 @@ class ReviewsController extends Controller
         }
     }
 
+    // Liste des avis VALIDÉS
     public function listReviews()
     {
         $validatedReviews = $this->reviewsModel->getValidatedReviews();
@@ -108,6 +112,7 @@ class ReviewsController extends Controller
         ]);
     }
 
+    // Supprime un avis déjà validé
     public function deleteValidatedReview($id)
     {
         // Vérifie si l'ID est valide
