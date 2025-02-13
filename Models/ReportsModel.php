@@ -118,14 +118,14 @@ class ReportsModel extends Model
     /**
      * Get the value of date_report
      */
-    public function getDateReport() {
+    public function getDate_Report() {
         return $this->date_report;
     }
 
     /**
      * Set the value of date_report
      */
-    public function setDateReport($date_report): self {
+    public function setDate_Report($date_report): self {
         $this->date_report = $date_report;
         return $this;
     }
@@ -148,14 +148,14 @@ class ReportsModel extends Model
     /**
      * Get the value of health_state
      */
-    public function getHealthState() {
+    public function getHealth_State() {
         return $this->health_state;
     }
 
     /**
      * Set the value of health_state
      */
-    public function setHealthState($health_state): self {
+    public function setHealth_State($health_state): self {
         $this->health_state = $health_state;
         return $this;
     }
@@ -178,14 +178,14 @@ class ReportsModel extends Model
     /**
      * Get the value of animal_id
      */
-    public function getAnimalId() {
+    public function getAnimal_Id() {
         return $this->animal_id;
     }
 
     /**
      * Set the value of animal_id
      */
-    public function setAnimalId($animal_id): self {
+    public function setAnimal_Id($animal_id): self {
         $this->animal_id = $animal_id;
         return $this;
     }
@@ -193,14 +193,14 @@ class ReportsModel extends Model
     /**
      * Get the value of daily_food
      */
-    public function getDailyFood() {
+    public function getDaily_Food() {
         return $this->daily_food;
     }
 
     /**
      * Set the value of daily_food
      */
-    public function setDailyFood($daily_food): self {
+    public function setDaily_Food($daily_food): self {
         $this->daily_food = $daily_food;
         return $this;
     }
@@ -208,14 +208,14 @@ class ReportsModel extends Model
     /**
      * Get the value of daily_food_date
      */
-    public function getDailyFoodDate() {
+    public function getDaily_Food_Date() {
         return $this->daily_food_date;
     }
 
     /**
      * Set the value of daily_food_date
      */
-    public function setDailyFoodDate($daily_food_date): self {
+    public function setDaily_Food_Date($daily_food_date): self {
         $this->daily_food_date = $daily_food_date;
         return $this;
     }
@@ -223,14 +223,14 @@ class ReportsModel extends Model
     /**
      * Get the value of daily_food_time
      */
-    public function getDailyFoodTime() {
+    public function getDaily_Food_Time() {
         return $this->daily_food_time;
     }
 
     /**
      * Set the value of daily_food_time
      */
-    public function setDailyFoodTime($daily_food_time): self {
+    public function setDaily_Food_Time($daily_food_time): self {
         $this->daily_food_time = $daily_food_time;
         return $this;
     }
