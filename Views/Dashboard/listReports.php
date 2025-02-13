@@ -19,12 +19,12 @@ $css = "listDashboard";
     <tbody>
         <?php foreach ($reports as $report): ?>
             <tr>
-                <td><?= htmlspecialchars($report->date_report); ?></td>
-                <td><?= htmlspecialchars($report->details); ?></td>
-                <td><?= htmlspecialchars($report->health_state); ?></td>
-                <td><?= htmlspecialchars($report->food); ?></td>
-                <td><?= !empty($report->daily_food) ? nl2br(htmlspecialchars($report->daily_food)) : 'Aucune donnée entrée'; ?></td>
-                <td><?= htmlspecialchars($report->animal_name); ?></td>
+                <td><?= ($report->date_report); ?></td>
+                <td><?= ($report->details); ?></td>
+                <td><?= ($report->health_state); ?></td>
+                <td><?= ($report->food); ?></td>
+                <td><?= !empty($report->daily_food) ? nl2br(($report->daily_food)) : 'Aucune donnée entrée'; ?></td>
+                <td><?= ($report->animal_name); ?></td>
                 <td>
                     <a href="/DashReports/edit/<?= $report->id; ?>">Modifier</a>
                     <a href="/DashReports/delete/<?= $report->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?');">Supprimer</a>
