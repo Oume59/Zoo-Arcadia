@@ -12,9 +12,9 @@ services:
     depends_on:
       - db
       - mongo
-    # volumes:
-    #  - .:/var/www/html # permet de faire des modifications en temps réel sans devoir build l'image systematiquement à chaque manipulation
-    # - ./php.ini:/usr/local/etc/php/php.ini # Copie du fichier php.ini vers le conteneur
+    #volumes:
+    #- .:/var/www/html # permet de faire des modifications en temps réel sans devoir build l'image systematiquement à chaque manipulation
+    #- ./php.ini:/usr/local/etc/php/php.ini # Copie du fichier php.ini vers le conteneur
     networks:
       - app-network
 

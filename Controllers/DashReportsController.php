@@ -43,18 +43,38 @@ class DashReportsController extends Controller
     public function addReport()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Hydrater le modèle avec les données du formulaire
             $reportsModel = new ReportsModel();
-            $reportsModel->hydrate([
-                'date_report' => $_POST['date_report'] ?? null,
-                'details' => $_POST['details'] ?? null,
-                'health_state' => $_POST['health_state'] ?? null,
-                'food' => $_POST['food'] ?? null,
-                'animal_id' => $_POST['animal_id'] ?? null, // Utiliser directement le nom
-            ])->create();
-    
-            // Redirection après succès
-            $_SESSION['success_message'] = "Le rapport a été ajouté avec succès.";
+
+            // Vérifier le rôle de l'utilisateur
+            if ($_SESSION['role'] === 'veterinaire') {
+                // Ajouter un rapport vétérinaire
+                $reportsModel->hydrate([
+                    'date_report' => $_POST['date_report'] ?? null,
+                    'details' => $_POST['details'] ?? null,
+                    'health_state' => $_POST['health_state'] ?? null,
+                    'food' => $_POST['food'] ?? null,
+                    'animal_id' => $_POST['animal_id']
+
+                ])->create();
+
+
+                $_SESSION['success_message'] = "Le rapport vétérinaire a été ajouté avec succès.";
+            } elseif ($_SESSION['role'] === 'employe') {
+                // Ajouter une consommation alimentaire
+                $reportsModel->hydrate([
+                    'animal_id' => $_POST['animal_id'],
+                    'daily_food' => $_POST['daily_food'] ?? null,
+                    'daily_food_date' => $_POST['daily_food_date'] ?? null,
+                    'daily_food_time' => $_POST['daily_food_time'] ?? null
+                ])->create();
+
+                $_SESSION['success_message'] = "La consommation alimentaire a été ajoutée avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Accès non autorisé.";
+                header("Location: /Dashboard");
+                exit;
+            }
+
             header("Location: /DashReports/list");
             exit;
         }
@@ -62,6 +82,12 @@ class DashReportsController extends Controller
 
     public function edit($id)
     {
+        if ($_SESSION['role'] !== 'veterinaire' && $_SESSION['role'] !== 'employe') {
+            $_SESSION['error_message'] = "Accès non autorisé.";
+            header("Location: /DashReports/list");
+            exit();
+        }
+
         $reportsModel = new ReportsModel();
         $animauxModel = new AnimauxModel();
 
@@ -109,6 +135,11 @@ class DashReportsController extends Controller
 
     public function delete($id)
     {
+        if ($_SESSION['role'] !== 'veterinaire' && $_SESSION['role'] !== 'employe') {
+            $_SESSION['error_message'] = "Accès non autorisé.";
+            header("Location: /DashReports/list");
+            exit();
+        }
         if ($id) {
             $reportsModel = new ReportsModel();
             $result = $reportsModel->delete($id);
@@ -134,16 +165,16 @@ class DashReportsController extends Controller
         // Récupération des informations sur l'animal
         $animauxModel = new AnimauxModel();
         $animal = $animauxModel->find($id);
-        
+
         if (!$animal) {
             http_response_code(404);
             echo "Animal non trouvé.";
             exit;
         }
-    
+
         $this->render('Reports/showAnimalReports', [ // RENVOI à la vue avec les rapports et les informations de l'animal
             'reports' => $reports,
             'animal' => $animal
         ]);
-    }    
+    }
 }

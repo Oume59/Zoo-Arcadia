@@ -77,7 +77,10 @@ $css = "dashboard";
                     <a href="/DashServices/list" class="admin-link">Liste des Services</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 admin-link-container">
-                    <a href="/DashReports/list" class="admin-link">Nourriture Quotidienne des Animaux</a> 
+                    <a href="/DashReports" class="admin-link">Ajouter un rapport de nourriture quotidienne/Animal</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 admin-link-container">
+                    <a href="/DashReports/list" class="admin-link">Nourriture Quotidienne des Animaux</a>
                 </div>
             <?php endif; ?>
         </div>
