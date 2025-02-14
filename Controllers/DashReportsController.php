@@ -59,7 +59,6 @@ class DashReportsController extends Controller
 
 
                 $_SESSION['success_message'] = "Le rapport vétérinaire a été ajouté avec succès.";
-
             } elseif ($_SESSION['role'] === 'employe') {
                 // Ajouter une consommation alimentaire
                 $reportsModel->hydrate([
@@ -83,6 +82,12 @@ class DashReportsController extends Controller
 
     public function edit($id)
     {
+        if ($_SESSION['role'] !== 'veterinaire' && $_SESSION['role'] !== 'employe') {
+            $_SESSION['error_message'] = "Accès non autorisé.";
+            header("Location: /DashReports/list");
+            exit();
+        }
+
         $reportsModel = new ReportsModel();
         $animauxModel = new AnimauxModel();
 
@@ -130,6 +135,11 @@ class DashReportsController extends Controller
 
     public function delete($id)
     {
+        if ($_SESSION['role'] !== 'veterinaire' && $_SESSION['role'] !== 'employe') {
+            $_SESSION['error_message'] = "Accès non autorisé.";
+            header("Location: /DashReports/list");
+            exit();
+        }
         if ($id) {
             $reportsModel = new ReportsModel();
             $result = $reportsModel->delete($id);
@@ -155,16 +165,16 @@ class DashReportsController extends Controller
         // Récupération des informations sur l'animal
         $animauxModel = new AnimauxModel();
         $animal = $animauxModel->find($id);
-        
+
         if (!$animal) {
             http_response_code(404);
             echo "Animal non trouvé.";
             exit;
         }
-    
+
         $this->render('Reports/showAnimalReports', [ // RENVOI à la vue avec les rapports et les informations de l'animal
             'reports' => $reports,
             'animal' => $animal
         ]);
-    }    
+    }
 }
