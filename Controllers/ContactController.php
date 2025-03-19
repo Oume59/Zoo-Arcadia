@@ -19,79 +19,61 @@ class ContactController extends Controller
         $message = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Vérification du CSRF token
-            if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                die('Token CSRF invalide.');
+            // Récupération des données du formulaire
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $email = $_POST['email'];
+            $messageContent = $_POST['message'];
+
+            // Validation des champs
+            if (empty($nom) || empty($prenom) || empty($email) || empty($messageContent)) {
+                echo json_encode(["status" => "error", "message" => 'Tous les champs sont obligatoires.']);
             }
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Récupération des données du formulaire
-                $nom = htmlspecialchars(trim($_POST['nom']));
-                $prenom = htmlspecialchars(trim($_POST['prenom']));
-                $email = htmlspecialchars(trim($_POST['email']));
-                $messageContent = htmlspecialchars(trim($_POST['message']));
+            // Validation stricte
+            if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $nom)) {
+                echo json_encode(["status" => "error", "message" => 'Le nom contient des caractères non autorisés.']);
+            }
 
-                // Validation des champs
-                if (empty($nom) || empty($prenom) || empty($email) || empty($messageContent)) {
-                    $message = 'Tous les champs sont obligatoires.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $prenom)) {
+                echo json_encode(["status" => "error", "message" => 'Le prénom contient des caractères non autorisés.']);
+            }
 
-                // Validation stricte
-                if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $nom)) {
-                    $message = 'Le nom contient des caractères non autorisés.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo json_encode(["status" => "error", "message" => 'Adresse email non valide.']);
+            }
 
-                if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $prenom)) {
-                    $message = 'Le prénom contient des caractères non autorisés.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            if (strlen($nom) > 50 || strlen($prenom) > 50) {
+                echo json_encode(["status" => "error", "message" => 'Nom ou prénom trop long. Maximum 50 caractères.']);
+            }
 
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $message = 'Adresse email non valide.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            if (strlen($messageContent) > 250) {
+                echo json_encode(["status" => "error", "message" => 'Le message est trop long. Maximum 250 caractères.']);
+            }
 
-                if (strlen($nom) > 50 || strlen($prenom) > 50) {
-                    $message = 'Nom ou prénom trop long. Maximum 50 caractères.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            // Envoi de l'email via PHPMailer
+            $mail = new PHPMailer(true);
 
-                if (strlen($messageContent) > 250) {
-                    $message = 'Le message est trop long. Maximum 250 caractères.';
-                    $this->render('Contact/index', compact('message'));
-                    return;
-                }
+            try {
+                // Configuration SMTP (UTILISER LES DATA DU .ENV)
+                $mail->isSMTP();
+                $mail->Host = $_ENV['SMTP_CONTACT_HOST'];
+                $mail->SMTPAuth = true;
+                $mail->Username = $_ENV['SMTP_CONTACT_USER'];
+                $mail->Password = $_ENV['SMTP_CONTACT_PASS'];
+                $mail->SMTPSecure = $_ENV['SMTP_CONTACT_SECURE'];
+                $mail->Port = $_ENV['SMTP_CONTACT_PORT'];
+                $mail->CharSet = $_ENV['SMTP_CHARSET'];
 
-                // Envoi de l'email via PHPMailer
-                $mail = new PHPMailer(true);
+                // Configuration de l'expéditeur et du destinataire
+                $mail->setFrom('bulmaemployearcadia@gmail.com', 'Zoo Arcadia - Contact');
+                $mail->addAddress('bulmaemployearcadia@gmail.com', 'Zoo Arcadia');
+                $mail->addReplyTo($email, "$nom $prenom");
 
-                try {
-                    // Configuration SMTP (UTILISER LES DATA DU .ENV)
-                    $mail->isSMTP();
-                    $mail->Host = $_ENV['SMTP_CONTACT_HOST'];
-                    $mail->SMTPAuth = true;
-                    $mail->Username = $_ENV['SMTP_CONTACT_USER'];
-                    $mail->Password = $_ENV['SMTP_CONTACT_PASS'];
-                    $mail->SMTPSecure = $_ENV['SMTP_CONTACT_SECURE'];
-                    $mail->Port = $_ENV['SMTP_CONTACT_PORT'];
-                    $mail->CharSet = $_ENV['SMTP_CHARSET'];
-
-                    // Configuration de l'expéditeur et du destinataire
-                    $mail->setFrom('bulmaemployearcadia@gmail.com', 'Zoo Arcadia - Contact');
-                    $mail->addAddress('bulmaemployearcadia@gmail.com', 'Zoo Arcadia');
-                    $mail->addReplyTo($email, "$nom $prenom");
-
-                    // Contenu de l'email
-                    $mail->isHTML(true);
-                    $mail->Subject = 'Nouvelle demande de contact';
-                    $mail->Body = "
+                // Contenu de l'email
+                $mail->isHTML(true);
+                $mail->Subject = 'Nouvelle demande de contact';
+                $mail->Body = "
                     <h3>Nouvelle demande de contact</h3>
                     <p><strong>Nom :</strong> $nom</p>
                     <p><strong>Prénom :</strong> $prenom</p>
@@ -100,14 +82,15 @@ class ContactController extends Controller
                     <p>$messageContent</p>
                 ";
 
-                    $mail->send();
-                    $message = 'Votre message a été envoyé avec succès.';
-                } catch (Exception $e) {
-                    $message = "Une erreur est survenue lors de l'envoi de votre message. Erreur : {$mail->ErrorInfo}";
-                }
+                $mail->send();
+                $message = 'Votre message a été envoyé avec succès.';
+                echo json_encode(["status" => "success", "message" => $message]);
+            } catch (Exception $e) {
+                $message = "Une erreur est survenue lors de l'envoi de votre message. Erreur : {$mail->ErrorInfo}";
+                echo json_encode(["status" => "error", "message" => $message]);
             }
-
-            $this->render('Contact/index', compact('message'));
         }
+
+        $this->render('Contact/index', compact('message'));
     }
 }
