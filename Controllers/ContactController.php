@@ -33,22 +33,27 @@ class ContactController extends Controller
             // Validation stricte
             if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $nom)) {
                 echo json_encode(["status" => "error", "message" => 'Le nom contient des caractères non autorisés.']);
+                exit;
             }
 
             if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $prenom)) {
                 echo json_encode(["status" => "error", "message" => 'Le prénom contient des caractères non autorisés.']);
+                exit;
             }
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo json_encode(["status" => "error", "message" => 'Adresse email non valide.']);
+                exit;
             }
 
             if (strlen($nom) > 50 || strlen($prenom) > 50) {
                 echo json_encode(["status" => "error", "message" => 'Nom ou prénom trop long. Maximum 50 caractères.']);
+                exit;
             }
 
             if (strlen($messageContent) > 250) {
                 echo json_encode(["status" => "error", "message" => 'Le message est trop long. Maximum 250 caractères.']);
+                exit;
             }
 
             // Envoi de l'email via PHPMailer
@@ -83,11 +88,11 @@ class ContactController extends Controller
                 ";
 
                 $mail->send();
-                $message = 'Votre message a été envoyé avec succès.';
-                echo json_encode(["status" => "success", "message" => $message]);
+                echo json_encode(["status" => "success", "message" => 'Votre message a été envoyé avec succès.']);
+                exit;
             } catch (Exception $e) {
-                $message = "Une erreur est survenue lors de l'envoi de votre message. Erreur : {$mail->ErrorInfo}";
-                echo json_encode(["status" => "error", "message" => $message]);
+                echo json_encode(["status" => "error", "message" => "Une erreur est survenue lors de l'envoi de votre message. Erreur : {$mail->ErrorInfo}"]);
+                exit;
             }
         }
 
