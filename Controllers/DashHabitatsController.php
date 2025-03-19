@@ -54,7 +54,8 @@ class DashHabitatsController extends Controller
 
                 $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 if (!in_array($mimeType, $allowedMimeTypes)) {
-                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                    echo "Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.";
+                    exit;
                 }
 
                 // Déplacement de l'image vers le dossier cible
@@ -98,7 +99,8 @@ class DashHabitatsController extends Controller
 
                 $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 if (!in_array($mimeType, $allowedMimeTypes)) {
-                    die("Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.");
+                    echo "Type de fichier non autorisé. Seuls les fichiers JPEG, PNG et GIF sont acceptés.";
+                    exit;
                 }
 
                 $image = $uploadDir . $fileName . '.' . $fileExtension;
