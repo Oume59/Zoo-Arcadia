@@ -136,7 +136,7 @@ class DashUsersController extends Controller
         // Vérification si l'utilisateur existe
         if (!$user) {
             $_SESSION["error_message"] = "Utilisateur introuvable.";
-            header('Location: /listUsers');
+            header("Location: /DashUsers/list");
             exit();
         }
 
@@ -162,7 +162,7 @@ class DashUsersController extends Controller
             }
 
             // Redirection après traitement
-            header('Location: /listUsers');
+            header("Location: /DashUsers/list");
             exit();
         }
 
@@ -189,7 +189,7 @@ class DashUsersController extends Controller
             $_SESSION['error_message'] = "Utilisateur invalide.";
         }
         // Rediriger vers la liste des utilisateurs après la suppression
-        header('Location: /listUsers');
+        header("Location: /DashUsers/list");
         exit();
     }
 }

@@ -17,35 +17,39 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Réinitialise l'affichage du message
+    divMessage.classList.remove("d-none");
+    divMessage.classList.remove("error-message", "success-message");
+
     // Envoi de la requête fetch vers l’URL spécifiée
     fetch("/Contact/sendContactMail", {
       method: "POST",
       body: formData,
     })
-      .then(function (response) {
+      .then((response) => {
         if (response.ok) {
-          return response.json().then((jsonResponse) => jsonResponse);
+          return response.json();
         } else {
           return response.json().then((err) => {
-            // Si la réponse contient une erreur, la convertir en JSON et lever une exception
             throw err;
           });
         }
       })
-      .then(function (jsonResponse) {
-        //  Traitement des données reçues du serveur
-        divMessage.style.display = "none"; // Masque le message d’erreur par défaut
+      .then((jsonResponse) => {
+        divMessage.style.display = "block";
+        divMessage.textContent = jsonResponse.message;
+
         if (jsonResponse.status === "success") {
-          // Vérifie si la réponse indique un succès
-          divMessage.style.display = "block"; // il s affiche contrairement au none (le message)
-          divMessage.textContent = jsonResponse.message; // Affiche le message de succès du serveur
-          // Vider les champs du formulaire après l'envoi réussi
-          form.reset();
+          divMessage.classList.add("success-message"); // Ajoute la classe succès
+          form.reset(); // reset le formulaire après envoi
+        } else {
+          divMessage.classList.add("error-message"); // Ajoute la classe erreur
         }
       })
-      .catch(function (error) {
-        divMessage.style.display = "block"; // Affiche le message d’erreur si une exception a été levée (ex: problème côté serveur)
+      .catch((error) => {
+        divMessage.style.display = "block";
         divMessage.textContent = error.message;
+        divMessage.classList.add("error-message"); // Ajoute une classe erreur si une exception est levée
       });
   });
 });
