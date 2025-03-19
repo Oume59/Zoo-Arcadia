@@ -32,8 +32,9 @@ class Main
 
         //Vérif du jeton CSRF et assainit DATA POST si la requete est de type POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $csrfToken = $_POST['csrf_token'] ?? '';
-            $this->chekCsrfToken($csrfToken);
+            header("Content-Type: application/json");
+          //  $csrfToken = $_POST['csrf_token'] ?? '';
+        //    $this->chekCsrfToken($csrfToken);
 
             //Assainissement des DATA en POST
             $_POST = $this->sanitizeFormData($_POST);
@@ -77,9 +78,9 @@ class Main
     
     public function chekCsrfToken($token)
     {
-        if (!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) { // Vérif si le token CSRF est valide
+        if (!isset($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $token)) { // Vérif si le token CSRF est valide
             http_response_code(403); //Si token invalide, envoi erreur
-            echo "CSRF Token ivalide";
+            echo json_encode(["error"=>"CSRF Token invalide"]);
             exit();
         }
     }
