@@ -10,7 +10,7 @@ $css = "editDashboard";
     </div>
 <?php endif; ?>
 
-<form action="/Contact/sendContactMail" method="POST">
+<form id="fetch" action="/Contact/sendContactMail" method="POST">
     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 
     <div class="mb-3">
@@ -34,9 +34,18 @@ $css = "editDashboard";
     </div>
 
     <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+
+    <div class="msg d-none"></div>
+
 </form>
+
+
 
 <!-- BUTTON RETURN -->
 <div class="centered">
     <a href="/Main" class="btn-back">QUITTER</a>
 </div>
+
+
+<script type="module" src="./assets/js/fetchContact.js"></script>
+
