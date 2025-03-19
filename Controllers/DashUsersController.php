@@ -36,8 +36,6 @@ class DashUsersController extends Controller
     {
 
         $userModel = new UserModel();
-        $roleModel = new RolesModel();
-
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Validation des données POST
