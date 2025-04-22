@@ -2,31 +2,31 @@
 $css = "accueil";
 ?>
 
-<img class="imgaccueil" src="/assets/img/tigreaccueil.jpg" alt="" />
+<img class="imgaccueil" src="/assets/img/tigreaccueil.jpg" alt="Tigre dans la nature" />
+    <div class="title d-flex justify-content-center">
+        <h1>PLONGEZ AU COEUR DE LA NATURE SAUVAGE</h1>
+    </div>
 
-<div class="title d-flex justify-content-center">
-    <h1>PLONGEZ AU COEUR DE LA NATURE SAUVAGE</h1>
-</div>
-
-<!-- SERVICES -->
+<!-- DESCRIPTION ZOO -->
 <section id="description-zoo" class="text-center py-5">
-    <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center">
+<div class="rounded-circle d-flex align-items-center justify-content-center">
         <p>
             Arcadia, fondé en 1960 près de la forêt de
-            Brocéliande, en Bretagne,<br> est un zoo qui incarne des valeurs écologiques fortes.<br>
-            Totalement autonome en énergie grâce aux sources renouvelables,<br> il s'engage à protéger la biodiversité<br>
-            tout en offrant une expérience immersive.<br> Réparti en trois habitats — Savane, Jungle, et Marais —,<br>
+            Brocéliande, en Bretagne, est un zoo qui incarne des valeurs écologiques fortes.
+            Totalement autonome en énergie grâce aux sources renouvelables, il s'engage à protéger la biodiversité
+            tout en offrant une expérience immersive. Réparti en trois habitats
+            : Savane, Jungle, et Marais,
             le zoo accueille une grande diversité d'animaux,
-            tous surveillés par des vétérinaires pour garantir leur bien-être.<br>
-            Le parc propose plusieurs services écoresponsables <br> afin d'améliorer l'expérience des visiteurs,<br>
+            tous surveillés par des vétérinaires pour garantir leur bien-être.
+            Le parc propose plusieurs services écoresponsables afin d'améliorer l'expérience des visiteurs,
             tout en sensibilisant à l'importance de l'écologie,
-            dont une visite en petit train, des restaurants, et une visite guidée gratuite,<br> pour offrir aux visiteurs
-            une immersion totale dans la nature.
+            dont une visite en petit train, des restaurants, et une visite guidée gratuite,
+            pour offrir aux visiteurs une immersion totale dans la nature.
         </p>
     </div>
 </section>
 
-<!-- TITLE -->
+<!-- TITLE SERVICE -->
 <div class="title d-flex justify-content-center">
     <h2>NOS SERVICES</h2>
 </div>
@@ -128,22 +128,20 @@ $css = "accueil";
                         <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="avis" class="form-label">Votre avis (requis pour soumettre votre avis) :</label>
-                        <textarea class="form-control" id="avis" name="avis" rows="3" placeholder="Entrez votre avis ici" required></textarea>
+                        <label for="avis" class="form-label">Votre avis (requis) :</label>
+                        <textarea class="form-control" id="avis" name="avis" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="note" class="form-label">Votre note (requis pour soumettre votre avis) :</label>
+                        <label for="avis" class="form-label">Votre avis :</label>
+                        <textarea class="form-control" id="avis" name="avis" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Votre note :</label>
                         <div class="rating">
-                            <input type="radio" id="star1" name="etoiles" value="1" required>
-                            <label for="star1">★</label>
-                            <input type="radio" id="star2" name="etoiles" value="2">
-                            <label for="star2">★</label>
-                            <input type="radio" id="star3" name="etoiles" value="3">
-                            <label for="star3">★</label>
-                            <input type="radio" id="star4" name="etoiles" value="4">
-                            <label for="star4">★</label>
-                            <input type="radio" id="star5" name="etoiles" value="5">
-                            <label for="star5">★</label>
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <input type="radio" id="star<?= $i ?>" name="etoiles" value="<?= $i ?>" required>
+                                <label for="star<?= $i ?>">★</label>
+                            <?php endfor; ?>
                         </div>
                     </div>
                 </div>
