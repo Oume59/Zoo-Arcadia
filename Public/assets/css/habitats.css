@@ -1,4 +1,4 @@
-/*CAROUSEL */
+/* CAROUSEL */
 #carousel-habitats {
   margin-top: 150px;
 }
@@ -31,22 +31,6 @@
   right: -70px;
 }
 
-@media (max-width: 768px) {
-  .carousel-control-prev {
-    left: -53px; 
-  }
-  
-  .carousel-control-next {
-    right: -53px;
-  }
-
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    width: 15px; 
-    height: 15px;
-  }
-}
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(1);
@@ -61,10 +45,15 @@
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+#carouselHabitats img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
 /* H2 */
 .title h2 {
   top: 150%;
-  color: var(--black);
+  color: var(--white);
   border-radius: 5px;
   padding: 20px 200px;
   background-color: var(--olive-green);
@@ -113,7 +102,7 @@
   bottom: 20px;
   right: 5%;
   background-color: var(--earth-brown);
-  color: var(--olive-green);
+  color: var(--white);
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -125,4 +114,94 @@
 .card .btn:hover {
   background-color: var(--forest-green);
   color: var(--olive-green);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  #carousel-habitats .carousel-control-prev,
+  #carousel-habitats .carousel-control-next {
+    display: none;
+  }
+
+  #carousel-habitats {
+    margin-top: 50px;
+  } 
+}
+
+@media (max-width: 480px) {
+
+  #carousel-habitats .carousel-control-prev,
+  #carousel-habitats .carousel-control-next {
+    display: none;
+  }
+
+  #carousel-habitats {
+    margin-top: 50px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .title h2 {
+    padding: 20px;
+    margin: 0 30px;
+    margin-top: 60px; 
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h2 {
+    padding: 20px;
+    margin: 0 30px;
+    margin-top: 60px; 
+    margin-bottom: 15px
+}
+}
+
+@media (max-width: 768px) {
+  #cards-habitats .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 40px;
+  }
+
+  #cards-habitats .row {
+    margin: 0;
+    justify-content: center;
+  }
+
+  #cards-habitats .col-md-5 {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  #cards-habitats .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #cards-habitats .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 40px;
+  }
+
+  #cards-habitats .row {
+    margin: 0;
+    justify-content: center;
+  }
+
+  #cards-habitats .col-md-5 {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  #cards-habitats .card {
+    width: 100%;
+  }
 }

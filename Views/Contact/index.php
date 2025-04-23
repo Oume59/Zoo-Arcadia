@@ -1,5 +1,5 @@
 <?php
-$css = "editDashboard";
+$css = "contact";
 ?>
 
 <h3>Contactez-nous</h3>

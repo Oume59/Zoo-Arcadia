@@ -1,9 +1,10 @@
 body {
-  font-family: "Roboto", sans-serif;
-  color: var(--noir-paragraphes);
   background-color: var(--earth-beige);
   border: var(--light-gray);
-  margin: 0 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h3 {
@@ -24,13 +25,19 @@ table {
   margin: 0 auto;
   border-collapse: collapse;
   background-color: var(--beige-terreux);
-  color: var(--noir-paragraphes);
+  color: var(--black);
   border: 2px solid var(--light-gray);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 thead th {
   background-color: var(--olive-green);
-  color: black;
+  color: var(--black);
   padding: 10px;
   border: 1px solid var(--light-gray);
   text-align: left;
@@ -98,4 +105,58 @@ button:hover {
 
 .animal-table {
   margin-bottom: 30px;
+}
+
+
+
+@media (max-width: 1024px) {
+  .table-custom th, .table-custom td {
+    padding: 10px;
+  }
+
+  .table-custom {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-custom {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+
+  .table-custom th, .table-custom td {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .table-custom th {
+    background-color: var(--earth-brown);
+    color: var(--white);
+  }
+
+  .table-custom td {
+    background-color: var(--earth-beige);
+  }
+
+  .table-custom a {
+    font-size: 14px;
+  }
+
+  .centered .btn-back {
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-custom th, .table-custom td {
+    padding: 8px;
+  }
+
+  .centered .btn-back {
+    padding: 10px 20px;
+  }
 }

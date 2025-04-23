@@ -2,8 +2,9 @@
 $css = "listDashboard";
 ?>
 
-<h3>Liste des Espèces</h3>
+<h3 class="text-center fw-bold">Liste des Espèces</h3>
 
+<div class="table-wrapper">
 <table class="table-custom">
     <thead>
         <tr>
@@ -29,4 +30,5 @@ $css = "listDashboard";
 <!-- BUTTON RETURN -->
 <div class="centered">
 <a href="/Dashboard" class="btn-back">QUITTER</a>
+</div>
 </div>

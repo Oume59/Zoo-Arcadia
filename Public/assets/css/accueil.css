@@ -12,7 +12,7 @@
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
+  color: var(--black);
   border-radius: 5px;
   padding: 60px 90px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -22,81 +22,33 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 768px) {
-  .title h1 {
-    margin-top: 30px;
-    padding: 20px 90px;
-    white-space: normal; 
-    max-width: 90%; 
-  }
-}
-
-@media (max-width: 480px) {
-  .title h1 {
-    padding: 20px 90px;
-    max-width: 85%;
-  }
-}
-
 .rounded-circle {
-  margin: 8% auto;
-  width: 800px;
-  height: 800px;
+  margin: 0 auto;
+  width: 45vw;
+  height: 45vw;
   background-color: var(--olive-green);
   color: var(--black);
   border: 3px solid var(--light-gray);
   border-radius: 50%;
   padding: 70px;
-  text-align: center;
+  display: flex;
+  align-items: center;
   line-height: 1.4;
-  overflow: hidden;
+  overflow: auto;
   word-wrap: break-word;
-}
-
-.rounded-circle p {
-  margin: 0;
-  line-height: 1.6;
-  transition: transform 0.3s ease;
-}
-
-/* RESPONSIVE MOBILE CIRCLE */
-@media (max-width: 768px) {
-  .rounded-circle {
-    width: 460px;
-    height: 650px;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rounded-circle {
-    width: 370px;
-    height: 590px;
-    padding: 10px;
-  }
-}
-
-.rounded-circle p {
-  max-width: 85%;
-  margin: 0;
-  word-break: break-word;
   text-align: center;
-  line-height: 1.4;
+  margin-bottom: 75px;
+  margin-top: 75px;
+}
+
+.rounded-circle p {
+  color: var(--white);
+  margin: 0 auto;
+  line-height: 1.6;
+  max-width: 85%;
   padding: 15px 10px;
-}
-
-@media (max-width: 768px) {
-  .rounded-circle p {
-    font-size: 14px;
-    padding: 20px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rounded-circle p {
-    font-size: 14px;
-    padding: 25px 10px;
-  }
+  word-break: break-word;
+  transition: transform 0.3s ease;
 }
 
 .rounded-circle p:hover {
@@ -106,7 +58,7 @@
 
 .title h2,
 .title h3 {
-  color: var(--black);
+  color: var(--white);
   padding: 25px 550px;
   background-color: var(--olive-green);
   margin-top: 20px;
@@ -118,48 +70,43 @@
 }
 
 /* CARDS SERVICES */
-#cards-services {
-  margin-top: 30px;
+#cards-services .card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.card {
-  position: relative;
-  border: none;
-  overflow: hidden;
-  height: 480px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: stretch;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+#cards-services .card:hover {
+  transform: scale(1.03);
 }
 
 .card-img-top {
-  width: 100%;
-  height: 100%;
+  height: 250px;
   object-fit: cover;
+  width: 100%;
+  display: block;
 }
 
 .card-title-overlay {
   position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px 20px;
-  text-align: left;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  width: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(121, 85, 72, 0.8);
+  text-align: center;
+  padding: 12px 10px;
+  z-index: 2;
 }
 
 .card-title-overlay p {
-  margin: 0;
-  color: var(--olive-green);
+  color: var(--white);
   font-weight: bold;
   text-transform: uppercase;
+  margin: 0;
   line-height: 1.5;
-  word-wrap: break-word;
 }
 
 .btn-infos {
@@ -167,11 +114,13 @@
   bottom: 15px;
   right: 15px;
   background-color: var(--earth-brown);
-  color: var(--olive-green);
+  color: var(--white);
+  font-weight: bold;
   border: none;
   padding: 10px 20px;
-  font-weight: bold;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
+  z-index: 2;
 }
 
 .btn-infos:hover {
@@ -182,12 +131,12 @@
 #carouselAvis {
   max-width: 500px;
   margin: 40px auto;
+  position: relative;
 }
 
 .carousel-inner .custom-card {
   width: 100%;
   max-width: 450px;
-  height: auto;
   background-color: var(--olive-green);
   color: var(--earth-brown);
   padding: 20px;
@@ -196,6 +145,8 @@
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
+  min-width: 300px;
+  height: auto;
 }
 
 .carousel-inner .custom-card .pseudo {
@@ -214,21 +165,19 @@
 }
 
 .carousel-inner .custom-card .card-text {
-  margin-top: 120px;
+  margin-top: 20px;
   text-align: center;
+  flex-grow: 1;
+  color: var(--white);
 }
 
-.title {
-  margin-bottom: 40px;
-}
-
-.text-center.mt-4.mb-5 {
-  padding: 100px;
+.carousel-inner .custom-card .card-date {
+  color: var(--white);
 }
 
 .text-center .btn-primary {
   background-color: var(--earth-brown);
-  color: var(--olive-green);
+  color: var(--white);
   border: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -251,6 +200,7 @@
   justify-content: center;
   opacity: 0.8;
   border: 2px solid var(--olive-green);
+  z-index: 2;
 }
 
 .carousel-control-prev {
@@ -274,31 +224,8 @@
   transform: scale(1.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
- /* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-#carouselAvis {
-  max-width: 250px;
-  margin: 30px auto;
-}
-}
 
-@media (max-width: 768px) {
-  .carousel-control-prev {
-    left: -53px; 
-  }
-  
-  .carousel-control-next {
-    right: -53px;
-  }
-
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    width: 15px; 
-    height: 15px;
-  }
-}
-
-/* STARS CAROUSEL REVIEWS */
+/* STARS */
 .carousel-inner .rating-display .star {
   font-size: 1.5rem;
   color: var(--black);
@@ -309,7 +236,7 @@
   color: var(--earth-beige);
 }
 
-/* MODAL STARS REVIEWS */
+/* MODAL STARS */
 .modal .rating {
   display: flex;
   flex-direction: row;
@@ -318,7 +245,7 @@
 }
 
 .modal .rating input[type="radio"] {
-  display: none; /* CACHES LES RADIO BUTTONS */
+  display: none;
 }
 
 .modal .rating label {
@@ -338,7 +265,7 @@
 
 .modal-footer .btn-primary {
   background-color: var(--earth-brown);
-  color: var(--olive-green);
+  color: var(--white);
   border: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -349,4 +276,149 @@
 
 .modal-footer .btn-primary:hover {
   background-color: var(--forest-green);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+/* ACCUEIL PRESENTATION - RESPONSIVE */
+@media (max-width: 1024px) {
+  .title h1 {
+    font-size: 38px;
+    padding: 40px 60px;
+  }
+}
+@media (max-width: 768px) {
+  .title h1 {
+    margin-top: 30px;
+    padding: 20px 30px;
+    white-space: normal;
+    max-width: 90%;
+    font-size: 32px;
+  }
+  .rounded-circle {
+    width: 70vw;
+    height: 70vw;
+    margin: 0 auto;
+    background-color: var(--olive-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+  }
+  .rounded-circle p {
+    font-size: 14px;
+    max-width: 85%;
+    max-height: 90%;
+    height: 160px;
+    overflow-y: auto;
+    padding: 10px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .title h2,
+  .title h3 {
+    padding: 20px 40px;
+  }
+}
+@media (max-width: 480px) {
+  .rounded-circle {
+    width: 70vw;
+    height: 70vw;
+    margin: 0 auto;
+    background-color: var(--olive-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+  }
+  .rounded-circle p {
+    font-size: 14px;
+    max-width: 85%;
+    max-height: 90%;
+    height: 160px;
+    overflow-y: auto;
+    padding: 10px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+/* REVIEWS - RESPONSIVE */
+@media (max-width: 768px) {
+  #carouselAvis {
+    max-width: 300px;
+  }
+  .carousel-inner .custom-card {
+    min-width: 100%;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+  .text-center .btn-primary {
+    padding: 15px 40px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .carousel-inner .custom-card {
+    padding: 15px;
+    font-size: 14px;
+  }
+  .text-center .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* RESPONSIVE CARDS SERVICES */
+@media (max-width: 768px) {
+  #cards-services .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #cards-services .row {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  #cards-services .col-md-6 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #cards-services .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-title-overlay {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn-infos {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-title-overlay {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn-infos {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
 }

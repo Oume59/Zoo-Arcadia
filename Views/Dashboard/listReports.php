@@ -4,6 +4,7 @@ $css = "listDashboard";
 
 <h3>Rapports Vétérinaires et Données Alimentaires</h3>
 
+<div class="table-wrapper">
 <table class="table-custom" id="animalReportTable">
     <thead>
         <tr>
@@ -51,6 +52,7 @@ $css = "listDashboard";
 <!-- BUTTON RETURN -->
 <div class="centered">
 <a href="/Dashboard" class="btn-back">QUITTER</a>
+</div>
 </div>
 
 <!-- SCRIPT POUR FILTRE/ANIMAL -->

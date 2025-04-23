@@ -13,9 +13,7 @@
     <?php if (isset($css)): ?>
         <link href="/assets/css/<?= $css ?>.css" rel="stylesheet">
     <?php endif; ?>
-    <link rel="stylesheet" href="/assets/css/defaultNavBar.css">
     <link rel="stylesheet" href="/assets/css/default.css">
-    <link rel="stylesheet" href="/assets/css/defaultFooter.css">
     
     <title>ZOO ARCADIA</title>
 </head>
@@ -31,10 +29,11 @@
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+  data-bs-target="#navbarNavAltMarkup"
+  aria-controls="navbarNavAltMarkup" aria-expanded="false"
+  aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
                     <!-- LINKS NAV BAR & CONNEXION USERS -->
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">

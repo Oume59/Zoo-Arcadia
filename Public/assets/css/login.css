@@ -1,44 +1,27 @@
 /* CONNEXION UTILISATEUR FORMULAIRE */
-.formus {
-  margin-top: 50vh;
-}
-#background {
+#login-form {
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 5;
-  overflow: hidden;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--earth-beige);
+  padding: 0 20px;
 }
 
 #form-ui {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  top: -12vh;
-}
-
-#form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: 400px;
   padding: 20px;
   background-color: var(--earth-beige);
   box-shadow: 0px 15px 60px var(--forest-green);
-  outline: 1px solid var(--olive-green);
   border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #form-body {
   width: 100%;
-  margin: auto;
 }
 
 #welcome-lines {
@@ -49,12 +32,12 @@
 #welcome-line-1 {
   color: var(--olive-green);
   font-weight: 600;
-  font-size: 40px;
+  font-size: 2rem;
 }
 
 #welcome-line-2 {
   color: var(--olive-green);
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-top: 17px;
 }
 
@@ -68,10 +51,11 @@
   border: 1px solid var(--light-gray);
   line-height: 1;
   border-radius: 8px;
+  width: 100%;
 }
 
 .form-inp:focus {
-  border: 1px solid #00ff7f;
+  border-color: #00ff7f;
 }
 
 .form-inp:first-child {
@@ -81,11 +65,10 @@
 .form-inp input {
   width: 100%;
   background: none;
-  font-size: 13.4px;
+  font-size: 1rem;
   color: var(--forest-green);
   border: none;
   padding: 0;
-  margin: 0;
 }
 
 .form-inp input:focus {
@@ -102,22 +85,17 @@
   color: var(--olive-green);
   background-color: transparent;
   font-weight: 600;
-  font-size: 14px;
-  margin: 0;
-  padding: 14px 13px 12px 13px;
-  border: 0;
-  outline: 1px solid var(--olive-green);
+  font-size: 1rem;
+  padding: 14px;
+  border: 1px solid var(--olive-green);
   border-radius: 8px;
-  line-height: 1;
   cursor: pointer;
-  transition: all ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 #submit-button:hover {
-  transition: all ease-in-out 0.3s;
   background-color: var(--forest-green);
   color: #161616;
-  cursor: pointer;
 }
 
 #bar {
@@ -147,4 +125,74 @@
 
 #bar:after {
   right: -38px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #form-ui {
+    margin-top: 15vh;
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+
+  #welcome-line-1 {
+    font-size: 1.5rem;
+  }
+
+  #welcome-line-2 {
+    font-size: 1rem;
+  }
+
+  .form-inp input {
+    font-size: 0.9rem;
+  }
+
+  #submit-button {
+    font-size: 1rem;
+  }
+
+  #bar {
+    width: 18px;
+    height: 6px;
+  }
+
+  #bar:before,
+  #bar:after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  #form-ui {
+    margin-top: 20vh;
+    padding: 15px;
+  }
+
+  #welcome-line-1 {
+    font-size: 1.3rem;
+  }
+
+  #welcome-line-2 {
+    font-size: 0.9rem;
+  }
+
+  .form-inp input {
+    font-size: 0.9rem;
+  }
+
+  #submit-button {
+    font-size: 0.9rem;
+  }
+
+  #bar {
+    width: 15px;
+    height: 5px;
+  }
+
+  #bar:before,
+  #bar:after {
+    width: 5px;
+    height: 5px;
+  }
 }

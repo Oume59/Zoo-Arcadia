@@ -3,6 +3,11 @@
   margin-top: 150px;
 }
 
+#carousel-animals img {
+  max-height: 650px;
+  object-fit: cover;
+}
+
 .custom-carousel {
   max-width: 80%;
 }
@@ -38,22 +43,6 @@
   height: 20px;
 }
 
-@media (max-width: 768px) {
-  .carousel-control-prev {
-    left: -53px; 
-  }
-  
-  .carousel-control-next {
-    right: -53px;
-  }
-
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    width: 15px; 
-    height: 15px;
-  }
-}
-
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   background-color: var(--forest-green);
@@ -63,13 +52,11 @@
 
 /* H2 */
 .title h2 {
-  top: 150%;
-  color: var(--black);
+  color: var(--white);
   border-radius: 5px;
   padding: 20px 200px;
   background-color: var(--olive-green);
   margin-top: 150px;
-  position: relative;
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -81,59 +68,31 @@
   width: 800px;
   height: 800px;
   background-color: var(--olive-green);
-  color: var(--black);
+  color: var(--white);
   border: 3px solid var(--light-gray);
   border-radius: 50%;
   padding: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   line-height: 1.4;
   overflow: hidden;
-  word-wrap: break-word;
-}
-
-/* RESPONSIVE MOBILE CIRCLE */
-@media (max-width: 768px) {
-  .rounded-circle {
-    width: 460px;
-    height: 580px;
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rounded-circle {
-    width: 370px;
-    height: 500px;
-    padding: 15px;
-  }
+  margin-bottom: 40px;
 }
 
 .rounded-circle p {
+  color: var(--white);
   max-width: 85%;
-  margin: 0;
-  word-break: break-word;
-  text-align: center;
-  line-height: 1.4;
   padding: 15px 10px;
-}
-
-@media (max-width: 768px) {
-  .rounded-circle p {
-    font-size: 14px;
-    padding: 20px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rounded-circle p {
-    font-size: 14px;
-    padding: 25px 10px;
-  }
+  line-height: 1.6;
+  overflow-y: auto;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .rounded-circle p:hover {
   transform: scale(1.05);
-  z-index: 1;
 }
 
 /* CARDS */
@@ -174,7 +133,7 @@
 
 .card .btn {
   background-color: var(--earth-brown);
-  color: var(--olive-green);
+  color: var(--white);
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -188,4 +147,104 @@
 .card .btn:hover {
   background-color: var(--forest-green);
   color: var(--olive-green);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #carousel-animals {
+    margin-top: 30px;
+  }
+
+  #carousel-animals .carousel-control-prev,
+  #carousel-animals .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #carousel-animals {
+    margin-top: 25px;
+  }
+
+  #carousel-animals .carousel-control-prev,
+  #carousel-animals .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .title h2 {
+    padding: 20px 40px;
+    margin: 60px 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h2 {
+    padding: 20px 30px;
+    margin: 50px 20px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rounded-circle {
+    width: 70vw;
+    height: 70vw;
+    padding: 0;
+  }
+
+  .rounded-circle p {
+    font-size: 14px;
+    max-height: 90%;
+    height: 160px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rounded-circle {
+    width: 70vw;
+    height: 70vw;
+    padding: 0;
+  }
+
+  .rounded-circle p {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #cards-animals .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .card .btn {
+    padding: 8px 16px;
+    width: auto; 
+  }
+
+  .card-img-top {
+    height: auto;
+    max-height: 400px; 
+  }
+}
+
+@media (max-width: 480px) {
+  #cards-animals .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .card .btn {
+    padding: 8px 16px;
+    width: auto; 
+  }
+
+  .card-img-top {
+    height: auto;
+    max-height: 400px; 
+  }
 }

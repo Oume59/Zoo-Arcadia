@@ -2,48 +2,47 @@
 
 body {
   background-color: var(--earth-beige);
+  font-family: var(--font-family-sans-serif);
 }
 
 .admin-container {
-  background-color: var(--earth-beige);
-  padding: 20px;
+  padding: 20px 40px;
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
+}
+
+.admin-dash .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .admin-link-container {
-  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: 30%;
 }
 
 .admin-link {
   display: block;
   background-color: var(--earth-brown);
-  color: var(--black);
+  color: var(--white) !important;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   border-radius: 8px;
   font-size: 18px;
   text-decoration: none;
   font-weight: bold;
+  width: 100%;
+  height: 100%;
   transition: background-color 0.3s ease;
 }
 
 .admin-link:hover {
-  color: var(--black);
-}
-
-/* RESPONSIVE MOBILE */
-@media (min-width: 768px) {
-  .admin-link-container {
-    flex: 1 1 calc(25% - 20px);
-    margin: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  .admin-link-container {
-    flex: 1 1 calc(50% - 20px);
-  }
+  background-color: var(--forest-green);
 }
 
 button {
@@ -58,5 +57,65 @@ button {
 }
 
 .stylee {
-  margin-top: 30px;
+  margin-top: 100px;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 1024px) {
+  .admin-link-container {
+    flex: 1 1 calc(50% - 20px);
+    max-width: 45%;
+
+    .admin-link {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-link-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .admin-dash .row {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .admin-link {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-link-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .admin-dash .row {
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.admin-link {
+  width: 100%;
+  max-width: 100%;
+}
+}
+
+@media (min-width: 992px) {
+  .admin-link-container {
+    max-width: 30%;
+  }
 }

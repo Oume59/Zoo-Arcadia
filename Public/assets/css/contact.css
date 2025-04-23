@@ -1,0 +1,161 @@
+ /* BASE */
+ body {
+    background-color: var(--earth-beige);
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    color: var(--olive-green);
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  /*  FORM */
+  form {
+    background-color: var(--earth-beige);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  form label {
+    display: block;
+    color: var(--olive-green);
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    color: var(--black);
+    box-sizing: border-box;
+  }
+
+  form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--earth-brown);
+    color: var(--black);
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  form button[type="submit"]:hover {
+    background-color: var(--forest-green);
+  }
+
+  .image-edit {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  p.success-message {
+    color: var(--forest-green);
+    text-align: center;
+    font-weight: bold;
+  }
+
+  p.error-message {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /*  BUTTON */
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .centered .btn-back {
+    display: inline-block;
+    padding: 20px 40px;
+    margin: 20px;
+    background-color: var(--earth-brown);
+    color: var(--olive-green);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--earth-brown);
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+  }
+
+  .centered .btn-back:hover {
+    background-color: var(--forest-green);
+    color: var(--olive-green);
+  }
+
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 768px) {
+    .hero-banner {
+      height: 60vh;
+    }
+
+    .hero-text {
+      padding: 40px 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 1.5rem;
+      white-space: normal;
+    }
+
+    .form-control {
+      font-size: 1rem;
+      padding: 8px;
+    }
+
+    form {
+      padding: 15px;
+    }
+
+    .centered .btn-back {
+      padding: 12px 25px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-banner {
+      height: 50vh;
+    }
+
+    .hero-text h1 {
+      font-size: 1.3rem;
+    }
+
+    .form-control {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+
+    form {
+      padding: 10px;
+    }
+
+    .centered .btn-back {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
