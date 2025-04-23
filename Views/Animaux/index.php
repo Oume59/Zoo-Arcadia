@@ -36,7 +36,7 @@ $css = "animaux";
 <section id="description-animals" class="text-center py-5">
     <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center">
         <p>
-            Chaque habitat est peuplé d'animaux spécifiques à leur écosystème : <br>
+            Chaque habitat est peuplé d'animaux spécifiques à leur écosystème :
             Venez observer les lions, véritables rois de la savane, ainsi que les girafes et leurs longs cous gracieux,
             ou encore les éléphants, symboles de force et de sagesse.
             Les tigres majestueux rôdent dans la jungle dense, tandis que des familles de singes agiles jouent dans les arbres.
