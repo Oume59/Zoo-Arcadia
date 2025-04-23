@@ -1,6 +1,6 @@
 <?php
 
-//Utilisation de l'Autoloader pour charger automatiquement les classes nécessaires sa,s avoir à inclure à la mano chaque fichier. 
+//Utilisation de l'Autoloader pour charger automatiquement les classes nécessaires sans avoir à inclure à la mano chaque fichier. 
 //Namespace de la classe qui va permettre d'organiser le code et éviter les conflits de noms
 namespace App;
 
@@ -11,7 +11,7 @@ class Autoloader
     public static function register()
     {
         require_once __DIR__ . "/vendor/autoload.php";
-        spl_autoload_register([__CLASS__, 'autoload']);
+        spl_autoload_register([__CLASS__, 'Autoload']);
     }
 
     //Méthode qui SI elle trouve une classe, elle la charge. SINON, elle affiche un message d'erreur.
