@@ -1,6 +1,8 @@
 // Attendre que la page soit complètement chargée avant d’exécuter le script
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("fetch");
+  const successDiv = document.getElementById("success-message");
+  const errorDiv = document.getElementById("error-message");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault(); // Empêche le rechargement de la page
@@ -8,18 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Récupère les données du formulaire sous forme d’un objet FormData
     const formData = new FormData(form);
 
-    // Sélectionne l’élément où afficher les messages de réponse du serveur
-    let divMessage = document.querySelector(".msg");
-
-    // Vérification que l'élément existe
-    if (!divMessage) {
-      console.error("L'élément .msg est introuvable.");
-      return;
-    }
-
-    // Réinitialise l'affichage du message
-    divMessage.classList.remove("d-none");
-    divMessage.classList.remove("error-message", "success-message");
+   // Affichage des messages
+  successDiv.classList.add("d-none");
+  errorDiv.classList.add("d-none");
 
     // Envoi de la requête fetch vers l’URL spécifiée
     fetch("/Contact/sendContactMail", {
@@ -30,26 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           return response.json();
         } else {
-          return response.json().then((err) => {
+          return response.json().then((err) => {  // Si la réponse contient une erreur, la convertir en JSON et lever une exception
             throw err;
           });
         }
       })
       .then((jsonResponse) => {
-        divMessage.style.display = "block";
-        divMessage.textContent = jsonResponse.message;
-
         if (jsonResponse.status === "success") {
-          divMessage.classList.add("success-message"); // Ajoute la classe succès
+          successDiv.classList.remove("d-none"); // Affiche la div de message de succes
+          successDiv.textContent = jsonResponse.message; // Affiche le message envoyé par le back
           form.reset(); // reset le formulaire après envoi
         } else {
-          divMessage.classList.add("error-message"); // Ajoute la classe erreur
+          errorDiv.classList.remove("d-none"); // Si la réponse contient une erreur (ex. champ vide), affiche la div d’erreur
+          errorDiv.textContent = jsonResponse.message; // Affiche le message d'erreur personnalisé depuis le back
         }
       })
       .catch((error) => {
-        divMessage.style.display = "block";
-        divMessage.textContent = error.message;
-        divMessage.classList.add("error-message"); // Ajoute une classe erreur si une exception est levée
+        // Affiche le message d’erreur si une exception a été levée (ex: problème côté serveur, PHPMailer qui bug)
+        errorDiv.classList.remove("d-none"); // Affiche la div d’erreur
+        errorDiv.textContent = error.message; // Affiche le message d’erreur généré par le catch
       });
   });
 });

@@ -109,7 +109,6 @@
             <a href="https://x.com" class="twitter"><i class="fab fa-x-twitter"></i></a>
         </div>
     </div>
-    <!-- END FOOTER -->
 
     <!-- MODALS -->
     <div class="modal fade" id="mentionsLegalesModal" tabindex="-1" aria-labelledby="mentionsLegalesModalLabel" aria-hidden="true">
@@ -149,6 +148,7 @@
             </div>
         </div>
     </div>
+    <!-- END FOOTER -->
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

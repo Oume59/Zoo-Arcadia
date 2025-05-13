@@ -28,6 +28,7 @@ class ContactController extends Controller
             // Validation des champs
             if (empty($nom) || empty($prenom) || empty($email) || empty($messageContent)) {
                 echo json_encode(["status" => "error", "message" => 'Tous les champs sont obligatoires.']);
+                exit;
             }
 
             // Validation stricte

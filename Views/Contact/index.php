@@ -4,12 +4,6 @@ $css = "contact";
 
 <h3>Contactez-nous</h3>
 
-<?php if (!empty($message)): ?>
-    <div class="<?= strpos($message, 'succès') !== false ? 'success-message' : 'error-message'; ?>">
-        <?= htmlspecialchars($message); ?>
-    </div>
-<?php endif; ?>
-
 <form id="fetch" action="/Contact/sendContactMail" method="POST">
     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 
@@ -33,19 +27,22 @@ $css = "contact";
         <textarea id="message" name="message" class="form-control" placeholder="Votre message" rows="5" required></textarea>
     </div>
 
+<!-- MESSAGES DYNAMIQUES AFFICHÉS VIA JS -->
+<div id="messages" class="my-3">
+    <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+    <div id="success-message" class="alert alert-success d-none" role="alert"></div>
+</div>
+
     <button type="submit" class="btn btn-primary w-100">Envoyer</button>
 
     <div class="msg d-none"></div>
 
 </form>
 
-
-
 <!-- BUTTON RETURN -->
 <div class="centered">
     <a href="/Main" class="btn-back">QUITTER</a>
 </div>
-
 
 <script type="module" src="./assets/js/fetchContact.js"></script>
 
