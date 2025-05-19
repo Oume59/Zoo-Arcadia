@@ -15,8 +15,7 @@ class Model extends ConnexionDb
     // Récupère toutes les entrées de la table
     public function findAll()
     {
-        $query = $this->req('SELECT * FROM ' . $this->table);
-        return $query->fetchAll();
+        return $this->req("SELECT * FROM {$this->table}")->fetchAll();
     }
 
     // Récupère les entrées selon certains critères
@@ -41,7 +40,7 @@ class Model extends ConnexionDb
     // Récup une entrée par son identifiant
     public function find(int $id)
     {
-        return $this->req("SELECT * FROM {$this->table} WHERE id = $id ")->fetch();
+        return $this->req("SELECT * FROM {$this->table} WHERE id = ?", [$id])->fetch();
     }
 
 
@@ -94,21 +93,12 @@ class Model extends ConnexionDb
     }
 
 
-    public function req(string $sql, array $attributs = null) // Exécute une requête SQL avec ou sans paramètres
+    protected function req(string $sql, array $params = [])
     {
-
-        $this->db = ConnexionDb::getInstance();
-
-
-        if ($attributs !== null) {
-            // Requête préparée
-            $query = $this->db->prepare($sql);
-            $query->execute($attributs);
-            return $query;
-        } else {
-            // Requête simple
-            return $this->db->query($sql);
-        }
+        $db = ConnexionDb::getInstance();
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
+        return $stmt;
     }
 
 
