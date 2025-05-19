@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-
 use Exception;
 use App\Models\UserModel;
 use App\Models\RolesModel;
@@ -148,9 +147,9 @@ class DashUsersController extends Controller
             // Hydrate les données
             $data = [
                 'id' => $id,
-                'username' => $_POST['username'] ?? $user->username,
-                'email' => $_POST['email'] ?? $user->email,
-                'id_role' => $_POST['id_role'] ?? $user->id_role,
+                'username' => $_POST['username'] ?? '',
+                'email' => $_POST['email'] ?? '',
+                'id_role' => $_POST['id_role'] ?? '',
             ];
 
             $userModel->hydrate($data);
