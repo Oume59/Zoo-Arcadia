@@ -35,7 +35,7 @@ class AnimauxModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
-    // Setters pour definir/modifier et Getters pour obtenir :
+    // Setters pour modifier et Getters pour lire la valeur :
     public function setId($id)
     {
         $this->id = $id;
