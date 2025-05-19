@@ -17,7 +17,7 @@ class ConnexionDb extends PDO
         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    //Méthode statique pour obtenir l'instance unique de la connexion
+    //Méthode statique pour obtenir l'instance unique de la connexion PDO "PATTERN SINGLETON"
     public static function getInstance(): self
     {
         if (self::$instance === null) {
