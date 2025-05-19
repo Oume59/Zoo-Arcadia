@@ -40,6 +40,13 @@ class UserModel extends Model
         return $this->req($sql)->fetchAll();
     }
 
+public function searchByEmail(string $email)
+{
+    $sql = "SELECT * FROM {$this->table} WHERE email = :email LIMIT 1";
+    $stmt = $this->req($sql, ['email' => $email]);
+    return $stmt->fetch(); // retourne un objet
+}
+
     // Getters et Setters pour les propriétés
     public function setId($id)
     {
