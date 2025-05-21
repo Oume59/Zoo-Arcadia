@@ -9,9 +9,6 @@ class Model extends ConnexionDb
     // Table de la base de données
     protected $table;
 
-    // Instance de DB
-    private $db;
-
     // Récupère toutes les entrées de la table
     public function findAll()
     {
