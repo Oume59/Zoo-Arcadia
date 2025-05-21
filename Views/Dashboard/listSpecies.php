@@ -15,10 +15,10 @@ $css = "listDashboard";
     <tbody>
         <?php foreach ($species as $item): ?>
             <tr>
-                <td><?php echo htmlspecialchars($item->species); ?></td>
+                <td><?= htmlspecialchars($item->species); ?></td>
                 <td>
-                    <a href="/DashSpecies/edit/<?php echo $item->id; ?>">Éditer l'espèce</a> |
-                    <a href="/DashSpecies/delete/<?php echo $item->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette espèce ?');">Supprimer</a>
+                    <a href="/DashSpecies/edit/<?= $item->id; ?>">Éditer l'espèce</a> |
+                    <a href="/DashSpecies/delete/<?= $item->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette espèce ?');">Supprimer</a>
                 </td>
 
                 </td>
@@ -26,6 +26,17 @@ $css = "listDashboard";
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<!-- Messages de succès ou d'erreur -->
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
+    <?php unset($_SESSION['success_message']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
 
 <!-- BUTTON RETURN -->
 <div class="centered">

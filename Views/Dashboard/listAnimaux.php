@@ -18,18 +18,18 @@ $css = "listDashboard";
     <tbody>
         <?php foreach ($animaux as $animal): ?>
             <tr>
-                <td><?php echo htmlspecialchars($animal->name); ?></td>
-                <td><?php echo htmlspecialchars($animal->animal_species ?? 'Non défini'); ?></td>
-                <td><?php echo htmlspecialchars($animal->habitat_name ?? 'Non défini'); ?></td>
+                <td><?= htmlspecialchars($animal->name); ?></td>
+                <td><?= htmlspecialchars($animal->animal_species ?? 'Non défini'); ?></td>
+                <td><?= htmlspecialchars($animal->habitat_name ?? 'Non défini'); ?></td>
                 <td> <?php if (!empty($animal->img)): ?>
-                        <img src="/assets/img/<?php echo htmlspecialchars($animal->img); ?>" alt="Photo de l'animal" class="image-list">
+                        <img src="/assets/img/<?= htmlspecialchars($animal->img); ?>" alt="Photo de l'animal" class="image-list">
                     <?php else: ?>
                         Pas d'image
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="/DashAnimaux/edit/<?php echo $animal->id; ?>">Éditer l'animal</a> |
-                    <a href="/DashAnimaux/delete/<?php echo $animal->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?');">Supprimer</a>
+                    <a href="/DashAnimaux/edit/<?= $animal->id; ?>">Éditer l'animal</a> |
+                    <a href="/DashAnimaux/delete/<?= $animal->id; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?');">Supprimer</a>
                 </td>
 
                 </td>
@@ -37,6 +37,17 @@ $css = "listDashboard";
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<!-- Messages de succès ou d'erreur -->
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
+    <?php unset($_SESSION['success_message']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
 
 <!-- BUTTON RETURN -->
 <div class="centered">
