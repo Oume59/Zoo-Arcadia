@@ -84,7 +84,7 @@ class DashAnimauxController extends Controller
             ])->create();
 
             // Redirection après succès
-            header("Location: /ListAnimaux/List");
+            header("Location: /DashAnimaux/list");
             exit;
         }
     }
