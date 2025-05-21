@@ -16,7 +16,7 @@ class AnimauxModel extends Model
         $this->table = "Animals";
     }
 
-    public function getAnimalsWithSpeciesAndHabitat()
+    public function getAnimalsWithSpeciesAndHabitat() // Récup tous les animaux avec leurs espèces et habitats associés
     {
         $sql = "
             SELECT 
