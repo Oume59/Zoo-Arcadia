@@ -33,8 +33,8 @@ class Main
         //Vérif du jeton CSRF et assainit DATA POST si la requete est de type POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Content-Type: application/json");
-          //  $csrfToken = $_POST['csrf_token'] ?? '';
-        //    $this->chekCsrfToken($csrfToken);
+            $csrfToken = $_POST['csrf_token'] ?? '';
+            $this->chekCsrfToken($csrfToken);
 
             //Assainissement des DATA en POST
             $_POST = $this->sanitizeFormData($_POST);
