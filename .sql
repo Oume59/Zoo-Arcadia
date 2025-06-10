@@ -185,8 +185,7 @@ ALTER TABLE `Veterinary_report`
 
 
 ALTER TABLE `Animals`
-  ADD CONSTRAINT `Animals_ibfk_1` FOREIGN KEY (`species_id`) REFERENCES `Species` (`id`),
-  ADD CONSTRAINT `Animals_ibfk_2` FOREIGN KEY (`species_id`) REFERENCES `Species` (`id`),
+  ADD CONSTRAINT `fk_species_id` FOREIGN KEY (`species_id`) REFERENCES `Species` (`id`),
   ADD CONSTRAINT `fk_habitat_id` FOREIGN KEY (`habitat_id`) REFERENCES `Habitats` (`id`);
 
 

@@ -3,7 +3,7 @@ $css = "filesDashboard";
 ?>
 
     <form action="/DashReports/addReport" method="POST">
-        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
         <?php if ($_SESSION['role'] === 'veterinaire'): ?>
 
         <div>
@@ -32,7 +32,7 @@ $css = "filesDashboard";
             <select name="animal_id" required>
                 <option value="">Sélectionner un animal</option>
                 <?php foreach ($animals as $animal): ?>
-                    <option value="<?php echo $animal->id; ?>"><?php echo $animal->name; ?></option>
+                    <option value="<?= $animal->id; ?>"><?= $animal->name; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -44,12 +44,12 @@ $css = "filesDashboard";
 
         <div>
             <label>Date :</label>
-            <input type="date" name="daily_food_date" value="<?php echo date('Y-m-d'); ?>" required>
+            <input type="date" name="daily_food_date" value="<?= date('Y-m-d'); ?>" required>
         </div>
 
         <div>
             <label>Heure :</label>
-            <input type="time" name="daily_food_time" value="<?php echo date('H:i'); ?>" required>
+            <input type="time" name="daily_food_time" value="<?= date('H:i'); ?>" required>
         </div>
 
         <?php endif; ?>
@@ -59,13 +59,13 @@ $css = "filesDashboard";
 
 
 <!-- Messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
 

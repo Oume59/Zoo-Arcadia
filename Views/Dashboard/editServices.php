@@ -4,24 +4,24 @@ $css = "editDashboard";
 
 <h3>Modifier le service</h3>
 
-<form action="/DashServices/edit/<?php echo $service->id; ?>" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+<form action="/DashServices/edit/<?= $service->id; ?>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 
     <div>
         <label for="name">Nom du service :</label>
-        <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($service->name); ?>" required>
+        <input type="text" id="name" name="name" value="<?= htmlspecialchars($service->name); ?>" required>
     </div>
 
     <div>
         <label for="description">Description :</label>
-        <textarea id="description" name="description" required><?php echo htmlspecialchars($service->description); ?></textarea>
+        <textarea id="description" name="description" required><?= htmlspecialchars($service->description); ?></textarea>
     </div>
 
     <div>
         <label>Image actuelle :</label>
         <br>
         <?php if (!empty($service->img)): ?>
-            <img src="/assets/img/<?php echo htmlspecialchars($service->img); ?>" alt="Image du service" class="image-edit">
+            <img src="/assets/img/<?= htmlspecialchars($service->img); ?>" alt="Image du service" class="image-edit">
         <?php else: ?>
             <p>Aucune image disponible</p>
         <?php endif; ?>
@@ -36,13 +36,13 @@ $css = "editDashboard";
 </form>
 
 <!-- Messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
 

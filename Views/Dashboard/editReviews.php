@@ -38,6 +38,17 @@ $css = "editReviewsDashboard";
     </tbody>
 </table>
 
+<!-- Affichage des messages de succès ou d'erreur -->
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
+    <?php unset($_SESSION['success_message']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
+
 <!-- BUTTON RETURN -->
 <div class="centered">
     <a href="/Dashboard" class="btn-back">QUITTER</a>

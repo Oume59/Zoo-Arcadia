@@ -4,32 +4,32 @@ $css = "editDashboard";
 
 <!-- Formulaire pour les vétérinaires -->
 <h4>Modification du rapport vétérinaire</h4>
-<form action="/DashReports/edit/<?php echo $report->id; ?>" method="POST">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+<form action="/DashReports/edit/<?= $report->id; ?>" method="POST">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
     <?php if ($_SESSION['role'] === 'veterinaire'): ?>
 
         <label>Date du Rapport :</label>
-        <input type="date" name="date_report" value="<?php echo htmlspecialchars($report->date_report); ?>" required>
+        <input type="date" name="date_report" value="<?= htmlspecialchars($report->date_report); ?>" required>
         <br>
 
         <label>Détails :</label>
-        <textarea name="details" required><?php echo htmlspecialchars($report->details); ?></textarea>
+        <textarea name="details" required><?= htmlspecialchars($report->details); ?></textarea>
         <br>
 
         <label>État de Santé :</label>
-        <input type="text" name="health_state" value="<?php echo htmlspecialchars($report->health_state); ?>" required>
+        <input type="text" name="health_state" value="<?= htmlspecialchars($report->health_state); ?>" required>
         <br>
 
         <label>Nourriture (Recommandée) :</label>
-        <input type="text" name="food" value="<?php echo htmlspecialchars($report->food); ?>" required>
+        <input type="text" name="food" value="<?= htmlspecialchars($report->food); ?>" required>
         <br>
 
         <label>Animal :</label>
         <select name="animal_id" required>
             <option value="">Sélectionner un animal</option>
             <?php foreach ($animals as $animal): ?>
-                <option value="<?php echo $animal->id; ?>" <?php echo ($animal->id == $report->animal_id) ? 'selected' : ''; ?>>
-                    <?php echo $animal->name; ?>
+                <option value="<?= $animal->id; ?>" <?= ($animal->id == $report->animal_id) ? 'selected' : ''; ?>>
+                    <?= $animal->name; ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -45,8 +45,8 @@ $css = "editDashboard";
         <select name="animal_id" required>
             <option value="">Sélectionner un animal</option>
             <?php foreach ($animals as $animal): ?>
-                <option value="<?php echo $animal->id; ?>" <?php echo ($animal->id == $report->animal_id) ? 'selected' : ''; ?>>
-                    <?php echo $animal->name; ?>
+                <option value="<?= $animal->id; ?>" <?= ($animal->id == $report->animal_id) ? 'selected' : ''; ?>>
+                    <?= $animal->name; ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -57,11 +57,11 @@ $css = "editDashboard";
         <br>
 
         <label>Date :</label>
-        <input type="date" name="daily_food_date" value="<?php echo date('Y-m-d'); ?>" required>
+        <input type="date" name="daily_food_date" value="<?= date('Y-m-d'); ?>" required>
         <br>
 
         <label>Heure :</label>
-        <input type="time" name="daily_food_time" value="<?php echo date('H:i'); ?>" required>
+        <input type="time" name="daily_food_time" value="<?= date('H:i'); ?>" required>
         <br>
 
         <?php endif; ?>
@@ -69,13 +69,13 @@ $css = "editDashboard";
     </form>
 
 <!-- Affichage des messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
 

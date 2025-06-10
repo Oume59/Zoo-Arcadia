@@ -3,15 +3,15 @@ $css = "editDashboard";
 ?>
 
 
-<form action="/DashHabitats/edit/<?php echo $habitat->id; ?>" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+<form action="/DashHabitats/edit/<?= $habitat->id; ?>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 
     <label>Nom de l'habitat :</label>
-    <input type="text" name="name" value="<?php echo htmlspecialchars($habitat->name); ?>" required>
+    <input type="text" name="name" value="<?= htmlspecialchars($habitat->name); ?>" required>
     <br>
 
     <label>Description :</label>
-    <textarea name="description" required><?php echo htmlspecialchars($habitat->description); ?></textarea>
+    <textarea name="description" required><?= htmlspecialchars($habitat->description); ?></textarea>
     <br>
 
     <?php if ($_SESSION['role'] === 'veterinaire'): ?>
@@ -23,7 +23,7 @@ $css = "editDashboard";
     <label>Image actuelle :</label>
     <br>
     <?php if (!empty($habitat->img)): ?>
-        <img src="/assets/img/<?php echo htmlspecialchars($habitat->img); ?>" alt="Image de l'habitat" class="image-edit">
+        <img src="/assets/img/<?= htmlspecialchars($habitat->img); ?>" alt="Image de l'habitat" class="image-edit">
     <?php else: ?>
         <p>Aucune image disponible</p>
     <?php endif; ?>
@@ -37,13 +37,13 @@ $css = "editDashboard";
 </form>
 
 <!-- Messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
 

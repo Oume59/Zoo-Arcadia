@@ -154,4 +154,4 @@ $css = "accueil";
 </div>
 
 <!-- SCRIPT -->
-<script src="/assets/js/modals.js"></script>
+<script defer src="/assets/js/modals.js"></script>

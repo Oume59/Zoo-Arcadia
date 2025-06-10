@@ -3,7 +3,7 @@ $css = "filesDashboard";
 ?>
 
 <form action="/DashServices/addService" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 
     <div>
         <label for="name">Nom du service :</label>
@@ -24,13 +24,13 @@ $css = "filesDashboard";
 </form>
 
 <!-- Messages de succès ou d'erreur -->
-<?php if (isset($_SESSION['success_message'])) : ?>
-    <p class="success-message"><?php echo $_SESSION['success_message']; ?></p>
+<?php if (isset($_SESSION['success_message'])): ?>
+    <p style="color: green;"><?= $_SESSION['success_message']; ?></p>
     <?php unset($_SESSION['success_message']); ?>
 <?php endif; ?>
 
-<?php if (isset($_SESSION['error_message'])) : ?>
-    <p class="error-message"><?php echo $_SESSION['error_message']; ?></p>
+<?php if (isset($_SESSION['error_message'])): ?>
+    <p style="color: red;"><?= $_SESSION['error_message']; ?></p>
     <?php unset($_SESSION['error_message']); ?>
 <?php endif; ?>
 
