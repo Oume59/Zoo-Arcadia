@@ -132,10 +132,6 @@ $css = "accueil";
                         <textarea class="form-control" id="avis" name="avis" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="avis" class="form-label">Votre avis :</label>
-                        <textarea class="form-control" id="avis" name="avis" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
                         <label for="note" class="form-label">Votre note :</label>
                         <div class="rating">
                             <?php for ($i = 1; $i <= 5; $i++): ?>
