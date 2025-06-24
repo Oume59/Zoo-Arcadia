@@ -23,12 +23,11 @@ class Model extends ConnexionDb
 
         // On parcourt (via la boucle) chaque critère pour créer les conditions de la requête
         foreach ($criteres as $champ => $valeur) {
-            // SELECT * FROM annonces WHERE id = ? and signale
-            //bindValue(1, valeur)
             $champs[] = "$champ = ?";
             $valeurs[] = $valeur;
         }
-        // Transforme le tableau champ en une chaine de caractères
+        // Exemple : SELECT * FROM table WHERE email = ? AND id_role = ?
+        // Transforme le tableau champ en une chaine de caractères relié par AND
         $liste_champs = implode(' AND ', $champs);
         // Exécution la requete et renvoie le resultat
         return $this->req(' SELECT * FROM ' . $this->table . ' WHERE ' . $liste_champs, $valeurs)->fetchAll();
@@ -49,7 +48,6 @@ class Model extends ConnexionDb
 
         // Parcourt les propriétés pour préparer l'insertion
         foreach ($this as $champ => $valeur) {
-            // INSERT INTO annonce (titre, description, prix, ...) VALUES (?, ?, ?)
             if ($valeur != null && $champ != 'db' && $champ != 'table') {
                 $champs[] = $champ;
                 $inter[] = "?";
@@ -57,7 +55,8 @@ class Model extends ConnexionDb
             }
         }
 
-        // Concatène les champs et valeurs pour la requête
+        // Concatène les champs et valeurs pour la requête INSERT
+        // Exemple : INSERT INTO table (username, email, password) VALUES (?, ?, ?)
         $liste_champs = implode(', ', $champs);
         $liste_inter = implode(', ', $inter);
 
@@ -65,7 +64,7 @@ class Model extends ConnexionDb
         return $this->req('INSERT INTO ' . $this->table . ' (' . $liste_champs . ') VALUES(' . $liste_inter . ')', $valeurs);
     }
 
-
+    // MAJ d'une entree existante en BDD
     public function update(int $id, array $data)
     {
         $champs = [];
@@ -77,7 +76,7 @@ class Model extends ConnexionDb
                 $valeurs[] = $valeur;
             }
         }
-        $valeurs[] = $id;
+        $valeurs[] = $id; // Add de l'id à la fin des valeurs (pour le WHERE)
         $listChamps = implode(', ', $champs);
 
         return $this->req('UPDATE ' . $this->table . ' SET ' . $listChamps . ' WHERE id = ?', $valeurs);
@@ -89,7 +88,7 @@ class Model extends ConnexionDb
         return $this->req("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-
+    // Méthode générique pour exécuter des requêtes préparées sécurisées
     protected function req(string $sql, array $params = [])
     {
         $db = ConnexionDb::getInstance();
