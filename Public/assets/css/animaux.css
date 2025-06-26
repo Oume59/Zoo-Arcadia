@@ -217,8 +217,9 @@
 
 @media (max-width: 768px) {
   #cards-animals .card {
-    width: 90%;
-    margin: 10px auto;
+    width: 100%;
+    margin: 2px auto;
+    margin-bottom: 30px;
   }
 
   .card .btn {
@@ -227,15 +228,17 @@
   }
 
   .card-img-top {
-    height: auto;
-    max-height: 400px; 
+  height: 450px;
+  object-fit: cover;
+  object-position: top center;
   }
 }
 
 @media (max-width: 480px) {
   #cards-animals .card {
-    width: 90%;
-    margin: 10px auto;
+    width: 100%;
+    margin: 2px auto;
+    margin-bottom: 30px;
   }
 
   .card .btn {
@@ -244,7 +247,8 @@
   }
 
   .card-img-top {
-    height: auto;
-    max-height: 400px; 
+  height: 450px;
+  object-fit: cover;
+  object-position: top center;
   }
 }

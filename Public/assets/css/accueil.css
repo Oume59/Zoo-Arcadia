@@ -1,10 +1,16 @@
 /* ACCUEIL PRESENTATION */
 .imgaccueil {
   object-fit: cover;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   margin: 0;
   position: relative;
+}
+
+@supports not (height: 100dvh) {
+  .imgaccueil {
+    height: 100vh;
+  }
 }
 
 .title h1 {

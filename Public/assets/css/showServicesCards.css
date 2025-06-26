@@ -100,3 +100,16 @@ h3 {
   background-color: var(--forest-green);
   color: var(--olive-green);
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h3.animate-description {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  h3.animate-description {
+    margin-top: 40px;
+  }
+}

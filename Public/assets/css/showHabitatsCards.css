@@ -178,5 +178,11 @@ h3 {
 
   .report-container p {
     font-size: 14px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
+
