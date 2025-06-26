@@ -18,7 +18,7 @@ $css = "editReviewsDashboard";
         <?php foreach ($pendingReviews as $review): ?>
             <tr>
                 <td><?= htmlspecialchars($review['pseudo']); ?></td>
-                <td><?= htmlspecialchars($review['avis']); ?></td>
+                <td><?= htmlspecialchars_decode($review['avis']); ?></td>
                 <td><?= str_repeat('⭐', $review['note']); ?></td>
                 <td><?= htmlspecialchars($review['date'] ?? 'Non spécifié'); ?></td>
                 <td>

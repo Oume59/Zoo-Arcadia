@@ -129,11 +129,21 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  #form-ui {
-    margin-top: 15vh;
-    max-width: 90%;
-    margin-bottom: 30px;
+  #login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    margin-top: 60px;
   }
+
+  #form-ui {
+    margin: 0 auto;
+    padding: 15px;
+  }
+
 
   #welcome-line-1 {
     font-size: 1.5rem;
@@ -164,10 +174,21 @@
 }
 
 @media (max-width: 480px) {
+    #login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    margin-top: 60px;
+  }
+
   #form-ui {
-    margin-top: 20vh;
+    margin: 0 auto;
     padding: 15px;
   }
+
 
   #welcome-line-1 {
     font-size: 1.3rem;

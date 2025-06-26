@@ -200,6 +200,15 @@
     height: 160px;
     padding: 10px;
   }
+
+  .rounded-circle p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rounded-circle p::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+}
 }
 
 @media (max-width: 480px) {
@@ -213,6 +222,15 @@
     font-size: 14px;
     padding: 10px;
   }
+
+  .rounded-circle p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rounded-circle p::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+}
 }
 
 @media (max-width: 768px) {

@@ -324,6 +324,16 @@
     line-height: 1.5;
     text-align: center;
   }
+
+.rounded-circle p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rounded-circle p::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+}
+
   .title h2,
   .title h3 {
     padding: 20px 40px;
@@ -353,6 +363,15 @@
     line-height: 1.5;
     text-align: center;
   }
+
+  .rounded-circle p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rounded-circle p::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+}
 }
 
 /* REVIEWS - RESPONSIVE */

@@ -19,7 +19,7 @@ $css = "listDashboard";
         <?php foreach ($validatedReviews as $review): ?>
             <tr>
                 <td><?= htmlspecialchars($review['pseudo']) ?></td>
-                <td><?= htmlspecialchars($review['avis']) ?></td>
+                <td><?= htmlspecialchars_decode(htmlspecialchars($review['avis'])) ?></td>
                 <td><?= str_repeat('⭐', $review['note']) ?></td>
                 <td><?= htmlspecialchars($review['date'] ?? 'Non spécifié') ?></td>
                 <td>
