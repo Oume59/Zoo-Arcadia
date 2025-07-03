@@ -47,8 +47,5 @@ $css = "showAnimalReports";
 
 <!-- BUTTON RETURN -->
 <div class="centered">
-    <button class="btn-back" onclick="closePage()">QUITTER</button>
+    <button class="btn-back" onclick="window.history.back()">QUITTER</button>
 </div>
-
-<!-- SCRIPT -->
-<script src="/assets/js/button.js"></script>
