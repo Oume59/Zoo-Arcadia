@@ -55,7 +55,7 @@ class Model extends ConnexionDb
             }
         }
 
-        // Concatène les champs et valeurs pour la requête INSERT
+        // Transforme les tableaux $champs et $inter en STRING séparées par des , pour construire la req SQL
         // Exemple : INSERT INTO table (username, email, password) VALUES (?, ?, ?)
         $liste_champs = implode(', ', $champs);
         $liste_inter = implode(', ', $inter);
