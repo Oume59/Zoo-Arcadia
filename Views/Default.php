@@ -124,7 +124,7 @@
                     <p>Email : joseoumearcadia@gmail.com</p>
                     <p>SIRET : 123 000 000 00000</p>
                     <p>Forme juridique : Société à responsabilité limitée (SARL)</p>
-                    <p>Hébergeur : OVH, 2 Rue Kellermann, 59100 Roubaix, France</p>
+                    <p>Hébergeur : HEROKU, SANS FRANCISCO, Californie, USA</p>
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
                     <p>Finalité : Les données sont utilisées uniquement pour la gestion des avis, des services demandés, et les statistiques de consultation des animaux.</p>
                     <p>Droits : Conformément au RGPD, vous avez le droit d'accéder, de modifier ou de supprimer vos données personnelles à tout moment.</p>
                     <p>Contact RGPD : Pour toute question liée à vos données personnelles, veuillez nous contacter via le formulaire de contact.</p>
-                    <p>Hébergeur : OVH, 2 Rue Kellermann, 59100 Roubaix, France.</p>
+                    <p>Hébergeur : HEROKU, SANS FRANCISCO, Californie, USA.</p>
                 </div>
             </div>
         </div>
